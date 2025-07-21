@@ -17,7 +17,7 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#f37a35] h-[100vh] p-15 flex flex-col justify-between relative overflow-hidden lg:p-16">
+    <footer className="bg-[#f37a35] h-[100vh] p-10 flex flex-col justify-between relative overflow-hidden lg:p-16">
       {/* Mobile Layout */}
       <div className="lg:hidden flex flex-col justify-between h-full">
         <h1 className="text-white font-extrabold uppercase text-4xl tracking-widest font-sans">
