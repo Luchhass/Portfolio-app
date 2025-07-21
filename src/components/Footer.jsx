@@ -20,7 +20,7 @@ export default function Footer() {
     <footer className="bg-[#f37a35] h-[100vh] p-10 flex flex-col justify-between relative overflow-hidden lg:p-16">
       {/* Mobile Layout */}
       <div className="lg:hidden flex flex-col justify-between h-full">
-        <h1 className="text-white font-extrabold uppercase text-4xl tracking-widest font-sans">
+        <h1 className="text-white font-extrabold uppercase text-4xl md:text-5xl tracking-wider font-sans leading-tight mb-8">
           designing with purpose and passion.
         </h1>
 
@@ -40,7 +40,7 @@ export default function Footer() {
         </ul>
 
         <nav aria-label="Footer navigation">
-          <ul className="flex flex-col gap-1 text-white font-extrabold uppercase text-2xl tracking-widest font-sans">
+          <ul className="flex flex-col gap-1 text-white font-extrabold uppercase text-2xl md:3xl tracking-widest font-sans">
             {navLinks.map(({ href, label }) => (
               <li key={label}>
                 <Link href={href}>{label}</Link>
