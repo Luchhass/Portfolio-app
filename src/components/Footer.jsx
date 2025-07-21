@@ -17,10 +17,10 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#f37a35] h-[calc(100vh-88px)] md:h-[calc(100vh-88px)] flex flex-col justify-between relative overflow-hidden px-8 py-6 md:px-10 md:py-8 lg:p-16">
+    <footer className="bg-[#f37a35] h-[calc(100vh-88px)] md:h-[calc(100vh-88px)] lg:h-[calc(100vh-104px)] flex flex-col justify-between relative overflow-hidden px-8 py-6 md:px-10 md:py-8">
       {/* Mobile Layout */}
       <div className="lg:hidden flex flex-col justify-between h-full">
-        <h1 className="text-white font-extrabold uppercase text-4xl md:text-5xl tracking-wider font-sans leading-tight mb-8">
+        <h1 className="text-white max-w-[350px] md:max-w-[450px] font-extrabold uppercase text-4xl md:text-5xl tracking-wider font-sans leading-tight mb-8">
           designing with purpose and passion.
         </h1>
 
@@ -80,7 +80,7 @@ export default function Footer() {
 
         <div className="flex justify-between items-center flex-1">
           <div className="flex-1">
-            <h1 className="text-white font-extrabold uppercase text-6xl xl:text-7xl 2xl:text-7xl tracking-wider font-sans leading-tight max-w-2xl">
+            <h1 className="text-white lg:max-w-[680px] font-extrabold uppercase text-6xl xl:text-7xl 2xl:text-7xl tracking-wider font-sans leading-tight max-w-2xl">
               designing with purpose and passion.
             </h1>
           </div>
