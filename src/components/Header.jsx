@@ -50,7 +50,7 @@ export default function Header() {
       </header>
 
       <div
-        className={`h-[100vh] flex flex-col justify-between fixed inset-0 bg-white z-50 px-8 py-6 md:px-10 md:py-8 ${
+        className={`h-full flex flex-col justify-between fixed inset-0 bg-white z-50 px-8 py-6 md:px-10 md:py-8 ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
