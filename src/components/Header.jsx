@@ -39,16 +39,19 @@ const socialLinks = [
 
           <button
             onClick={toggleMenu}
-            className="p-2 hover:bg-gray-100 transition-colors rounded"
+            className="p-2 transition-all duration-300 hover:scale-110 hover:rotate-90 group"
             aria-label="Menu"
           >
-            <CiMenuBurger size={24} className="text-black dark:text-white" />
+            <CiMenuBurger 
+              size={24} 
+              className="text-black dark:text-white transition-all duration-300 group-hover:scale-110" 
+            />
           </button>
         </div>
       </header>
 
       <div
-        className={`h-full flex flex-col justify-between fixed inset-0 bg-white z-50 px-8 py-6 md:px-10 md:py-8 ${
+        className={`h-full flex flex-col justify-between fixed inset-0 bg-white z-50 px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -59,10 +62,13 @@ const socialLinks = [
 
           <button
             onClick={toggleMenu}
-            className="p-2 hover:bg-gray-100 transition-colors rounded"
+            className="p-2 transition-all duration-300 hover:scale-110 hover:rotate-180 group"
             aria-label="Close menu"
           >
-            <IoCloseOutline size={24} className="text-black" />
+            <IoCloseOutline 
+              size={24} 
+              className="text-black transition-all duration-300 group-hover:scale-110" 
+            />
           </button>
         </div>
 
