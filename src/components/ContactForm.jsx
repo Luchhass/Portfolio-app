@@ -61,7 +61,7 @@ export default function ContactForm() {
       setIsLoading(false);
       setTimeout(() => {
         setResponseMessage({ type: "", text: "" });
-      }, 500000);
+      }, 5000);
     }
   };
 
