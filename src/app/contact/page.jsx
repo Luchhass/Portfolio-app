@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function ContactPage() {
   return (
     <main className="flex flex-col gap-18 lg:min-h-[calc(100vh-104px)] lg:flex-row lg:items-center lg:justify-center mt-[88px] md:mt-[104px] px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
-      <div className="flex justify-center relative py-10 w-[438px] m-auto md:w-[600px] lg:w-[800px] lg:max-w-[535px] lg:m-0">
+      <div className="flex justify-center relative py-10 m-auto lg:m-0">
         <div className="ml-32 z-0">
           <Image
             src="/images/contact-page-hero.jpg"
