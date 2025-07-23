@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
-import { FaInstagram, FaYoutube, FaLinkedin, FaFacebook } from "react-icons/fa";
+import { FaInstagram, FaYoutube, FaLinkedin, FaFacebook, FaGithub, FaTwitter  } from "react-icons/fa";
 import Link from "next/link";
 
 export default function Header() {
@@ -13,16 +13,14 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const socialLinks = [
-    { href: "https://www.facebook.com", label: "Facebook", icon: FaFacebook },
-    {
-      href: "https://www.instagram.com",
-      label: "Instagram",
-      icon: FaInstagram,
-    },
-    { href: "https://www.youtube.com", label: "YouTube", icon: FaYoutube },
-    { href: "https://www.linkedin.com", label: "LinkedIn", icon: FaLinkedin },
-  ];
+const socialLinks = [
+  { href: "https://www.instagram.com/luchhass/", label: "Instagram", icon: FaInstagram },
+  // { href: "https://www.facebook.com", label: "Facebook", icon: FaFacebook },
+  { href: "https://www.linkedin.com/in/furkancosar", label: "LinkedIn", icon: FaLinkedin },
+  // { href: "https://www.youtube.com", label: "YouTube", icon: FaYoutube },
+  { href: "https://github.com/Luchhass", label: "GitHub", icon: FaGithub },
+  { href: "https://x.com/YatoKagura000", label: "Twitter", icon: FaTwitter },
+];
 
   const navLinks = [
     { href: "/", label: "HOME" },
@@ -33,9 +31,9 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 bg-white z-40 px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 border-b border-gray-200">
+      <header className="fixed top-0 left-0 right-0 bg-white dark:bg-black z-40 px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 border-b-2 border-gray-200 dark:border-zinc-900">
         <div className="flex items-center justify-between">
-          <div className="text-black text-xl md:text-2xl lg:text-3xl font-bold">
+          <div className="text-black dark:text-white text-xl md:text-2xl lg:text-3xl font-bold">
             Furkan Cosar
           </div>
 
@@ -44,7 +42,7 @@ export default function Header() {
             className="p-2 hover:bg-gray-100 transition-colors rounded"
             aria-label="Menu"
           >
-            <CiMenuBurger size={24} className="text-black" />
+            <CiMenuBurger size={24} className="text-black dark:text-white" />
           </button>
         </div>
       </header>

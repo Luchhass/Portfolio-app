@@ -1,11 +1,13 @@
 import Link from "next/link";
-import { FaInstagram, FaYoutube, FaLinkedin, FaFacebook } from "react-icons/fa";
+import { FaInstagram, FaYoutube, FaLinkedin, FaFacebook, FaGithub, FaTwitter  } from "react-icons/fa";
 
 const socialLinks = [
-  { href: "https://www.facebook.com", label: "Facebook", icon: FaFacebook },
-  { href: "https://www.instagram.com", label: "Instagram", icon: FaInstagram },
-  { href: "https://www.youtube.com", label: "YouTube", icon: FaYoutube },
-  { href: "https://www.linkedin.com", label: "LinkedIn", icon: FaLinkedin },
+  { href: "https://www.instagram.com/luchhass/", label: "Instagram", icon: FaInstagram },
+  // { href: "https://www.facebook.com", label: "Facebook", icon: FaFacebook },
+  { href: "https://www.linkedin.com/in/furkancosar", label: "LinkedIn", icon: FaLinkedin },
+  // { href: "https://www.youtube.com", label: "YouTube", icon: FaYoutube },
+  { href: "https://github.com/Luchhass", label: "GitHub", icon: FaGithub },
+  { href: "https://x.com/YatoKagura000", label: "Twitter", icon: FaTwitter },
 ];
 
 const navLinks = [
