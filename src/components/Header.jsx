@@ -76,7 +76,7 @@ const socialLinks = [
           <ul className="flex flex-col gap-1 text-black font-extrabold uppercase text-5xl md:text-7xl lg:text-8xl">
             {navLinks.map(({ href, label }) => (
               <li key={label}>
-                <Link href={href}>{label}</Link>
+                <Link href={href} onClick={toggleMenu}>{label}</Link>
               </li>
             ))}
           </ul>
