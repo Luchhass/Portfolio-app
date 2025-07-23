@@ -84,7 +84,7 @@ const socialLinks = [
 
         <div className="flex flex-col gap-2 md:flex-row justify-between mt-8">
           <div>
-            <div className="flex gap-2 md:flex-col text-sm md:text-base space-y-1">
+            <div className="text-black flex gap-2 md:flex-col text-sm md:text-base space-y-1">
               <a href="mailto:furkancosar2005@gmail.com">
                 furkancosar2005@gmail.com
               </a>

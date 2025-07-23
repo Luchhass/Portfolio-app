@@ -18,13 +18,11 @@ export default function ContactPage() {
           />
         </div>
 
-        <div className="absolute bottom-0 left-5 z-1 md:left-10 lg:left-0">
-          <h1 className="text-white font-black text-7xl md:text-8xl lg:text-9xl leading-[0.85] tracking-[-0.07em]">
+        <div className="absolute bottom-0 left-0 z-1">
+          <h1 className="text-black dark:text-white font-black text-7xl md:text-8xl lg:text-9xl leading-[0.85] tracking-[-0.07em]">
             get in
             <br />
-            <span className="block ml-16 md:ml-20 lg:ml-24">
-              touch
-            </span>
+            <span className="block ml-16 md:ml-20 lg:ml-24">touch</span>
           </h1>
         </div>
       </div>
@@ -32,13 +30,13 @@ export default function ContactPage() {
       <div className="flex flex-col gap-18 mb-6">
         <div className="flex max-w-[400px] flex-col gap-6">
           <h2 className="text-sm md:text-base">
-            Unleash the full power of your online presence through our
-            all-encompassing digital services.
+            I bring your ideas to life with clean, efficient, and modern
+            frontend solutions.
           </h2>
 
           <p className="text-sm md:text-base">
-            Our team of experts is dedicated to propelling your business forward
-            with tailor-made strategies.
+            Let’s build fast, responsive, and user-friendly websites tailored
+            just for you.
           </p>
 
           <p className="text-sm md:text-base font-bold">Let’s get to work!</p>
