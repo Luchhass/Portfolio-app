@@ -33,7 +33,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 bg-white z-40 px-8 py-6 md:px-10 md:py-8">
+      <header className="fixed top-0 left-0 right-0 bg-white z-40 px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 border-b border-gray-200">
         <div className="flex items-center justify-between">
           <div className="text-black text-xl md:text-2xl lg:text-3xl font-bold">
             Furkan Cosar
