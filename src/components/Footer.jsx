@@ -10,19 +10,19 @@ const socialLinks = [
   { href: "https://x.com/YatoKagura000", label: "Twitter", icon: FaTwitter },
 ];
 
-const navLinks = [
-  { href: "/", label: "HOME" },
-  { href: "/projects", label: "PROJECTS" },
-  { href: "/referances", label: "REFERANCES" },
-  { href: "/contact", label: "CONTACT" },
-];
+  const navLinks = [
+    { href: "/", label: "HOME" },
+    { href: "/about", label: "ABOUT" },
+    { href: "/projects", label: "PROJECTS" },
+    { href: "/referances", label: "REFERANCES" },
+    { href: "/contact", label: "CONTACT" },
+  ];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#f37a35] h-[calc(100vh-88px)] md:h-[calc(100vh-88px)] lg:h-[calc(100vh-104px)] flex flex-col justify-between relative overflow-hidden px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
-      {/* Mobile Layout */}
+    <footer className="bg-[#f37a35] h-[calc(100vh-88px)] md:h-[calc(100vh-104px)] flex flex-col justify-between relative overflow-hidden px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
       <div className="lg:hidden flex flex-col justify-between h-full">
-        <h1 className="text-white max-w-[350px] md:max-w-[450px] font-extrabold uppercase text-4xl md:text-5xl tracking-wider font-sans leading-tight mb-8">
+        <h1 className="text-white max-w-[350px] md:max-w-[450px] font-extrabold uppercase text-4xl md:text-5xl font-sans mb-8 leading-[1] md:leading-[0.9] tracking-[-0.05em]">
           designing with purpose and passion.
         </h1>
 
@@ -42,7 +42,7 @@ export default function Footer() {
         </ul>
 
         <nav aria-label="Footer navigation">
-          <ul className="flex flex-col gap-1 text-white font-extrabold uppercase text-2xl md:3xl tracking-widest font-sans">
+          <ul className="flex flex-col gap-1 text-white font-extrabold uppercase text-2xl md:3xl font-sans leading-[1.2] md:leading-[1.4] tracking-[-0.05em]">
             {navLinks.map(({ href, label }) => (
               <li key={label}>
                 <Link href={href}>{label}</Link>
@@ -59,7 +59,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Desktop Layout */}
       <div className="hidden lg:flex flex-col h-full">
         <div className="flex justify-between items-center mb-auto">
           <div className="text-white font-bold text-2xl">Furkan Cosar</div>
@@ -82,13 +81,13 @@ export default function Footer() {
 
         <div className="flex justify-between items-center flex-1">
           <div className="flex-1">
-            <h1 className="text-white lg:max-w-[680px] font-extrabold uppercase text-6xl xl:text-7xl 2xl:text-7xl tracking-wider font-sans leading-tight max-w-2xl">
+            <h1 className="text-white lg:max-w-[680px] font-extrabold uppercase text-7xl font-sans max-w-2xl lg:leading-[0.9] tracking-[-0.05em]">
               designing with purpose and passion.
             </h1>
           </div>
 
           <nav aria-label="Footer navigation" className="text-right">
-            <ul className="flex flex-col gap-2 text-white font-extrabold uppercase text-3xl xl:text-4xl tracking-wider font-sans">
+            <ul className="flex flex-col gap-2 text-white font-extrabold uppercase text-4xl lg:leading-[0.9] tracking-[-0.05em] font-sans">
               {navLinks.map(({ href, label }) => (
                 <li key={label}>
                   <Link href={href}>{label}</Link>

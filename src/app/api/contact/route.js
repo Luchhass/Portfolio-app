@@ -6,16 +6,14 @@ export async function POST(request) {
     const { firstName, lastName, email, phoneNumber, message } =
       await request.json();
 
-    // Nodemailer yapılandırması
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER, // .env.local dosyasında tanımla
-        pass: process.env.EMAIL_PASS, // Gmail app password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
-    // Professional email template - Clean & Formal
     const emailTemplate = `
       <!DOCTYPE html>
       <html lang="en">
@@ -144,14 +142,12 @@ export async function POST(request) {
       </html>
     `;
 
-    // Mail içeriği
     const mailOptions = {
       from: `"${firstName} ${lastName}" <${email}>`,
-      to: process.env.EMAIL_USER, // Mesajların geleceği email
-      replyTo: email, // Yanıtlamalarda bu email kullanılacak
+      to: process.env.EMAIL_USER,
+      replyTo: email,
       subject: `New Contact Message - ${firstName} ${lastName}`,
       html: emailTemplate,
-      // Text version for email clients that don't support HTML
       text: `
 New Contact Form Message
 
@@ -168,7 +164,6 @@ Received: ${new Date().toLocaleString("en-US")}
       `.trim(),
     };
 
-    // Mail gönder
     await transporter.sendMail(mailOptions);
 
     return NextResponse.json(

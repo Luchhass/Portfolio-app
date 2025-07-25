@@ -24,6 +24,7 @@ const socialLinks = [
 
   const navLinks = [
     { href: "/", label: "HOME" },
+    { href: "/about", label: "ABOUT" },
     { href: "/projects", label: "PROJECTS" },
     { href: "/referances", label: "REFERANCES" },
     { href: "/contact", label: "CONTACT" },
@@ -73,7 +74,7 @@ const socialLinks = [
         </div>
 
         <nav aria-label="navigation">
-          <ul className="flex flex-col gap-1 text-black font-extrabold uppercase text-5xl md:text-7xl lg:text-8xl">
+          <ul className="flex flex-col gap-1 text-black font-extrabold uppercase text-5xl md:text-7xl lg:text-8xl leading-[1] md:leading-[0.9] lg:leading-[0.8] tracking-[-0.09em]">
             {navLinks.map(({ href, label }) => (
               <li key={label}>
                 <Link href={href} onClick={toggleMenu}>{label}</Link>
