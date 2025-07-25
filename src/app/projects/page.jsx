@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import deployments from "@/data/deployments.js";
+import Link from "next/link";
 
 export default function DeploymentsPage() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -101,29 +102,24 @@ export default function DeploymentsPage() {
       <div>
         {viewMode === "grid" ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-14">
-            {filteredDeployments.map((deployment, index) => (
-              <div key={deployment.id} className="">
-                <div className="relative rounded-4xl overflow-hidden bg-black/30 dark:bg-white/30 mb-6">
-<Image 
-  src={deployment.screenshot}                     
-  alt={deployment.name}                     
-  width={1200}                     
-  height={1200}                     
-  className="object-cover w-full aspect-square"
-  quality={90}
-  priority={true} // Eğer sayfa yüklenirken hemen görünmesi gerekiyorsa                 
-/>
-
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0">
-                    <a
-                      href={deployment.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-orange-500 text-white px-6 py-3 rounded-full font-medium"
-                    >
-                      View Live Site
-                    </a>
-                  </div>
+            {filteredDeployments.map((deployment) => (
+              <a
+                key={deployment.id}
+                href={deployment.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <div className="relative rounded-4xl overflow-hidden bg-black/30 dark:bg-white/30 mb-6 transition duration-300 group-hover:scale-[1.01]">
+                  <Image
+                    src={deployment.screenshot}
+                    alt={deployment.name}
+                    width={1200}
+                    height={1200}
+                    className="object-cover w-full aspect-square"
+                    quality={90}
+                    priority
+                  />
                 </div>
 
                 <div className="space-y-2">
@@ -141,14 +137,20 @@ export default function DeploymentsPage() {
                     {deployment.technologies.join(" • ")}
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
             {filteredDeployments.map((deployment, index) => (
-              <div key={deployment.id} className="flex gap-6 md:gap-8">
-                <div className="relative rounded-2xl overflow-hidden bg-black/30 dark:bg-white/30 flex-shrink-0 w-32 sm:w-40 md:w-48 lg:w-56">
+              <a
+                key={deployment.id}
+                href={deployment.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex gap-6 md:gap-8 group"
+              >
+                <div className="relative rounded-2xl overflow-hidden bg-black/30 dark:bg-white/30 flex-shrink-0 w-32 sm:w-40 md:w-48 lg:w-56 transition duration-300 group-hover:scale-[1.02]">
                   <Image
                     src={deployment.screenshot}
                     alt={deployment.name}
@@ -173,7 +175,7 @@ export default function DeploymentsPage() {
                     {deployment.technologies.join(" • ")}
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         )}
