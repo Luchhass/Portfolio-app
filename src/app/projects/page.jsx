@@ -3,13 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import deployments from "@/data/deployments.js";
-import Link from "next/link";
 
 export default function DeploymentsPage() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [viewMode, setViewMode] = useState("grid");
 
-  const categories = ["All", "Web Design", "Branding", "Digital Marketing"];
+  const categories = ["All", "Web Design", "Games", "Interactive UI"];
 
   const filteredDeployments =
     activeFilter === "All"

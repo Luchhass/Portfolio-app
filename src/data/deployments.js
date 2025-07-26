@@ -1,15 +1,82 @@
 const deployments = [
-  // Uzmanlık Eğitimi 11. Hafta
+  {
+    id: "dpl_042",
+    name: "Curevia",
+    date: "2025-07-19T12:00:00Z",
+    liveUrl: "https://curevia.vercel.app/",
+    screenshot: "/images/screenshots/Curevia.png",
+    technologies: [
+      "Html",
+      "Tailwind CSS",
+      "JavaScript",
+      "TypeScript",
+      "Next.js",
+    ],
+    category: "Interactive UI",
+  },
+  {
+    id: "dpl_041",
+    name: "Aigtur",
+    date: "2025-03-21T12:00:00Z",
+    liveUrl: "https://aigtur.vercel.app/",
+    screenshot: "/images/screenshots/Aigtur.png",
+    technologies: ["Html", "Tailwind CSS", "JavaScript", "Next.js"],
+    category: "Interactive UI",
+  },
+  {
+    id: "dpl_040",
+    name: "Admin Dashboard",
+    date: "2024-08-23T12:00:00Z",
+    liveUrl: "https://admin-dashboard-sandy-theta.vercel.app/",
+    screenshot: "/images/screenshots/Admin-Dashboard-Bootstrap.png",
+    technologies: ["Html", "CSS", "JavaScript", "React", "Bootstrap"],
+    category: "Interactive UI",
+  },
+  {
+    id: "dpl_039",
+    name: "Medium Clone",
+    date: "2024-10-02T12:00:00Z",
+    liveUrl: "https://medium-clone-one-inky.vercel.app/",
+    screenshot: "/images/screenshots/Medium-Clone.png",
+    technologies: ["Html", "CSS", "JavaScript", "React", "Next.js"],
+    category: "Interactive UI",
+  },
+  {
+    id: "dpl_038",
+    name: "Calculator",
+    date: "2024-06-09T12:00:00Z",
+    liveUrl: "https://calculator-chi-one-75.vercel.app/",
+    screenshot: "/images/screenshots/Calculator.png",
+    technologies: ["Html", "CSS", "JavaScript"],
+    category: "Interactive UI",
+  },
+  {
+    id: "dpl_037",
+    name: "Devjobs",
+    date: "2024-06-09T12:00:00Z",
+    liveUrl: "https://devjobs-beryl.vercel.app/",
+    screenshot: "/images/screenshots/Devjobs.png",
+    technologies: ["Html", "CSS", "JavaScript", "React"],
+    category: "Interactive UI",
+  },
+  {
+    id: "dpl_036",
+    name: "Tinder Clone",
+    date: "2024-10-02T12:00:00Z",
+    liveUrl: "",
+    screenshot: "/images/screenshots/Tinder-Clone.png",
+    technologies: ["Html", "CSS", "JavaScript", "Next.js"],
+    category: "Interactive UI",
+  },
   {
     id: "dpl_035",
     name: "My Portfolio Next",
     date: "2024-10-02T12:00:00Z",
     liveUrl: "https://furkancosar-portfolio.vercel.app/",
     screenshot: "/images/screenshots/My-Portfolio-Next.png",
-    technologies: ["Html", "CSS", "javaScript", "react", "Next.js"],
-    category: "Digital Marketing",
+    technologies: ["Html", "CSS", "JavaScript", "Next.js"],
+    category: "Web Design",
   },
-  // Uzmanlık Eğitimi 08. Hafta
   {
     id: "dpl_034",
     name: "Blog Site",
@@ -17,9 +84,8 @@ const deployments = [
     liveUrl: "https://blog-posts-eight-beige.vercel.app/",
     screenshot: "/images/screenshots/Blog-Site.png",
     technologies: ["Html", "CSS", "React"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
-  // Uzmanlık Eğitimi 05. Hafta
   {
     id: "dpl_033",
     name: "Frontend Quiz App",
@@ -27,9 +93,8 @@ const deployments = [
     liveUrl: "https://frontend-quiz-app-two-self.vercel.app/",
     screenshot: "/images/screenshots/Frontend-Quiz-App.png",
     technologies: ["Html", "CSS", "JavaScript", "React"],
-    category: "Digital Marketing",
+    category: "Interactive UI",
   },
-  // Uzmanlık Eğitimi 04. Hafta
   {
     id: "dpl_032",
     name: "Job Listing",
@@ -37,9 +102,8 @@ const deployments = [
     liveUrl: "https://job-listing-one-dun.vercel.app/",
     screenshot: "/images/screenshots/Job-Listing.png",
     technologies: ["Html", "CSS", "JavaScript", "React"],
-    category: "Digital Marketing",
+    category: "Interactive UI",
   },
-  // Uzmanlık Eğitimi 03. Hafta
   {
     id: "dpl_031",
     name: "To Do List with React",
@@ -47,7 +111,7 @@ const deployments = [
     liveUrl: "https://todo-with-react-lyart-theta.vercel.app/",
     screenshot: "/images/screenshots/To-Do-List-with-React.png",
     technologies: ["Html", "CSS", "JavaScript", "React"],
-    category: "Digital Marketing",
+    category: "Interactive UI",
   },
   {
     id: "dpl_030",
@@ -56,7 +120,7 @@ const deployments = [
     liveUrl: "https://tic-tac-toe-with-react-swart.vercel.app/",
     screenshot: "/images/screenshots/Tic-Tac-Toe.png",
     technologies: ["Html", "CSS", "JavaScript", "React"],
-    category: "Digital Marketing",
+    category: "Games",
   },
   {
     id: "dpl_029",
@@ -65,9 +129,8 @@ const deployments = [
     liveUrl: "https://mortgage-calculator-with-react.vercel.app/",
     screenshot: "/images/screenshots/Mortgage-Calculator.png",
     technologies: ["Html", "CSS", "JavaScript", "React"],
-    category: "Digital Marketing",
+    category: "Interactive UI",
   },
-  // Temel Eğitim Bitirme Projesi
   {
     id: "dpl_028",
     name: "Pricing System",
@@ -75,9 +138,8 @@ const deployments = [
     liveUrl: "https://pricing-system-gamma.vercel.app/",
     screenshot: "/images/screenshots/Pricing-System.png",
     technologies: ["Html", "CSS", "JavaScript"],
-    category: "Digital Marketing",
+    category: "Interactive UI",
   },
-  // Temel Eğitim 16. Hafta
   {
     id: "dpl_027",
     name: "Advice Generator",
@@ -85,9 +147,8 @@ const deployments = [
     liveUrl: "https://advice-generator-two-rho.vercel.app/",
     screenshot: "/images/screenshots/Advice-Generator.png",
     technologies: ["Html", "CSS", "JavaScript"],
-    category: "Digital Marketing",
+    category: "Interactive UI",
   },
-  // Temel Eğitim 13. Hafta
   {
     id: "dpl_026",
     name: "Age Calculator",
@@ -95,9 +156,8 @@ const deployments = [
     liveUrl: "https://age-calculator-tan-three.vercel.app/",
     screenshot: "/images/screenshots/Age-Calculator.png",
     technologies: ["Html", "CSS", "JavaScript"],
-    category: "Digital Marketing",
+    category: "Interactive UI",
   },
-  // Temel Eğitim 12. Hafta
   {
     id: "dpl_025",
     name: "To Do List",
@@ -105,9 +165,8 @@ const deployments = [
     liveUrl: "https://todo-mobile-mu.vercel.app/",
     screenshot: "/images/screenshots/To-Do-List.png",
     technologies: ["Html", "CSS", "JavaScript"],
-    category: "Digital Marketing",
+    category: "Interactive UI",
   },
-  // Temel Eğitim 10. Hafta
   {
     id: "dpl_024",
     name: "Tip Calculator",
@@ -115,7 +174,7 @@ const deployments = [
     liveUrl: "https://tip-calculator-navy-one.vercel.app/",
     screenshot: "/images/screenshots/Tip-Calculator.png",
     technologies: ["Html", "CSS", "JavaScript"],
-    category: "Digital Marketing",
+    category: "Interactive UI",
   },
   {
     id: "dpl_023",
@@ -124,9 +183,8 @@ const deployments = [
     liveUrl: "https://rock-paper-scissors-smoky-one.vercel.app/",
     screenshot: "/images/screenshots/Rock-Paper-Scissors-App.png",
     technologies: ["Html", "CSS", "JavaScript"],
-    category: "Digital Marketing",
+    category: "Games",
   },
-  // Temel Eğitim 07. Hafta
   {
     id: "dpl_022",
     name: "Landing Page",
@@ -134,7 +192,7 @@ const deployments = [
     liveUrl: "https://landing-page-one-swart-87.vercel.app/",
     screenshot: "/images/screenshots/Landing-Page.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
   {
     id: "dpl_021",
@@ -143,7 +201,7 @@ const deployments = [
     liveUrl: "https://help-support-orcin.vercel.app/",
     screenshot: "/images/screenshots/Help-Support.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
   {
     id: "dpl_020",
@@ -152,9 +210,8 @@ const deployments = [
     liveUrl: "https://blog-page-lookscout.vercel.app/",
     screenshot: "/images/screenshots/Blog-Page-Lookscout.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
-  // Temel Eğitim 06. Hafta
   {
     id: "dpl_019",
     name: "Single Page Design",
@@ -162,7 +219,7 @@ const deployments = [
     liveUrl: "https://single-page-design-sigma.vercel.app/",
     screenshot: "/images/screenshots/Single-Page-Design.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
   {
     id: "dpl_018",
@@ -171,7 +228,7 @@ const deployments = [
     liveUrl: "https://my-portfolio-amber-phi-72.vercel.app/",
     screenshot: "/images/screenshots/My-Portfolio.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
   {
     id: "dpl_017",
@@ -180,9 +237,8 @@ const deployments = [
     liveUrl: "https://dine-restaurant-psi.vercel.app/",
     screenshot: "/images/screenshots/Dine.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
-  // Temel Eğitim 04. Hafta
   {
     id: "dpl_016",
     name: "Designo",
@@ -190,7 +246,7 @@ const deployments = [
     liveUrl: "https://designo-ashy.vercel.app/",
     screenshot: "/images/screenshots/Designo.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
   {
     id: "dpl_015",
@@ -199,9 +255,8 @@ const deployments = [
     liveUrl: "https://audiophile-nine-self.vercel.app/",
     screenshot: "/images/screenshots/Audiophile.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
-  // Temel Eğitim 03. Hafta
   {
     id: "dpl_014",
     name: "Ecommerce",
@@ -209,9 +264,8 @@ const deployments = [
     liveUrl: "https://ecommerce-omega-lac.vercel.app/",
     screenshot: "/images/screenshots/Ecommerce.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
-  // Temel Eğitim 02. Hafta
   {
     id: "dpl_013",
     name: "Shop Your Way",
@@ -219,7 +273,7 @@ const deployments = [
     liveUrl: "https://shop-your-way.vercel.app/",
     screenshot: "/images/screenshots/Shop-Your-Way.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
   {
     id: "dpl_012",
@@ -228,7 +282,7 @@ const deployments = [
     liveUrl: "https://order-summary-six-murex.vercel.app/",
     screenshot: "/images/screenshots/Order-Summary.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
   {
     id: "dpl_011",
@@ -237,16 +291,16 @@ const deployments = [
     liveUrl: "https://muze-ashy.vercel.app/",
     screenshot: "/images/screenshots/Muze.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
   {
     id: "dpl_010",
     name: "HTML CSS Foundations",
     date: "2024-03-31T12:00:00Z",
-    liveUrl: "https://html-css-foundations-omega.vercel.app//",
+    liveUrl: "https://html-css-foundations-omega.vercel.app/",
     screenshot: "/images/screenshots/HTML-CSS-Foundations.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
   {
     id: "dpl_009",
@@ -255,7 +309,7 @@ const deployments = [
     liveUrl: "https://furniture-zeta-seven.vercel.app/",
     screenshot: "/images/screenshots/Furniture.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
   {
     id: "dpl_008",
@@ -264,7 +318,7 @@ const deployments = [
     liveUrl: "https://figma-kfc.vercel.app/",
     screenshot: "/images/screenshots/Figma-Kfc.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
   {
     id: "dpl_007",
@@ -273,7 +327,7 @@ const deployments = [
     liveUrl: "https://feeling-lost.vercel.app/",
     screenshot: "/images/screenshots/Feeling-Lost.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
   {
     id: "dpl_006",
@@ -282,7 +336,7 @@ const deployments = [
     liveUrl: "https://faq-accordion-eta-kohl.vercel.app/",
     screenshot: "/images/screenshots/Faq-Accordion.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
   {
     id: "dpl_005",
@@ -291,7 +345,7 @@ const deployments = [
     liveUrl: "https://fabrx-admin-dashboard.vercel.app/",
     screenshot: "/images/screenshots/Fabrx-Admin-Dashboard.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
   {
     id: "dpl_004",
@@ -300,7 +354,7 @@ const deployments = [
     liveUrl: "https://collabration-made-easy.vercel.app/",
     screenshot: "/images/screenshots/Collabration-Made-Easy.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
   {
     id: "dpl_003",
@@ -309,7 +363,7 @@ const deployments = [
     liveUrl: "https://blog-page-pearl.vercel.app/",
     screenshot: "/images/screenshots/Blog-Page.png",
     technologies: ["Html", "CSS"],
-    category: "Digital Marketing",
+    category: "Web Design",
   },
   {
     id: "dpl_002",
@@ -318,7 +372,7 @@ const deployments = [
     liveUrl: "https://biggy-burger.vercel.app/",
     screenshot: "/images/screenshots/Biggy-Burger.png",
     technologies: ["Html", "CSS"],
-    category: "Branding",
+    category: "Web Design",
   },
   {
     id: "dpl_001",
