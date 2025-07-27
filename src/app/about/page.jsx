@@ -128,7 +128,7 @@ export default function AboutPage() {
           </div>
 
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute -top-20 left-10 md:-top-30 md:left-4 lg:-top-35 lg:-left-10 w-34 h-42 md:w-44 md:h-52 lg:w-54 lg:h-52 rounded-2xl overflow-hidden shadow-xl transform -rotate-12">
+            <div className="absolute -top-20 left-0 md:-top-30 md:left-4 lg:-top-35 lg:-left-10 w-34 h-42 md:w-44 md:h-52 lg:w-54 lg:h-52 rounded-2xl overflow-hidden shadow-xl transform -rotate-12">
               <Image
                 src="/images/screenshots/Tic-Tac-Toe.png"
                 alt="Yoga woman"
@@ -158,7 +158,7 @@ export default function AboutPage() {
               />
             </div>
 
-            <div className="absolute top-42 left-22 md:top-52 lg:top-66 lg:left-0 w-36 h-26 md:w-46 md:h-36 lg:w-56 lg:h-46 rounded-2xl overflow-hidden shadow-xl transform rotate-8">
+            <div className="absolute top-42 left-2 md:top-52 lg:top-66 lg:left-0 w-36 h-26 md:w-46 md:h-36 lg:w-56 lg:h-46 rounded-2xl overflow-hidden shadow-xl transform rotate-8">
               <Image
                 src="/images/screenshots/Shop-Your-Way.png"
                 alt="Orange abstract"
