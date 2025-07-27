@@ -14,7 +14,6 @@ const socialLinks = [
     { href: "/", label: "HOME" },
     { href: "/about", label: "ABOUT" },
     { href: "/projects", label: "PROJECTS" },
-    { href: "/referances", label: "REFERANCES" },
     { href: "/contact", label: "CONTACT" },
   ];
 
