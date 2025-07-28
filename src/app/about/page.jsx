@@ -17,17 +17,17 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="mt-[88px] md:mt-[104px] px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 pt-0">
+    <main>
       {/* HERO SECTION */}
-      <section className="h-[calc(100vh-88px)] md:h-[calc(100vh-104px)] flex items-center justify-center">
+      <section className="h-[calc(100dvh-88px)] md:h-[calc(100dvh-104px)] flex items-center justify-center">
         <div className="relative">
           <div className="text-center relative z-10">
-            <h1 className="text-black dark:text-white font-black text-7xl md:text-8xl lg:text-9xl leading-[0.85] tracking-[-0.07em]">
+            <h1 className="text-black dark:text-white font-extrabold text-7xl md:text-8xl lg:text-9xl leading-[0.85] tracking-[-0.08em]">
               <span className="ml-26 md:ml-30 lg:ml-34">what</span>
               <br />i build
             </h1>
 
-            <p className="text-black/90 dark:text-white/90 text-xl md:text-2xl font-light max-w-lg mx-auto mt-6 mb-8">
+            <p className="text-black dark:text-white text-xl md:text-2xl font-light max-w-lg mx-auto mt-6 mb-8">
               I design and build digital products that convert.
             </p>
 
@@ -36,13 +36,16 @@ export default function AboutPage() {
                 href="/pdf/cv.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-4 border-2 text-sm md:text-base border-[#f37a35] bg-[#f37a35] text-white font-semibold rounded-4xl transition-all duration-300 hover:bg-transparent hover:text-[#f37a35] hover:shadow-red-500/30 hover:scale-105"
+                className="bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md"
               >
                 Check My CV
               </Link>
+
               <Link
                 href="/projects"
-                className="px-6 py-4 border-2 text-sm md:text-base border-[#f37a35] bg-[#f37a35] text-white font-semibold rounded-4xl transition-all duration-300 hover:bg-transparent hover:text-[#f37a35] hover:shadow-red-500/30 hover:scale-105"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md"
               >
                 See My Work
               </Link>
@@ -93,25 +96,28 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="flex flex-col gap-24 mb-24">
-        {/* ABOUT SECTION */}
+      <div className="flex flex-col gap-32 mb-24">
+        {/* BEHIND SECTION */}
         <section className="flex flex-col gap-6 md:gap-8 lg:gap-10">
-          <h1 className="text-black dark:text-white text-right text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.8] tracking-[-0.09em]">
+          <h1 className="text-black dark:text-white text-right text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.8] tracking-[-0.08em]">
             <span className="mr-22 text-[#f37a35]">the creator</span>
             <br />
             behind code
           </h1>
 
-          <p className="text-black/90 dark:text-white/90 text-lg md:text-xl lg:text-2xl">
-            I’m a Frontend Developer and a final-year Web Design student at
-            Istanbul University. Throughout my journey, I’ve had the opportunity
-            to intern at several companies, gaining hands-on experience in
-            building modern and responsive web interfaces. To further enhance my
-            skills, I also completed a Software Specialization course at
-            Nişantaşı University, where I deepened my knowledge of development
-            practices and technologies. Today, I combine creativity with
-            technical expertise to craft seamless digital experiences.
-          </p>
+          <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
+            I’m a <span className="font-bold">Frontend Developer</span> and a
+            final-year Web Design student at Istanbul University. Throughout my
+            journey, I’ve had the opportunity to intern at several companies,
+            gaining hands-on experience in building modern and responsive web
+            interfaces. To further enhance my skills, I also completed a
+            Software Specialization course at Nişantaşı University, where I
+            deepened my knowledge of development practices and technologies.
+            <span className="font-bold">
+              Today, I combine creativity with technical expertise to craft
+              seamless digital experiences.
+            </span>
+          </h2>
         </section>
 
         {/* GITHUB SECTION */}
@@ -119,19 +125,21 @@ export default function AboutPage() {
           <GithubStats username="Luchhass" />
         </section>
 
-        {/* TECH SECTION */}
+        {/* TECHNOLOGIES SECTION */}
         <section className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-20">
           <div className="flex-1 flex flex-col gap-6 md:gap-8 lg:gap-10">
-            <h1 className="text-black dark:text-white text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.8] tracking-[-0.09em]">
+            <h1 className="text-black dark:text-white text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.8] tracking-[-0.08em]">
               technologies
               <br />i use
             </h1>
 
-            <p className="text-black/90 dark:text-white/90 text-lg md:text-xl lg:text-2xl">
-              The right tools for building exceptional digital experiences. From
-              powerful frameworks to modern design systems, these are the
-              technologies that make innovation possible.
-            </p>
+            <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
+              The right tools for building exceptional digital experiences.{" "}
+              <span className="font-bold">
+                From powerful frameworks to modern design systems, these are the
+                technologies that make innovation possible.
+              </span>
+            </h2>
           </div>
 
           <div className="flex-1 flex flex-col mt-6 md:mt-8">
@@ -147,7 +155,7 @@ export default function AboutPage() {
                     !activeGroups[index] ? "border-b-3 border-[#f37a35]" : ""
                   }`}
                 >
-                  <span className="text-black dark:text-white text-xl md:text-2xl py-2 font-black uppercase leading-[0.8] tracking-[-0.09em]">
+                  <span className="text-black dark:text-white text-xl md:text-2xl py-2 font-extrabold uppercase leading-[1.1] tracking-[-0.08em]">
                     {group.title}
                   </span>
                 </div>
@@ -158,7 +166,7 @@ export default function AboutPage() {
                       {group.technologies.map((tech, techIndex) => (
                         <div
                           key={techIndex}
-                          className="flex items-center gap-2 border border-black/30 dark:border-white/30 rounded-lg px-3 py-2 hover:scale-105 transition-transform"
+                          className="flex items-center gap-2 border border-black/50 dark:border-white/50 rounded-lg px-3 py-2 hover:scale-105 transition-transform"
                         >
                           <tech.icon
                             className="text-lg"

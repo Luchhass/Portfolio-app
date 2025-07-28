@@ -3,7 +3,7 @@ import { socialLinks, navLinks, contactInfo } from "@/data/navigation";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#f37a35] h-[calc(100vh-88px)] md:h-[calc(100vh-104px)] flex flex-col justify-between relative overflow-hidden px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
+    <footer className="bg-[#f37a35] h-[calc(100dvh-88px)] md:h-[calc(100dvh-104px)] flex flex-col justify-between relative overflow-hidden px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
       {/* Mobile layout */}
       <div className="lg:hidden flex flex-col justify-between h-full">
         <h1 className="text-white max-w-[350px] md:max-w-[450px] font-extrabold uppercase text-4xl md:text-5xl font-sans mb-8 leading-[1] md:leading-[0.9] tracking-[-0.05em]">

@@ -152,10 +152,8 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isLoading}
-          className={`px-6 py-4 text-sm md:text-base font-semibold text-[#f37a35] border-2 border-[#f37a35] bg-transparent rounded-4xl transition-all duration-300 ${
-            isLoading
-              ? "opacity-50 cursor-not-allowed"
-              : "hover:bg-[#f37a35] hover:text-white hover:shadow-lg hover:shadow-red-500/30 hover:scale-105"
+          className={`bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md ${
+            isLoading ? "" : ""
           }`}
         >
           {isLoading ? "Submitting..." : "Submit"}

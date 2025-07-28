@@ -3,9 +3,9 @@ import Image from "next/image";
 
 export default function ContactPage() {
   return (
-    <main className="mt-[88px] md:mt-[104px] px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 flex flex-col gap-18 lg:flex-row lg:items-center lg:justify-center lg:min-h-[calc(100vh-104px)]">
+    <main className="flex flex-col gap-18 lg:flex-row lg:items-center lg:justify-center lg:min-h-[calc(100dvh-104px)] py-6 md:py-8 lg:py-8">
       {/* HERO SECTION */}
-      <section className="relative flex justify-center py-10 m-auto lg:m-0">
+      <section className="flex-1 relative flex justify-center py-10 m-auto lg:m-0">
         <div className="ml-32 z-0">
           <Image
             src="/images/contact-page-hero.jpg"
@@ -25,20 +25,18 @@ export default function ContactPage() {
       </section>
 
       {/* FORM SECTION */}
-      <section className="flex flex-col gap-8 mb-6 max-w-[400px]">
-        <div>
-          <p className="text-sm md:text-base">
-            I bring your ideas to life with clean, efficient, and modern
-            frontend solutions.
-          </p>
+      <section className="flex-1 flex gap-6 flex-col">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
+          I bring your ideas to life with clean, efficient, and modern frontend
+          solutions. <br />
+          <br />
+          Let’s build fast, responsive, and user-friendly websites tailored just
+          for you.
+        </h2>
 
-          <p className="text-sm md:text-base">
-            Let’s build fast, responsive, and user-friendly websites tailored
-            just for you.
-          </p>
-        </div>
-
-        <p className="text-sm md:text-base font-bold">Let’s get to work!</p>
+        <p className="text-sm md:text-base font-extrabold">
+          Let’s get to work!
+        </p>
 
         <ContactForm />
       </section>

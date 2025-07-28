@@ -57,7 +57,7 @@ const StatItem = ({
   return (
     <div onMouseEnter={onHover} onMouseLeave={onLeave}>
       <div
-        className={`py-4 text-xl md:text-2xl font-black uppercase leading-[0.8] tracking-[-0.09em] text-black dark:text-white ${
+        className={`py-4 text-xl md:text-2xl font-black uppercase leading-[1.1] tracking-[-0.08em] text-black dark:text-white ${
           isHovered ? "border-b-0" : "border-b-3 border-[#f37a35]"
         }`}
       >
@@ -165,23 +165,27 @@ export default function GithubStats({ username = "octocat" }) {
     <div className="flex flex-col gap-20 lg:flex-row lg:items-start lg:justify-between">
       <div className="flex flex-1 flex-col gap-6 md:gap-8 lg:gap-10">
         <div>
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.8] tracking-[-0.09em] text-black dark:text-white">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.8] tracking-[-0.08em] text-black dark:text-white">
             github
             <br />
             statistics
           </h1>
 
           <div className="mt-4 flex items-center gap-1">
-            <FaUser className="h-4 w-4 text-black/30" />
-            <p className="text-lg text-black/30">@{username}</p>
+            <FaUser className="h-4 w-4 text-black/50 dark:text-white/50" />
+            <p className="text-lg text-black/50 dark:text-white/50">
+              @{username}
+            </p>
           </div>
         </div>
 
-        <p className="text-lg md:text-xl lg:text-2xl text-black/90 dark:text-white/90">
-          Real-time insights into development activity. From repository
-          management to commit history, these metrics showcase the dedication
-          behind building exceptional digital experiences.
-        </p>
+        <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
+          Real-time insights into development activity.{" "}
+          <span className="font-bold">
+            From repository management to commit history, these metrics showcase
+            the dedication behind building exceptional digital experiences.
+          </span>
+        </h2>
       </div>
 
       <section className="mt-6 flex flex-1 flex-col md:mt-8">

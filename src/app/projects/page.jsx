@@ -17,32 +17,32 @@ export default function ProjectsPage() {
       : deployments.filter((d) => d.category === activeFilter);
 
   const formatDate = (dateString) =>
-    new Date(dateString).toLocaleDateString("tr-TR", {
+    new Date(dateString).toLocaleDateString("en-EN", {
       year: "numeric",
       month: "long",
       day: "numeric",
     });
 
   return (
-    <main className="min-h-screen mt-[88px] md:mt-[104px] px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 text-black dark:text-white">
+    <main className="py-6 md:py-8 lg:py-8">
       {/* HERO SECTION */}
       <section>
-        <h1 className="pb-16 md:pb-20 lg:pb-24 text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.8] tracking-[-0.09em]">
+        <h1 className="pb-16 md:pb-20 lg:pb-24 text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.8] tracking-[-0.08em]">
           explore
           <br />
           our creations
         </h1>
 
-        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 md:gap-0 pb-4 md:pb-6 lg:pb-8 items-center">
-          <nav className="text-center md:text-left">
-            <ul className="inline-flex flex-wrap gap-6 md:gap-8 lg:gap-10">
+        <div className="flex justify-between :items-center pb-4 md:pb-6 lg:pb-8 items-center">
+          <nav className="flex-1 text-center md:text-left">
+            <ul className="inline-flex flex-wrap gap-x-4 gap-y-2 md:gap-8 lg:gap-10">
               {categories.map((category) => (
                 <li key={category}>
                   <button
                     onClick={() => setActiveFilter(category)}
                     className={`text-lg md:text-xl font-light transition-colors duration-300 ${
                       activeFilter === category
-                        ? "text-black/40 dark:text-white/40"
+                        ? "text-black/30 dark:text-white/30"
                         : "text-black dark:text-white"
                     }`}
                   >
@@ -53,7 +53,7 @@ export default function ProjectsPage() {
             </ul>
           </nav>
 
-          <div className="flex gap-2">
+          <div className="flex-1 flex gap-2 justify-end">
             {["grid", "list"].map((mode) => (
               <button
                 key={mode}
@@ -110,7 +110,7 @@ export default function ProjectsPage() {
                 rel="noopener noreferrer"
                 className="block group"
               >
-                <div className="relative mb-6 overflow-hidden rounded-4xl bg-black/30 dark:bg-white/30 transition duration-300 group-hover:scale-[1.01]">
+                <div className="relative mb-6 overflow-hidden rounded-4xl bg-black/50 dark:bg-white/50 transition duration-300 group-hover:scale-[1.01]">
                   <Image
                     src={deployment.screenshot}
                     alt={deployment.name}
@@ -127,13 +127,13 @@ export default function ProjectsPage() {
                     {formatDate(deployment.date)}
                   </p>
 
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[0.8] tracking-[-0.07em]">
+                  <h2 className="text-4xl uppercase md:text-5xl lg:text-4xl font-extrabold leading-[1.1] tracking-[-0.08em]">
                     {deployment.name}
                   </h2>
 
-                  <div className="my-3 w-15 h-px bg-black/30 dark:bg-white/30" />
+                  <div className="my-3 w-15 h-px bg-black/50 dark:bg-white/50" />
 
-                  <div className="text-sm text-black/40 dark:text-white/40">
+                  <div className="text-sm text-black/50 dark:text-white/50">
                     {deployment.technologies.join(" • ")}
                   </div>
                 </div>
@@ -150,7 +150,7 @@ export default function ProjectsPage() {
                 rel="noopener noreferrer"
                 className="flex gap-6 md:gap-8 group"
               >
-                <div className="flex-shrink-0 w-32 sm:w-40 md:w-48 lg:w-56 overflow-hidden rounded-2xl bg-black/30 dark:bg-white/30 transition duration-300 group-hover:scale-[1.02] relative">
+                <div className="flex-shrink-0 w-32 sm:w-40 md:w-48 lg:w-56 overflow-hidden rounded-2xl bg-black/50 dark:bg-white/50 transition duration-300 group-hover:scale-[1.02] relative">
                   <Image
                     src={deployment.screenshot}
                     alt={deployment.name}
@@ -165,13 +165,13 @@ export default function ProjectsPage() {
                     {formatDate(deployment.date)}
                   </p>
 
-                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold leading-[0.8] tracking-[-0.07em]">
+                  <h2 className="text-xl uppercase sm:text-2xl md:text-3xl font-extrabold leading-[1.1] tracking-[-0.08em]">
                     {deployment.name}
                   </h2>
 
-                  <div className="w-12 h-px bg-black/30 dark:bg-white/30" />
+                  <div className="w-12 h-px bg-black/50 dark:bg-white/50" />
 
-                  <div className="text-sm text-black/40 dark:text-white/40">
+                  <div className="text-sm text-black/50 dark:text-white/50">
                     {deployment.technologies.join(" • ")}
                   </div>
                 </div>
@@ -182,7 +182,7 @@ export default function ProjectsPage() {
 
         {filteredDeployments.length === 0 && (
           <div className="py-20 text-center">
-            <p className="text-lg text-gray-400 dark:text-gray-300">
+            <p className="text-lg text-black/50 dark:text-white/50">
               No projects found in this category.
             </p>
           </div>
