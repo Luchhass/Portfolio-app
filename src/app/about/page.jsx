@@ -27,6 +27,7 @@ import {
 } from "react-icons/si";
 import Image from "next/image";
 import Link from "next/link";
+import GithubStats from "@/components/GithubStats";
 
 const technologyGroups = [
   {
@@ -113,7 +114,9 @@ export default function AboutPage() {
 
             <div className="flex flex-col items-center gap-2">
               <Link
-                href="/"
+                href="/pdf/cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-4 border-2 text-sm md:text-base border-[#f37a35] bg-[#f37a35] text-white font-semibold rounded-4xl transition-all duration-300 hover:bg-transparent hover:text-[#f37a35] hover:shadow-red-500/30 hover:scale-105"
               >
                 Check My CV
@@ -171,65 +174,88 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-20">
-        <div className="flex-1 flex flex-col gap-6 md:gap-8 lg:gap-10">
-          <h1 className="text-black dark:text-white text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.8] tracking-[-0.09em]">
-            technologies
-            <br />i use
+      <div className="flex flex-col gap-24 mb-24">
+        <section className="flex flex-col gap-6 md:gap-8 lg:gap-10">
+          <h1 className="text-black dark:text-white text-right text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.8] tracking-[-0.09em]">
+            <span className="mr-22 text-[#f37a35]">the creator</span>
+            <br />
+            behind code
           </h1>
 
           <p className="text-black/90 dark:text-white/90 text-lg md:text-xl lg:text-2xl">
-            The right tools for building exceptional digital experiences. From
-            powerful frameworks to modern design systems, these are the
-            technologies that make innovation possible.
+            I’m a Frontend Developer and a final-year Web Design student at
+            Istanbul University. Throughout my journey, I’ve had the opportunity
+            to intern at several companies, gaining hands-on experience in
+            building modern and responsive web interfaces. To further enhance my
+            skills, I also completed a Software Specialization course at
+            Nişantaşı University, where I deepened my knowledge of development
+            practices and technologies. Today, I combine creativity with
+            technical expertise to craft seamless digital experiences.
           </p>
-        </div>
+        </section>
 
-        <div className="flex-1 flex flex-col mt-6 md:mt-8">
-          {technologyGroups.map((group, index) => (
-            <div
-              key={index}
-              className="cursor-pointer"
-              onMouseEnter={() => toggleGroup(index)}
-              onMouseLeave={() => toggleGroup(index)}
-            >
+        <GithubStats username="Luchhass" />
+
+        <section className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-20">
+          <div className="flex-1 flex flex-col gap-6 md:gap-8 lg:gap-10">
+            <h1 className="text-black dark:text-white text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.8] tracking-[-0.09em]">
+              technologies
+              <br />i use
+            </h1>
+
+            <p className="text-black/90 dark:text-white/90 text-lg md:text-xl lg:text-2xl">
+              The right tools for building exceptional digital experiences. From
+              powerful frameworks to modern design systems, these are the
+              technologies that make innovation possible.
+            </p>
+          </div>
+
+          <div className="flex-1 flex flex-col mt-6 md:mt-8">
+            {technologyGroups.map((group, index) => (
               <div
-                className={`flex items-center gap-3 py-3 ${
-                  !activeGroups[index] ? "border-b-3 border-[#f37a35]" : ""
-                }`}
+                key={index}
+                className="cursor-pointer"
+                onMouseEnter={() => toggleGroup(index)}
+                onMouseLeave={() => toggleGroup(index)}
               >
-                <span className="text-black dark:text-white text-xl md:text-2xl py-2 font-black uppercase leading-[0.8] tracking-[-0.09em]">
-                  {group.title}
-                </span>
-              </div>
-
-              {activeGroups[index] && (
-                <div className="p-4 border-b-3 border-[#f37a35]">
-                  <div className="flex flex-wrap gap-3">
-                    {group.technologies.map((tech, techIndex) => (
-                      <div
-                        key={techIndex}
-                        className="flex items-center gap-2 border border-black/30 dark:border-white/30 rounded-lg px-3 py-2 hover:scale-105 transition-transform"
-                      >
-                        <tech.icon
-                          className="text-lg"
-                          style={{ color: tech.color }}
-                        />
-                        <span
-                          className="text-sm font-medium"
-                          style={{ color: tech.color }}
-                        >
-                          {tech.name}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                <div
+                  className={`flex items-center gap-3 py-3 ${
+                    !activeGroups[index] ? "border-b-3 border-[#f37a35]" : ""
+                  }`}
+                >
+                  <span className="text-black dark:text-white text-xl md:text-2xl py-2 font-black uppercase leading-[0.8] tracking-[-0.09em]">
+                    {group.title}
+                  </span>
                 </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
+
+                {activeGroups[index] && (
+                  <div className="p-4 border-b-3 border-[#f37a35]">
+                    <div className="flex flex-wrap gap-3">
+                      {group.technologies.map((tech, techIndex) => (
+                        <div
+                          key={techIndex}
+                          className="flex items-center gap-2 border border-black/30 dark:border-white/30 rounded-lg px-3 py-2 hover:scale-105 transition-transform"
+                        >
+                          <tech.icon
+                            className="text-lg"
+                            style={{ color: tech.color }}
+                          />
+                          <span
+                            className="text-sm font-medium"
+                            style={{ color: tech.color }}
+                          >
+                            {tech.name}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
