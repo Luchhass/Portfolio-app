@@ -25,7 +25,6 @@ export async function POST(request) {
       <body style="margin: 0; padding: 0; background-color: #f5f5f5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
         <div style="max-width: 600px; margin: 40px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); overflow: hidden; border: 1px solid #e0e0e0;">
           
-          <!-- Header -->
           <div style="background-color: #ffffff; padding: 32px 32px 24px 32px; border-bottom: 3px solid #ff8243;">
             <h1 style="margin: 0; color: #2c2c2c; font-size: 24px; font-weight: 600; letter-spacing: -0.5px;">
               New Contact Message
@@ -35,10 +34,8 @@ export async function POST(request) {
             </p>
           </div>
 
-          <!-- Content -->
           <div style="padding: 32px;">
             
-            <!-- Sender Info -->
             <div style="background-color: #fafafa; border: 1px solid #e8e8e8; border-radius: 6px; padding: 24px; margin-bottom: 24px;">
               <h3 style="margin: 0 0 20px 0; color: #2c2c2c; font-size: 18px; font-weight: 600; border-bottom: 2px solid #ff8243; padding-bottom: 8px; display: inline-block;">
                 Contact Information
@@ -71,7 +68,6 @@ export async function POST(request) {
               </div>
             </div>
 
-            <!-- Message -->
             <div style="margin-bottom: 32px;">
               <h3 style="margin: 0 0 16px 0; color: #2c2c2c; font-size: 18px; font-weight: 600; border-bottom: 2px solid #ff8243; padding-bottom: 8px; display: inline-block;">
                 Message
@@ -81,7 +77,6 @@ export async function POST(request) {
               </div>
             </div>
 
-            <!-- Action Button -->
             <div style="text-align: center; padding: 20px 0;">
               <a href="mailto:${email}" 
                  style="display: inline-block; background-color: #ff8243; color: #ffffff; text-decoration: none; padding: 12px 32px; border-radius: 6px; font-weight: 600; font-size: 16px; box-shadow: 0 2px 8px rgba(255, 130, 67, 0.3); transition: all 0.2s ease;">
@@ -90,7 +85,6 @@ export async function POST(request) {
             </div>
           </div>
 
-          <!-- Footer -->
           <div style="background-color: #f8f8f8; padding: 24px 32px; text-align: center; border-top: 1px solid #e0e0e0;">
             <p style="margin: 0; color: #888888; font-size: 14px; line-height: 1.6;">
               <strong style="color: #2c2c2c;">Furkan Cosar Portfolio</strong><br>
@@ -102,7 +96,6 @@ export async function POST(request) {
           </div>
         </div>
 
-        <!-- Mobile Responsive Styles -->
         <style>
           @media only screen and (max-width: 600px) {
             .container {
@@ -122,7 +115,6 @@ export async function POST(request) {
             }
           }
           
-          /* Message scroll styling */
           .message-content::-webkit-scrollbar {
             width: 6px;
           }

@@ -1,61 +1,64 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo } from "react";
+import deployments from "@/data/deployments.js";
 import Image from "next/image";
 import Link from "next/link";
-import deployments from "@/data/deployments.js";
+
+const formatDate = (dateString) =>
+  new Date(dateString).toLocaleDateString("tr-TR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 
 export default function ProjectHighlights() {
-  const highlightedProjects = deployments.slice(0, 4);
-
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString("tr-TR", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
+  const highlightedProjects = useMemo(() => deployments.slice(0, 4), []);
 
   return (
     <div className="flex flex-col gap-24">
+      {/* Header */}
       <div className="flex flex-col gap-8">
-        <p className="text-[#f37a35] text-sm md:text-base uppercase">
+        <p className="text-sm md:text-base uppercase text-[#f37a35]">
           PROJECT
           <br />
           HIGHLIGHTS
         </p>
 
-        <h2 className="text-3xl md:text-6xl lg:text-7xl font-light leading-[0.8] tracking-[-0.09em] mb-8">
+        <h2 className="mb-8 text-3xl md:text-6xl lg:text-7xl font-light leading-[0.8] tracking-[-0.09em]">
           Enjoy some of our best work{" "}
-          <span className="text-black font-bold">
+          <span className="font-bold text-black">
             in web design, e-commerce, branding & digital marketing.
           </span>
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-14">
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-14">
         {highlightedProjects.map((project) => (
           <a
             key={project.id}
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="block group"
+            className="group block"
           >
-            <div className="relative rounded-4xl overflow-hidden bg-black/30 mb-6 transition duration-300 group-hover:scale-[1.01]">
+            {/* Image Wrapper */}
+            <div className="relative mb-6 overflow-hidden rounded-4xl bg-black/30 transition-transform duration-300 group-hover:scale-[1.01]">
               <Image
                 src={project.screenshot}
                 alt={project.name}
                 width={1920}
                 height={879}
-                className="object-cover w-full aspect-square"
-                quality={90}
+                className="w-full aspect-square object-cover"
+                quality={85}
                 priority
               />
             </div>
 
+            {/* Info */}
             <div className="space-y-2">
-              <p className="text-[#f37a35] text-sm md:text-base uppercase">
+              <p className="text-sm md:text-base uppercase text-[#f37a35]">
                 {formatDate(project.date)}
               </p>
 
@@ -63,7 +66,7 @@ export default function ProjectHighlights() {
                 {project.name}
               </h3>
 
-              <div className="w-15 h-px bg-black/30 dark:bg-white/30 my-3"></div>
+              <div className="my-3 h-px w-15 bg-black/30 dark:bg-white/30"></div>
 
               <div className="text-sm text-black/40 dark:text-white/40">
                 {project.technologies.join(" • ")}
@@ -73,10 +76,11 @@ export default function ProjectHighlights() {
         ))}
       </div>
 
+      {/* CTA Button */}
       <div className="text-center">
         <Link
           href="/projects"
-          className="inline-block bg-[#f37a35] text-white px-8 py-4 rounded-full text-xl md:text-2xl font-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/40 shadow-lg shadow-orange-500/25"
+          className="inline-block rounded-full bg-[#f37a35] px-8 py-4 text-xl md:text-2xl font-medium text-white shadow-lg shadow-orange-500/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/40"
         >
           View All Projects
         </Link>
