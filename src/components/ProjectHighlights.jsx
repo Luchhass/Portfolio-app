@@ -80,7 +80,7 @@ export default function ProjectHighlights() {
           href="/projects"
           className="bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md"
         >
-          wiev all projects
+          view all projects
         </Link>
       </div>
     </div>

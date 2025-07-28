@@ -33,7 +33,7 @@ export default function Home() {
                 href="/contact"
                 className="bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md"
               >
-                discover My Work
+                discover my work
               </Link>
             </div>
           </div>
