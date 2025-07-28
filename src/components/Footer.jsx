@@ -1,21 +1,36 @@
 import Link from "next/link";
-import { FaInstagram, FaYoutube, FaLinkedin, FaFacebook, FaGithub, FaTwitter  } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaYoutube,
+  FaLinkedin,
+  FaFacebook,
+  FaGithub,
+  FaTwitter,
+} from "react-icons/fa";
 
 const socialLinks = [
-  { href: "https://www.instagram.com/luchhass/", label: "Instagram", icon: FaInstagram },
+  {
+    href: "https://www.instagram.com/luchhass/",
+    label: "Instagram",
+    icon: FaInstagram,
+  },
   // { href: "https://www.facebook.com", label: "Facebook", icon: FaFacebook },
-  { href: "https://www.linkedin.com/in/furkancosar", label: "LinkedIn", icon: FaLinkedin },
+  {
+    href: "https://www.linkedin.com/in/furkancosar",
+    label: "LinkedIn",
+    icon: FaLinkedin,
+  },
   // { href: "https://www.youtube.com", label: "YouTube", icon: FaYoutube },
   { href: "https://github.com/Luchhass", label: "GitHub", icon: FaGithub },
   { href: "https://x.com/YatoKagura000", label: "Twitter", icon: FaTwitter },
 ];
 
-  const navLinks = [
-    { href: "/", label: "HOME" },
-    { href: "/about", label: "ABOUT" },
-    { href: "/projects", label: "PROJECTS" },
-    { href: "/contact", label: "CONTACT" },
-  ];
+const navLinks = [
+  { href: "/", label: "HOME" },
+  { href: "/about", label: "ABOUT" },
+  { href: "/projects", label: "PROJECTS" },
+  { href: "/contact", label: "CONTACT" },
+];
 
 export default function Footer() {
   return (

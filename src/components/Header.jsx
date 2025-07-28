@@ -3,7 +3,14 @@
 import { useState } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
-import { FaInstagram, FaYoutube, FaLinkedin, FaFacebook, FaGithub, FaTwitter  } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaYoutube,
+  FaLinkedin,
+  FaFacebook,
+  FaGithub,
+  FaTwitter,
+} from "react-icons/fa";
 import Link from "next/link";
 
 export default function Header() {
@@ -13,14 +20,22 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-const socialLinks = [
-  { href: "https://www.instagram.com/luchhass/", label: "Instagram", icon: FaInstagram },
-  // { href: "https://www.facebook.com", label: "Facebook", icon: FaFacebook },
-  { href: "https://www.linkedin.com/in/furkancosar", label: "LinkedIn", icon: FaLinkedin },
-  // { href: "https://www.youtube.com", label: "YouTube", icon: FaYoutube },
-  { href: "https://github.com/Luchhass", label: "GitHub", icon: FaGithub },
-  { href: "https://x.com/YatoKagura000", label: "Twitter", icon: FaTwitter },
-];
+  const socialLinks = [
+    {
+      href: "https://www.instagram.com/luchhass/",
+      label: "Instagram",
+      icon: FaInstagram,
+    },
+    // { href: "https://www.facebook.com", label: "Facebook", icon: FaFacebook },
+    {
+      href: "https://www.linkedin.com/in/furkancosar",
+      label: "LinkedIn",
+      icon: FaLinkedin,
+    },
+    // { href: "https://www.youtube.com", label: "YouTube", icon: FaYoutube },
+    { href: "https://github.com/Luchhass", label: "GitHub", icon: FaGithub },
+    { href: "https://x.com/YatoKagura000", label: "Twitter", icon: FaTwitter },
+  ];
 
   const navLinks = [
     { href: "/", label: "HOME" },
@@ -42,9 +57,9 @@ const socialLinks = [
             className="p-2 transition-all duration-300 hover:scale-110 hover:rotate-90 group"
             aria-label="Menu"
           >
-            <CiMenuBurger 
-              size={24} 
-              className="text-black dark:text-white transition-all duration-300 group-hover:scale-110" 
+            <CiMenuBurger
+              size={24}
+              className="text-black dark:text-white transition-all duration-300 group-hover:scale-110"
             />
           </button>
         </div>
@@ -65,9 +80,9 @@ const socialLinks = [
             className="p-2 transition-all duration-300 hover:scale-110 hover:rotate-180 group"
             aria-label="Close menu"
           >
-            <IoCloseOutline 
-              size={24} 
-              className="text-black transition-all duration-300 group-hover:scale-110" 
+            <IoCloseOutline
+              size={24}
+              className="text-black transition-all duration-300 group-hover:scale-110"
             />
           </button>
         </div>
@@ -76,7 +91,9 @@ const socialLinks = [
           <ul className="flex flex-col gap-1 text-black font-extrabold uppercase text-5xl md:text-7xl lg:text-8xl leading-[1] md:leading-[0.9] lg:leading-[0.8] tracking-[-0.09em]">
             {navLinks.map(({ href, label }) => (
               <li key={label}>
-                <Link href={href} onClick={toggleMenu}>{label}</Link>
+                <Link href={href} onClick={toggleMenu}>
+                  {label}
+                </Link>
               </li>
             ))}
           </ul>

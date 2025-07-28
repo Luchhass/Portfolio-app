@@ -99,7 +99,7 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="mt-[88px] md:mt-[104px] px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
+    <main className="mt-[88px] md:mt-[104px] px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 pt-0">
       <section className="h-[calc(100vh-88px)] md:h-[calc(100vh-104px)] flex items-center justify-center">
         <div className="relative">
           <div className="text-center relative z-1">

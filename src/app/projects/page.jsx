@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import deployments from "@/data/deployments.js";
+import Link from "next/link";
 
-export default function DeploymentsPage() {
+export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [viewMode, setViewMode] = useState("grid");
 
@@ -113,8 +114,8 @@ export default function DeploymentsPage() {
                   <Image
                     src={deployment.screenshot}
                     alt={deployment.name}
-                    width={1200}
-                    height={1200}
+                    width={1920}
+                    height={879}
                     className="object-cover w-full aspect-square"
                     quality={90}
                     priority
@@ -126,7 +127,7 @@ export default function DeploymentsPage() {
                     {formatDate(deployment.date)}
                   </p>
 
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[0.8] tracking-[-0.07em]">
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[0.8] tracking-[-0.07em]">
                     {deployment.name}
                   </h2>
 
@@ -153,9 +154,9 @@ export default function DeploymentsPage() {
                   <Image
                     src={deployment.screenshot}
                     alt={deployment.name}
-                    width={224}
-                    height={224}
-                    className="object-cover w-full h-24 sm:h-28 md:h-32 lg:h-36"
+                    width={700}
+                    height={700}
+                    className="object-cover w-full aspect-square sm:h-28 md:h-32 lg:h-36"
                   />
                 </div>
 
@@ -188,7 +189,10 @@ export default function DeploymentsPage() {
         </div>
       )}
 
-      <div className="flex flex-col gap-8 items-center font-sans py-48 md:py-56 lg:py-64">
+      <Link
+        href="/contact"
+        className="flex flex-col gap-8 items-center font-sans py-48 md:py-56 lg:py-64"
+      >
         <div>
           <h1
             className="text-6xl sm:text-7xl md:text-8xl lg:text-[120px] xl:text-[140px] font-black leading-[0.8] text-center text-white"
@@ -210,7 +214,7 @@ export default function DeploymentsPage() {
         <button className="bg-[#f37a35] text-white px-12 py-5 rounded-full text-xl md:text-2xl font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/40 shadow-lg shadow-orange-500/25">
           get in touch
         </button>
-      </div>
+      </Link>
     </div>
   );
 }
