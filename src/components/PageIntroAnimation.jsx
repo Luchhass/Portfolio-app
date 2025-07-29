@@ -1,15 +1,25 @@
 "use client";
-
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Lottie from "lottie-react";
 import welcomeText from "/public/animations/welcomeText.json";
+import { usePathname } from "next/navigation";
 
 export default function PageIntroAnimation() {
   const lottieRef = useRef();
+  const containerRef = useRef(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const tl = gsap.timeline();
+
+    gsap.set(containerRef.current, { pointerEvents: "auto" });
+
+    const fadeStartTime = pathname === "/" ? "3" : "1.1";
+
+    gsap.set(".orange-box", { y: "0%" });
+    gsap.set(".black-box", { y: "0%" });
+    gsap.set(".white-box", { opacity: 1 });
 
     tl.to(".orange-box", {
       y: "-100%",
@@ -27,7 +37,9 @@ export default function PageIntroAnimation() {
       )
       .call(
         () => {
-          lottieRef.current?.play();
+          if (pathname === "/" && lottieRef.current) {
+            lottieRef.current.play();
+          }
         },
         [],
         "1"
@@ -39,22 +51,28 @@ export default function PageIntroAnimation() {
           duration: 1.5,
           ease: "power4.inOut",
         },
-        "3"
-      );
-  }, []);
+        fadeStartTime
+      )
+      .set(containerRef.current, { pointerEvents: "none" }, fadeStartTime);
+  }, [pathname]);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-screen z-50 overflow-hidden pointer-events-none">
+    <div
+      ref={containerRef}
+      className="fixed top-0 left-0 w-full h-dvh z-50 overflow-hidden"
+    >
       <div className="orange-box absolute w-full h-full z-30 bg-[#f37a35]"></div>
       <div className="black-box absolute w-full h-full z-20 bg-black dark:bg-white"></div>
       <div className="white-box absolute w-full h-full z-10 bg-white dark:bg-black flex items-center justify-center">
-        <Lottie
-          lottieRef={lottieRef}
-          animationData={welcomeText}
-          loop={false}
-          autoplay={false}
-          className="w-100 md:w-120 lg:w-150"
-        />
+        {pathname === "/" && (
+          <Lottie
+            lottieRef={lottieRef}
+            animationData={welcomeText}
+            loop={false}
+            autoplay={false}
+            className="w-100 md:w-120 lg:w-150"
+          />
+        )}
       </div>
     </div>
   );
