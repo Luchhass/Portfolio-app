@@ -1,6 +1,7 @@
-import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageIntroAnimation from "@/components/PageIntroAnimation";
+import "./globals.css";
 
 export const metadata = {
   title: "Portfolio App",
@@ -11,13 +12,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="antialiased mt-[90px] md:mt-[106px]">
+        <PageIntroAnimation />
         <Header />
 
-        {/* px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 */}
-        <div className="px-8 py-0 md:px-10 lg:px-16 ">
-          {children}
-        </div>
-        
+        <div className="px-8 py-0 md:px-10 lg:px-16 ">{children}</div>
+
         <Footer />
       </body>
     </html>
