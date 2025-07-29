@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className="antialiased mt-[90px] md:mt-[106px]">
         <PageIntroAnimation />
         <Header />

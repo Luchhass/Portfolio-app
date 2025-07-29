@@ -21,7 +21,7 @@ export default function Home() {
             </video>
 
             <div className="absolute inset-0 flex flex-col gap-12 items-center justify-center text-center">
-              <h1 className="text-white text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.1] tracking-[-0.09em]">
+              <h1 className="text-white text-6xl md:text-7xl lg:text-8xl font-black leading-[1.1] tracking-[-0.09em]">
                 crafting
                 <br />
                 digital

@@ -60,7 +60,7 @@ export default function ProjectHighlights() {
                 {formatDate(project.date)}
               </p>
 
-              <h3 className="text-4xl uppercase md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-[-0.08em]">
+              <h3 className="text-4xl uppercase md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-[-0.08em]">
                 {project.name}
               </h3>
 

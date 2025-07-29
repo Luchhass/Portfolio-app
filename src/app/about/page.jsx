@@ -22,7 +22,7 @@ export default function AboutPage() {
       <section className="h-[calc(100dvh-88px)] md:h-[calc(100dvh-104px)] flex items-center justify-center">
         <div className="relative">
           <div className="text-center relative z-10">
-            <h1 className="text-black dark:text-white font-extrabold text-7xl md:text-8xl lg:text-9xl leading-[0.85] tracking-[-0.08em]">
+            <h1 className="text-black dark:text-white font-black text-7xl md:text-8xl lg:text-9xl leading-[0.85] tracking-[-0.08em]">
               <span className="ml-26 md:ml-30 lg:ml-34">what</span>
               <br />i build
             </h1>
@@ -99,7 +99,7 @@ export default function AboutPage() {
       <div className="flex flex-col gap-32 mb-24">
         {/* BEHIND SECTION */}
         <section className="flex flex-col gap-6 md:gap-8 lg:gap-10">
-          <h1 className="text-black dark:text-white text-right text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.8] tracking-[-0.08em]">
+          <h1 className="text-black dark:text-white text-right text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
             <span className="mr-22 text-[#f37a35]">the creator</span>
             <br />
             behind code
@@ -128,7 +128,7 @@ export default function AboutPage() {
         {/* TECHNOLOGIES SECTION */}
         <section className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-20">
           <div className="flex-1 flex flex-col gap-6 md:gap-8 lg:gap-10">
-            <h1 className="text-black dark:text-white text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.8] tracking-[-0.08em]">
+            <h1 className="text-black dark:text-white text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
               technologies
               <br />i use
             </h1>
@@ -155,7 +155,7 @@ export default function AboutPage() {
                     !activeGroups[index] ? "border-b-3 border-[#f37a35]" : ""
                   }`}
                 >
-                  <span className="text-black dark:text-white text-xl md:text-2xl py-2 font-extrabold uppercase leading-[1.1] tracking-[-0.08em]">
+                  <span className="text-black dark:text-white text-xl md:text-2xl py-2 font-black uppercase leading-[1.1] tracking-[-0.08em]">
                     {group.title}
                   </span>
                 </div>

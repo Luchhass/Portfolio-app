@@ -165,7 +165,7 @@ export default function GithubStats({ username = "octocat" }) {
     <div className="flex flex-col gap-20 lg:flex-row lg:items-start lg:justify-between">
       <div className="flex flex-1 flex-col gap-6 md:gap-8 lg:gap-10">
         <div>
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.8] tracking-[-0.08em] text-black dark:text-white">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em] text-black dark:text-white">
             github
             <br />
             statistics

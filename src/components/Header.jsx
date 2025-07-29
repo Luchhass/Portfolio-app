@@ -78,20 +78,32 @@ export default function Header() {
 
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="group p-2 transition-all duration-300 hover:scale-110 hover:rotate-90 z-50"
+          className="group relative p-2 z-50"
           aria-label="Menu"
         >
-          {isMenuOpen ? (
-            <IoCloseOutline
-              size={24}
-              className="text-black dark:text-white transition-all duration-300 group-hover:scale-110"
+          <div className="w-6 h-6 flex flex-col justify-center items-center">
+            <span
+              className={`block w-6 h-px bg-black dark:bg-white transition-all duration-900 ease-out ${
+                isMenuOpen
+                  ? "rotate-45 translate-y-0"
+                  : "rotate-0 -translate-y-1"
+              }`}
             />
-          ) : (
-            <CiMenuBurger
-              size={24}
-              className="text-black dark:text-white transition-all duration-300 group-hover:scale-110"
+
+            <span
+              className={`block w-6 h-px bg-black dark:bg-white transition-all duration-900 ease-out ${
+                isMenuOpen ? "opacity-0 scale-0" : "opacity-100 scale-100"
+              }`}
             />
-          )}
+
+            <span
+              className={`block w-6 h-px bg-black dark:bg-white transition-all duration-900 ease-out ${
+                isMenuOpen
+                  ? "-rotate-45 translate-y-0"
+                  : "rotate-0 translate-y-1"
+              }`}
+            />
+          </div>
         </button>
       </header>
 
@@ -99,10 +111,14 @@ export default function Header() {
         <div></div>
 
         <nav aria-label="navigation">
-          <ul className="flex flex-col gap-1 text-5xl md:text-7xl lg:text-8xl font-extrabold uppercase leading-[1] md:leading-[0.9] lg:leading-[0.8] tracking-[-0.09em] text-black dark:text-white">
+          <ul className="flex flex-col gap-1 text-6xl md:text-7xl lg:text-8xl font-black uppercase leading-[1] md:leading-[0.9] lg:leading-[0.8] tracking-[-0.09em]">
             {navLinks.map(({ href, label }) => (
               <li key={label} className="nav-item">
-                <Link href={href} onClick={() => setIsMenuOpen(false)}>
+                <Link
+                  href={href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className=" text-transparent bg-clip-text bg-[linear-gradient(to_left,_theme(colors.black)_50%,_#f37a35_50%)] dark:bg-[linear-gradient(to_left,_theme(colors.white)_50%,_#f37a35_50%)] bg-[length:200%_100%] bg-[position:-100%_0] hover:bg-[position:0_0] transition-[background-position] duration-400 ease-in-out pr-[0.2em]"
+                >
                   {label}
                 </Link>
               </li>
@@ -112,13 +128,19 @@ export default function Header() {
 
         <div></div>
 
-        <div className="mt-8 flex flex-col gap-2 md:flex-row justify-between">
+        <div className="mt-8 flex flex-col gap-4 md:flex-row justify-between">
           <div className="flex gap-2 md:flex-col text-sm md:text-base text-black dark:text-white">
-            <a href={`mailto:${contactInfo.email}`} className="contact-item">
+            <a
+              href={`mailto:${contactInfo.email}`}
+              className="relative inline-block contact-item after:absolute after:left-0 after:-bottom-0.5 after:h-[1px] after:w-full after:scale-x-0 after:bg-black after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100"
+            >
               {contactInfo.email}
             </a>
             <span className="contact-item md:hidden">|</span>
-            <a href={`tel:${contactInfo.phone}`} className="contact-item">
+            <a
+              href={`tel:${contactInfo.phone}`}
+              className="relative inline-block contact-item after:absolute after:left-0 after:-bottom-0.5 after:h-[1px] after:w-full after:scale-x-0 after:bg-black after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
+            >
               {contactInfo.phone}
             </a>
           </div>
@@ -127,16 +149,21 @@ export default function Header() {
             {socialLinks.map(({ href, label, icon: Icon }) => (
               <li
                 key={label}
-                className="social-item p-2 border border-black dark:border-white rounded-full"
+                className="social-item relative p-2 border border-black dark:border-white rounded-full group"
               >
+                <div className="absolute inset-0 bg-[#f37a35] rounded-full scale-0 group-hover:scale-150 transition-all duration-500 ease-out"></div>
+
                 <a
                   href={href}
                   aria-label={label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black dark:text-white"
+                  className="relative z-10 flex items-center justify-center"
                 >
-                  <Icon className="fill-current" size={20} />
+                  <Icon
+                    className="fill-current text-black dark:text-white group-hover:text-white transition-colors duration-500 ease-out"
+                    size={20}
+                  />
                 </a>
               </li>
             ))}

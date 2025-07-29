@@ -27,7 +27,7 @@ export default function ProjectsPage() {
     <main className="py-6 md:py-8 lg:py-8">
       {/* HERO SECTION */}
       <section>
-        <h1 className="pb-16 md:pb-20 lg:pb-24 text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.8] tracking-[-0.08em]">
+        <h1 className="pb-16 md:pb-20 lg:pb-24 text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
           explore
           <br />
           our creations
@@ -127,7 +127,7 @@ export default function ProjectsPage() {
                     {formatDate(deployment.date)}
                   </p>
 
-                  <h2 className="text-4xl uppercase md:text-5xl lg:text-4xl font-extrabold leading-[1.1] tracking-[-0.08em]">
+                  <h2 className="text-4xl uppercase md:text-5xl lg:text-4xl font-black leading-[1.1] tracking-[-0.08em]">
                     {deployment.name}
                   </h2>
 
@@ -165,7 +165,7 @@ export default function ProjectsPage() {
                     {formatDate(deployment.date)}
                   </p>
 
-                  <h2 className="text-xl uppercase sm:text-2xl md:text-3xl font-extrabold leading-[1.1] tracking-[-0.08em]">
+                  <h2 className="text-xl uppercase sm:text-2xl md:text-3xl font-black leading-[1.1] tracking-[-0.08em]">
                     {deployment.name}
                   </h2>
 

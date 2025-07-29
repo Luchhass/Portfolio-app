@@ -34,7 +34,7 @@ export default function ContactPage() {
           for you.
         </h2>
 
-        <p className="text-sm md:text-base font-extrabold">
+        <p className="text-sm md:text-base font-black">
           Let’s get to work!
         </p>
 
