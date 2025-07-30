@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { FaCodeBranch, FaCode, FaUser, FaSpinner, FaLanguage } from "react-icons/fa";
 import { MdError } from "react-icons/md";
 
-// Loading Component
 const LoadingState = ({ username }) => (
   <div className="flex flex-col gap-20 lg:flex-row lg:items-start lg:justify-between">
     <div className="flex flex-1 flex-col gap-6 md:gap-8 lg:gap-10">
@@ -46,7 +45,6 @@ const LoadingState = ({ username }) => (
   </div>
 );
 
-// Error Component
 const ErrorState = ({ error }) => (
   <div className="flex flex-col gap-20 lg:flex-row lg:items-start lg:justify-between">
     <div className="flex flex-1 flex-col gap-6 md:gap-8 lg:gap-10">

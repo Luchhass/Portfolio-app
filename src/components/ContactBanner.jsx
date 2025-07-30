@@ -34,6 +34,7 @@ export default function ContactBanner() {
           to work
         </h1>
       </div>
+
       <Link
         href="/contact"
         className="relative overflow-hidden bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md group transition-all duration-300 hover:scale-105 active:scale-95"

@@ -17,7 +17,6 @@ export default function ProjectHighlights() {
 
   return (
     <div className="flex flex-col gap-20 py-16 md:py-24 lg:py-32">
-      {/* HIGHLIGHTS HEADER */}
       <div className="flex flex-col gap-8">
         <p className="text-sm md:text-base uppercase text-[#f37a35]">
           PROJECT
@@ -33,7 +32,6 @@ export default function ProjectHighlights() {
         </h2>
       </div>
 
-      {/* PROJECTS GRID */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-14">
         {highlightedProjects.map((project) => (
           <a
@@ -74,7 +72,6 @@ export default function ProjectHighlights() {
         ))}
       </div>
 
-      {/* PROJECTS REDIRECT BUTTON */}
       <div className="flex flex-col items-center">
         <Link
           href="/contact"

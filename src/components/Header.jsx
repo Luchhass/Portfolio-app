@@ -2,24 +2,58 @@
 
 import { useState, useEffect, useRef } from "react";
 import { socialLinks, navLinks, contactInfo } from "@/data/navigation";
-import { CiMenuBurger } from "react-icons/ci";
-import { IoCloseOutline } from "react-icons/io5";
 import Link from "next/link";
 import gsap from "gsap";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const tl = useRef(null);
+  const hamburgerRef = useRef(null);
 
   useEffect(() => {
     if (!tl.current) {
       tl.current = gsap
         .timeline({ paused: true })
-        .to(".mobile-menu", {
-          y: "0%",
-          duration: 1,
-          ease: "power2.out",
-        })
+        .fromTo(
+          ".hamburger-line-top",
+          { rotation: 0, y: -8 },
+          {
+            rotation: 45,
+            y: 0,
+            duration: 0.4,
+            ease: "power2.inOut",
+          },
+          0
+        )
+        .to(
+          ".hamburger-line-middle",
+          {
+            opacity: 0,
+            duration: 0.2,
+            ease: "power2.inOut",
+          },
+          0
+        )
+        .fromTo(
+          ".hamburger-line-bottom",
+          { rotation: 0, y: 8 },
+          {
+            rotation: -45,
+            y: 0,
+            duration: 0.4,
+            ease: "power2.inOut",
+          },
+          0
+        )
+        .to(
+          ".mobile-menu",
+          {
+            y: "-1px",
+            duration: 1,
+            ease: "power2.out",
+          },
+          0.2
+        )
         .from(
           ".nav-item",
           {
@@ -63,6 +97,29 @@ export default function Header() {
     }
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
   return (
     <>
       <header
@@ -77,37 +134,20 @@ export default function Header() {
         </div>
 
         <button
+          ref={hamburgerRef}
           onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="group relative p-2 z-50"
+          className="group relative p-1.5"
           aria-label="Menu"
         >
-          <div className="w-6 h-6 flex flex-col justify-center items-center">
-            <span
-              className={`block w-6 h-px bg-black dark:bg-white transition-all duration-900 ease-out ${
-                isMenuOpen
-                  ? "rotate-45 translate-y-0"
-                  : "rotate-0 -translate-y-1"
-              }`}
-            />
-
-            <span
-              className={`block w-6 h-px bg-black dark:bg-white transition-all duration-900 ease-out ${
-                isMenuOpen ? "opacity-0 scale-0" : "opacity-100 scale-100"
-              }`}
-            />
-
-            <span
-              className={`block w-6 h-px bg-black dark:bg-white transition-all duration-900 ease-out ${
-                isMenuOpen
-                  ? "-rotate-45 translate-y-0"
-                  : "rotate-0 translate-y-1"
-              }`}
-            />
+          <div className="hamburger-container relative w-7 h-7 flex flex-col justify-center items-center">
+            <span className="hamburger-line-top absolute block h-0.5 w-7 bg-black dark:bg-white rounded-full transition-all duration-300 ease-out group-hover:w-8 group-hover:-translate-y-2.5 group-hover:bg-slate-900 dark:group-hover:bg-slate-100" />
+            <span className="hamburger-line-middle absolute block h-0.5 w-7 bg-black dark:bg-white rounded-full transition-all duration-200 ease-out group-hover:w-5 group-hover:bg-slate-900 dark:group-hover:bg-slate-100" />
+            <span className="hamburger-line-bottom absolute block h-0.5 w-7 bg-black dark:bg-white rounded-full transition-all duration-300 ease-out group-hover:w-8 group-hover:translate-y-2.5 group-hover:bg-slate-900 dark:group-hover:bg-slate-100" />
           </div>
         </button>
       </header>
 
-      <div className="mobile-menu -translate-y-full flex flex-col justify-between fixed w-full h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] z-30 bg-white dark:bg-black px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 pointer-events-auto">
+      <div className="mobile-menu -translate-y-full flex flex-col justify-between fixed w-full h-[calc(100dvh-90px)] md:h-[calc(100dvh-105px)] z-30 bg-white dark:bg-black px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 pointer-events-auto">
         <div></div>
 
         <nav aria-label="navigation">

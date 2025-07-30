@@ -4,7 +4,6 @@ import { socialLinks, navLinks, contactInfo } from "@/data/navigation";
 export default function Footer() {
   return (
     <footer className="bg-[#f37a35] h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] flex flex-col justify-between relative overflow-hidden px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
-      {/* Mobile layout */}
       <div className="lg:hidden flex flex-col justify-between h-full">
         <h1 className="text-white max-w-[350px] md:max-w-[450px] font-black uppercase text-4xl md:text-5xl font-sans mb-8 leading-[1] md:leading-[0.9] tracking-[-0.05em]">
           designing with purpose and passion.
@@ -65,7 +64,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Desktop layout */}
       <div className="hidden lg:flex flex-col h-full">
         <div className="flex justify-between items-center mb-auto">
           <div className="text-white font-bold text-2xl">Furkan Cosar</div>

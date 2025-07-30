@@ -25,7 +25,6 @@ export default function ProjectsPage() {
 
   return (
     <main className="px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
-      {/* HERO SECTION */}
       <section>
         <h1 className="pb-16 md:pb-20 lg:pb-24 text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
           explore
@@ -98,7 +97,6 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* PROJECTS LISTS SECTION */}
       <section>
         {viewMode === "grid" ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-14">
@@ -189,7 +187,6 @@ export default function ProjectsPage() {
         )}
       </section>
 
-      {/* CONTACT REDIRECT SECTION */}
       <section>
         <ContactBanner />
       </section>

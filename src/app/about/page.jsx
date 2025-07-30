@@ -1,57 +1,12 @@
-"use client";
-
-import { useState } from "react";
 import { technologyGroups } from "@/data/technologyGroups";
 import Image from "next/image";
 import Link from "next/link";
 import GithubStats from "@/components/GithubStats";
 import ContactBanner from "@/components/ContactBanner";
 
-const accordionItems = [
-  {
-    title: "Section 1",
-    content: ["Content for section 1"],
-    bg: "hsl(200, 80%, 60%)",
-    gradient:
-      "linear-gradient(-90deg, hsl(200, 80%, 60%), hsl(200, 80%, 45%) 2em, hsl(200, 80%, 60%))",
-  },
-  {
-    title: "Section 2",
-    content: ["Content for section 2"],
-    bg: "hsl(280, 60%, 45%)",
-    gradient:
-      "linear-gradient(-90deg, hsl(280, 80%, 60%), hsl(280, 60%, 45%) 2em, hsl(280, 80%, 60%))",
-  },
-  {
-    title: "Section 3",
-    content: ["Content for section 3", "This is my default state."],
-    default: true,
-    bg: "hsl(40, 80%, 40%)",
-    gradient:
-      "linear-gradient(-90deg, hsl(40, 80%, 60%), hsl(40, 80%, 45%) 2em, hsl(40, 80%, 60%))",
-  },
-  {
-    title: "Section 4",
-    content: ["Content for section 4"],
-    bg: "hsl(80, 40%, 40%)",
-    gradient:
-      "linear-gradient(-90deg, hsl(80, 80%, 40%), hsl(80, 80%, 35%) 2em, hsl(80, 80%, 40%))",
-  },
-];
-
 export default function AboutPage() {
-  const [activeGroups, setActiveGroups] = useState({});
-
-  const toggleGroup = (index) => {
-    setActiveGroups((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
-
   return (
     <main className="flex flex-col gap-42 px-8 py-0 md:px-10 lg:px-16">
-      {/* HERO SECTION */}
       <section className="h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] flex items-center justify-center">
         <div className="relative">
           <div className="text-center relative z-10">
@@ -67,6 +22,7 @@ export default function AboutPage() {
             <div className="flex flex-col items-center gap-2">
               <Link
                 href="/pdf/cv.pdf"
+                target="_blank"
                 className="relative overflow-hidden bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md group transition-all duration-300 hover:scale-105 active:scale-95"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
@@ -127,7 +83,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* BEHIND SECTION */}
       <section className="flex flex-col gap-6 md:gap-8 lg:gap-10">
         <h1 className="text-black dark:text-white text-right text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
           <span className="mr-22 text-[#f37a35]">the creator</span>
@@ -150,12 +105,10 @@ export default function AboutPage() {
         </h2>
       </section>
 
-      {/* GITHUB SECTION */}
       <section>
         <GithubStats username="Luchhass" />
       </section>
 
-      {/* TECHNOLOGIES SECTION */}
       <section className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-20">
         <div className="flex-1 flex flex-col gap-6 md:gap-8 lg:gap-10">
           <h1 className="text-black dark:text-white text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
@@ -205,7 +158,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CONTACT REDIRECT SECTION */}
       <section className="mb-42">
         <ContactBanner />
       </section>
