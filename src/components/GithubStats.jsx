@@ -85,14 +85,11 @@ const ErrorState = ({ error }) => (
 );
 
 export default function GithubStats({ username = "octocat" }) {
-  const [openIndexes, setOpenIndexes] = useState([]);
+  const [openIndex, setOpenIndex] = useState(null);
 
   const toggleGroup = (index) => {
-    setOpenIndexes((prev) =>
-      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
-    );
+    setOpenIndex((prev) => (prev === index ? null : index));
   };
-
   const [stats, setStats] = useState({
     repoCount: null,
     commitCount: null,
@@ -200,7 +197,8 @@ export default function GithubStats({ username = "octocat" }) {
 
       <div className="flex-1 flex flex-col mt-6 md:mt-8">
         {statGroups.map((group, index) => {
-          const isOpen = openIndexes.includes(index);
+          const isOpen = openIndex === index;
+
           return (
             <div
               key={index}
@@ -221,10 +219,12 @@ export default function GithubStats({ username = "octocat" }) {
 
               <div
                 className={`overflow-hidden transition-[height] duration-500 ease-in-out mt-2
-              ${isOpen ? "h-32" : "h-0 group-hover:h-32"}`}
+              ${isOpen ? "h-35" : "h-0 group-hover:h-34"}`}
               >
                 <div className="pt-4">
-                  <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-[#1f1f1f] dark:shadow-[0_4px_12px_rgba(0,0,0,0.4)] p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div
+                    className={`relative overflow-hidden rounded-2xl bg-white dark:bg-[#1f1f1f] dark:shadow-[0_4px_12px_rgba(0,0,0,0.4)] p-6 shadow-lg`}
+                  >
                     <div
                       className={`absolute inset-0 transition-opacity duration-500
                     ${

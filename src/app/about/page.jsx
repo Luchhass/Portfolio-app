@@ -8,12 +8,10 @@ import GithubStats from "@/components/GithubStats";
 import ContactBanner from "@/components/ContactBanner";
 
 export default function AboutPage() {
-  const [openIndexes, setOpenIndexes] = useState([]);
+  const [openIndex, setOpenIndex] = useState(null);
 
   const toggleGroup = (index) => {
-    setOpenIndexes((prev) =>
-      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
-    );
+    setOpenIndex((prev) => (prev === index ? null : index));
   };
 
   return (
@@ -138,12 +136,12 @@ export default function AboutPage() {
 
         <div className="flex-1 flex flex-col mt-6 md:mt-8">
           {technologyGroups.map((group, index) => {
-            const isOpen = openIndexes.includes(index);
+            const isOpen = openIndex === index;
             return (
               <div
                 key={index}
                 className="group relative cursor-pointer bg-transparent py-3"
-                onClick={() => toggleGroup(index)} // mobilde tıklanabilir
+                onClick={() => toggleGroup(index)}
               >
                 <h1
                   className={`relative z-10 m-0 text-xl md:text-2xl font-black uppercase leading-[1.1] tracking-[-0.08em] transition-colors duration-300 ease-in-out
