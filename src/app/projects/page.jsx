@@ -24,7 +24,7 @@ export default function ProjectsPage() {
     });
 
   return (
-    <main className="py-6 md:py-8 lg:py-8">
+    <main className="px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
       {/* HERO SECTION */}
       <section>
         <h1 className="pb-16 md:pb-20 lg:pb-24 text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">

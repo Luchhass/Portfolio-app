@@ -1,10 +1,43 @@
 "use client";
+
 import { useState } from "react";
 import { technologyGroups } from "@/data/technologyGroups";
 import Image from "next/image";
 import Link from "next/link";
 import GithubStats from "@/components/GithubStats";
 import ContactBanner from "@/components/ContactBanner";
+
+const accordionItems = [
+  {
+    title: "Section 1",
+    content: ["Content for section 1"],
+    bg: "hsl(200, 80%, 60%)",
+    gradient:
+      "linear-gradient(-90deg, hsl(200, 80%, 60%), hsl(200, 80%, 45%) 2em, hsl(200, 80%, 60%))",
+  },
+  {
+    title: "Section 2",
+    content: ["Content for section 2"],
+    bg: "hsl(280, 60%, 45%)",
+    gradient:
+      "linear-gradient(-90deg, hsl(280, 80%, 60%), hsl(280, 60%, 45%) 2em, hsl(280, 80%, 60%))",
+  },
+  {
+    title: "Section 3",
+    content: ["Content for section 3", "This is my default state."],
+    default: true,
+    bg: "hsl(40, 80%, 40%)",
+    gradient:
+      "linear-gradient(-90deg, hsl(40, 80%, 60%), hsl(40, 80%, 45%) 2em, hsl(40, 80%, 60%))",
+  },
+  {
+    title: "Section 4",
+    content: ["Content for section 4"],
+    bg: "hsl(80, 40%, 40%)",
+    gradient:
+      "linear-gradient(-90deg, hsl(80, 80%, 40%), hsl(80, 80%, 35%) 2em, hsl(80, 80%, 40%))",
+  },
+];
 
 export default function AboutPage() {
   const [activeGroups, setActiveGroups] = useState({});
@@ -17,7 +50,7 @@ export default function AboutPage() {
   };
 
   return (
-    <main>
+    <main className="flex flex-col gap-42 px-8 py-0 md:px-10 lg:px-16">
       {/* HERO SECTION */}
       <section className="h-[calc(100dvh-88px)] md:h-[calc(100dvh-104px)] flex items-center justify-center">
         <div className="relative">
@@ -34,20 +67,18 @@ export default function AboutPage() {
             <div className="flex flex-col items-center gap-2">
               <Link
                 href="/pdf/cv.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md"
+                className="relative overflow-hidden bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md group transition-all duration-300 hover:scale-105 active:scale-95"
               >
-                Check My CV
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+                <span className="relative z-10">Check My CV</span>
               </Link>
 
               <Link
                 href="/projects"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md"
+                className="relative overflow-hidden bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md group transition-all duration-300 hover:scale-105 active:scale-95"
               >
-                See My Work
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+                <span className="relative z-10">See My Work</span>
               </Link>
             </div>
           </div>
@@ -96,103 +127,88 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="flex flex-col gap-32 mb-24">
-        {/* BEHIND SECTION */}
-        <section className="flex flex-col gap-6 md:gap-8 lg:gap-10">
-          <h1 className="text-black dark:text-white text-right text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
-            <span className="mr-22 text-[#f37a35]">the creator</span>
-            <br />
-            behind code
+      {/* BEHIND SECTION */}
+      <section className="flex flex-col gap-6 md:gap-8 lg:gap-10">
+        <h1 className="text-black dark:text-white text-right text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
+          <span className="mr-22 text-[#f37a35]">the creator</span>
+          <br />
+          behind code
+        </h1>
+
+        <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
+          I’m a <span className="font-bold">Frontend Developer</span> and a
+          final-year Web Design student at Istanbul University. Throughout my
+          journey, I’ve had the opportunity to intern at several companies,
+          gaining hands-on experience in building modern and responsive web
+          interfaces. To further enhance my skills, I also completed a Software
+          Specialization course at Nişantaşı University, where I deepened my
+          knowledge of development practices and technologies.
+          <span className="font-bold">
+            Today, I combine creativity with technical expertise to craft
+            seamless digital experiences.
+          </span>
+        </h2>
+      </section>
+
+      {/* GITHUB SECTION */}
+      <section>
+        <GithubStats username="Luchhass" />
+      </section>
+
+      {/* TECHNOLOGIES SECTION */}
+      <section className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-20">
+        <div className="flex-1 flex flex-col gap-6 md:gap-8 lg:gap-10">
+          <h1 className="text-black dark:text-white text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
+            technologies
+            <br />i use
           </h1>
 
           <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
-            I’m a <span className="font-bold">Frontend Developer</span> and a
-            final-year Web Design student at Istanbul University. Throughout my
-            journey, I’ve had the opportunity to intern at several companies,
-            gaining hands-on experience in building modern and responsive web
-            interfaces. To further enhance my skills, I also completed a
-            Software Specialization course at Nişantaşı University, where I
-            deepened my knowledge of development practices and technologies.
+            The right tools for building exceptional digital experiences.{" "}
             <span className="font-bold">
-              Today, I combine creativity with technical expertise to craft
-              seamless digital experiences.
+              From powerful frameworks to modern design systems, these are the
+              technologies that make innovation possible.
             </span>
           </h2>
-        </section>
+        </div>
 
-        {/* GITHUB SECTION */}
-        <section>
-          <GithubStats username="Luchhass" />
-        </section>
+        <div className="flex-1 flex flex-col mt-6 md:mt-8">
+          {technologyGroups.map((group, index) => (
+            <div
+              key={index}
+              className="group relative cursor-pointer bg-transparent py-3"
+            >
+              <h1 className="relative z-10 m-0 text-xl md:text-2xl font-black uppercase leading-[1.1] tracking-[-0.08em] transition-colors duration-300 ease-in-out group-hover:text-[#f37a35]">
+                {group.title}
+              </h1>
 
-        {/* TECHNOLOGIES SECTION */}
-        <section className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-20">
-          <div className="flex-1 flex flex-col gap-6 md:gap-8 lg:gap-10">
-            <h1 className="text-black dark:text-white text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
-              technologies
-              <br />i use
-            </h1>
+              <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#f37a35] transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:translate-y-2" />
 
-            <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
-              The right tools for building exceptional digital experiences.{" "}
-              <span className="font-bold">
-                From powerful frameworks to modern design systems, these are the
-                technologies that make innovation possible.
-              </span>
-            </h2>
-          </div>
-
-          <div className="flex-1 flex flex-col mt-6 md:mt-8">
-            {technologyGroups.map((group, index) => (
-              <div
-                key={index}
-                className="cursor-pointer"
-                onMouseEnter={() => toggleGroup(index)}
-                onMouseLeave={() => toggleGroup(index)}
-              >
-                <div
-                  className={`flex items-center gap-3 py-3 ${
-                    !activeGroups[index] ? "border-b-3 border-[#f37a35]" : ""
-                  }`}
-                >
-                  <span className="text-black dark:text-white text-xl md:text-2xl py-2 font-black uppercase leading-[1.1] tracking-[-0.08em]">
-                    {group.title}
-                  </span>
-                </div>
-
-                {activeGroups[index] && (
-                  <div className="p-4 border-b-3 border-[#f37a35]">
-                    <div className="flex flex-wrap gap-3">
-                      {group.technologies.map((tech, techIndex) => (
-                        <div
-                          key={techIndex}
-                          className="flex items-center gap-2 border border-black/50 dark:border-white/50 rounded-lg px-3 py-2 hover:scale-105 transition-transform"
-                        >
-                          <tech.icon
-                            className="text-lg"
-                            style={{ color: tech.color }}
-                          />
-                          <span
-                            className="text-sm font-medium"
-                            style={{ color: tech.color }}
-                          >
-                            {tech.name}
-                          </span>
-                        </div>
-                      ))}
+              <div className="h-0 overflow-hidden transition-[height] duration-500 ease-in-out group-hover:h-28 mt-2">
+                <div className="flex flex-wrap gap-4">
+                  {group.technologies.map((tech, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-3 rounded-lg px-4 py-2 shadow-md hover:shadow-lg transform hover:scale-[1.05] transition-transform duration-300 cursor-pointer bg-white dark:bg-[#1f1f1f] dark:shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
+                      style={{ color: tech.color }}
+                    >
+                      <tech.icon className="text-2xl" />
+                      <span className="font-semibold text-gray-900 dark:text-gray-200">
+                        {tech.name}
+                      </span>
                     </div>
-                  </div>
-                )}
+                  ))}
+                </div>
               </div>
-            ))}
-          </div>
-        </section>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        {/* CONTACT REDIRECT SECTION */}
-        <section>
-          <ContactBanner />
-        </section>
-      </div>
+      {/* CONTACT REDIRECT SECTION */}
+      <section className="mb-42">
+        <ContactBanner />
+      </section>
     </main>
   );
 }

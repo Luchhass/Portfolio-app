@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
         <PageIntroAnimation />
         <Header />
 
-        <div className="px-8 py-0 md:px-10 lg:px-16 ">{children}</div>
+        <div>{children}</div>
 
         <Footer />
       </body>

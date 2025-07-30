@@ -14,7 +14,7 @@ export default function Footer() {
           {socialLinks.map(({ href, label, icon: Icon }) => (
             <li
               key={label}
-              className="social-item relative p-2 border border-white rounded-full group"
+              className="relative p-2 border border-white rounded-full group"
             >
               <div className="absolute inset-0 bg-black rounded-full scale-0 group-hover:scale-150 transition-all duration-500 ease-out"></div>
 
@@ -73,7 +73,7 @@ export default function Footer() {
             {socialLinks.map(({ href, label, icon: Icon }) => (
               <li
                 key={label}
-                className="social-item relative p-2 border border-white rounded-full group"
+                className="relative p-2 border border-white rounded-full group"
               >
                 <div className="absolute inset-0 bg-black rounded-full scale-0 group-hover:scale-150 transition-all duration-500 ease-out"></div>
 

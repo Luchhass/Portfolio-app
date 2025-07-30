@@ -75,12 +75,13 @@ export default function ProjectHighlights() {
       </div>
 
       {/* PROJECTS REDIRECT BUTTON */}
-      <div className="text-center">
+      <div className="flex flex-col items-center">
         <Link
-          href="/projects"
-          className="bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md"
+          href="/contact"
+          className="relative overflow-hidden bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md group transition-all duration-300 hover:scale-105 active:scale-95"
         >
-          view all projects
+          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+          <span className="relative z-10">view all projects</span>
         </Link>
       </div>
     </div>
