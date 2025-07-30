@@ -1,7 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FaCodeBranch, FaCode, FaUser, FaSpinner, FaLanguage } from "react-icons/fa";
+import {
+  FaCodeBranch,
+  FaCode,
+  FaUser,
+  FaSpinner,
+  FaLanguage,
+} from "react-icons/fa";
 import { MdError } from "react-icons/md";
 
 const LoadingState = ({ username }) => (
@@ -79,6 +85,14 @@ const ErrorState = ({ error }) => (
 );
 
 export default function GithubStats({ username = "octocat" }) {
+  const [openIndexes, setOpenIndexes] = useState([]);
+
+  const toggleGroup = (index) => {
+    setOpenIndexes((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+    );
+  };
+
   const [stats, setStats] = useState({
     repoCount: null,
     commitCount: null,
@@ -185,52 +199,74 @@ export default function GithubStats({ username = "octocat" }) {
       </div>
 
       <div className="flex-1 flex flex-col mt-6 md:mt-8">
-        {statGroups.map((group, index) => (
-          <div
-            key={index}
-            className="group relative cursor-pointer bg-transparent py-3"
-          >
-            <h1 className="relative z-10 m-0 text-xl md:text-2xl font-black uppercase leading-[1.1] tracking-[-0.08em] transition-colors duration-300 ease-in-out group-hover:text-[#f37a35]">
-              {group.title}
-            </h1>
+        {statGroups.map((group, index) => {
+          const isOpen = openIndexes.includes(index);
+          return (
+            <div
+              key={index}
+              className="group relative cursor-pointer bg-transparent py-3"
+              onClick={() => toggleGroup(index)}
+            >
+              <h1
+                className={`relative z-10 m-0 text-xl md:text-2xl font-black uppercase leading-[1.1] tracking-[-0.08em] transition-colors duration-300 ease-in-out
+              ${isOpen ? "text-[#f37a35]" : "group-hover:text-[#f37a35]"}`}
+              >
+                {group.title}
+              </h1>
 
-            <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#f37a35] transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:translate-y-2" />
+              <span
+                className={`absolute bottom-0 left-0 w-full h-[3px] bg-[#f37a35] transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]
+              ${isOpen ? "translate-y-2" : "group-hover:translate-y-2"}`}
+              />
 
-            <div className="h-0 overflow-hidden transition-[height] duration-500 ease-in-out group-hover:h-32 mt-2">
-              <div className="pt-4">
-                <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-[#1f1f1f] dark:shadow-[0_4px_12px_rgba(0,0,0,0.4)] p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div
+                className={`overflow-hidden transition-[height] duration-500 ease-in-out mt-2
+              ${isOpen ? "h-32" : "h-0 group-hover:h-32"}`}
+              >
+                <div className="pt-4">
+                  <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-[#1f1f1f] dark:shadow-[0_4px_12px_rgba(0,0,0,0.4)] p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div
+                      className={`absolute inset-0 transition-opacity duration-500
+                    ${
+                      isOpen
+                        ? "opacity-100"
+                        : "opacity-0 group-hover:opacity-100"
+                    }`}
+                    />
 
-                  <div className="relative z-10 flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                      <div
-                        className={`flex h-12 w-12 items-center justify-center rounded-xl ${group.bgColor} shadow-lg`}
-                      >
-                        <group.icon className={`h-6 w-6 ${group.iconColor}`} />
+                    <div className="relative z-10 flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <div
+                          className={`flex h-12 w-12 items-center justify-center rounded-xl ${group.bgColor} shadow-lg`}
+                        >
+                          <group.icon
+                            className={`h-6 w-6 ${group.iconColor}`}
+                          />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-sm font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+                            {group.label}
+                          </span>
+                          <span className="text-3xl font-black text-gray-900 dark:text-gray-100 tracking-tight">
+                            {group.value !== null
+                              ? typeof group.value === "number"
+                                ? group.value.toLocaleString()
+                                : group.value
+                              : "---"}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex flex-col">
-                        <span className="text-sm font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wide">
-                          {group.label}
-                        </span>
-                        <span className="text-3xl font-black text-gray-900 dark:text-gray-100 tracking-tight">
-                          {group.value !== null
-                            ? typeof group.value === "number"
-                              ? group.value.toLocaleString()
-                              : group.value
-                            : "---"}
-                        </span>
-                      </div>
-                    </div>
 
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#f37a35]/10 dark:bg-[#f37a35]/20">
-                      <div className="h-2 w-2 rounded-full bg-[#f37a35] animate-pulse" />
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#f37a35]/10 dark:bg-[#f37a35]/20">
+                        <div className="h-2 w-2 rounded-full bg-[#f37a35] animate-pulse" />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

@@ -1,10 +1,21 @@
+"use client";
+
 import { technologyGroups } from "@/data/technologyGroups";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import GithubStats from "@/components/GithubStats";
 import ContactBanner from "@/components/ContactBanner";
 
 export default function AboutPage() {
+  const [openIndexes, setOpenIndexes] = useState([]);
+
+  const toggleGroup = (index) => {
+    setOpenIndexes((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+    );
+  };
+
   return (
     <main className="flex flex-col gap-42 px-8 py-0 md:px-10 lg:px-16">
       <section className="h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] flex items-center justify-center">
@@ -126,35 +137,48 @@ export default function AboutPage() {
         </div>
 
         <div className="flex-1 flex flex-col mt-6 md:mt-8">
-          {technologyGroups.map((group, index) => (
-            <div
-              key={index}
-              className="group relative cursor-pointer bg-transparent py-3"
-            >
-              <h1 className="relative z-10 m-0 text-xl md:text-2xl font-black uppercase leading-[1.1] tracking-[-0.08em] transition-colors duration-300 ease-in-out group-hover:text-[#f37a35]">
-                {group.title}
-              </h1>
+          {technologyGroups.map((group, index) => {
+            const isOpen = openIndexes.includes(index);
+            return (
+              <div
+                key={index}
+                className="group relative cursor-pointer bg-transparent py-3"
+                onClick={() => toggleGroup(index)} // mobilde tıklanabilir
+              >
+                <h1
+                  className={`relative z-10 m-0 text-xl md:text-2xl font-black uppercase leading-[1.1] tracking-[-0.08em] transition-colors duration-300 ease-in-out
+              ${isOpen ? "text-[#f37a35]" : "group-hover:text-[#f37a35]"}`}
+                >
+                  {group.title}
+                </h1>
 
-              <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#f37a35] transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:translate-y-2" />
+                <span
+                  className={`absolute bottom-0 left-0 w-full h-[3px] bg-[#f37a35] transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]
+              ${isOpen ? "translate-y-2" : "group-hover:translate-y-2"}`}
+                />
 
-              <div className="h-0 overflow-hidden transition-[height] duration-500 ease-in-out group-hover:h-28 mt-2">
-                <div className="flex flex-wrap gap-4">
-                  {group.technologies.map((tech, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-3 rounded-lg px-4 py-2 shadow-md hover:shadow-lg transform hover:scale-[1.05] transition-transform duration-300 cursor-pointer bg-white dark:bg-[#1f1f1f] dark:shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
-                      style={{ color: tech.color }}
-                    >
-                      <tech.icon className="text-2xl" />
-                      <span className="font-semibold text-gray-900 dark:text-gray-200">
-                        {tech.name}
-                      </span>
-                    </div>
-                  ))}
+                <div
+                  className={`overflow-hidden transition-[height] duration-500 ease-in-out mt-2
+              ${isOpen ? "h-28" : "h-0 group-hover:h-28"}`}
+                >
+                  <div className="flex flex-wrap gap-4">
+                    {group.technologies.map((tech, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-3 rounded-lg px-4 py-2 shadow-md hover:shadow-lg transform hover:scale-[1.05] transition-transform duration-300 cursor-pointer bg-white dark:bg-[#1f1f1f] dark:shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
+                        style={{ color: tech.color }}
+                      >
+                        <tech.icon className="text-2xl" />
+                        <span className="font-semibold text-gray-900 dark:text-gray-200">
+                          {tech.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
