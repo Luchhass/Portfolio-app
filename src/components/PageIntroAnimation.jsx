@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import Lottie from "lottie-react";
 import welcomeText from "/public/animations/welcomeText.json";
-import { usePathname } from "next/navigation";
 
 export default function PageIntroAnimation() {
   const lottieRef = useRef();

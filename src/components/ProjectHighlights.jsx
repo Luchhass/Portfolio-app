@@ -17,14 +17,15 @@ export default function ProjectHighlights() {
 
   return (
     <div className="flex flex-col gap-20 py-16 md:py-24 lg:py-32">
-      <div className="flex flex-col gap-8">
+      {/* Projects Texts */}
+      <div className="flex flex-col gap-6 md:gap-8 lg:gap-10">
         <p className="text-sm md:text-base uppercase text-[#f37a35]">
           PROJECT
           <br />
           HIGHLIGHTS
         </p>
 
-        <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
           Enjoy some of our best work{" "}
           <span className="font-bold">
             in web design, e-commerce, branding & digital marketing.
@@ -32,7 +33,8 @@ export default function ProjectHighlights() {
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-14">
+      {/* Projects */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14 lg:gap-18">
         {highlightedProjects.map((project) => (
           <a
             key={project.id}
@@ -72,6 +74,7 @@ export default function ProjectHighlights() {
         ))}
       </div>
 
+      {/* Redirect Button */}
       <div className="flex flex-col items-center">
         <Link
           href="/contact"

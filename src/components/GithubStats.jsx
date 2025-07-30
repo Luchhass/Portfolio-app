@@ -178,7 +178,7 @@ export default function GithubStats({ username = "octocat" }) {
             statistics
           </h1>
 
-          <div className="mt-4 flex items-center gap-1">
+          <div className="flex items-center gap-1">
             <FaUser className="h-4 w-4 text-black/50 dark:text-white/50" />
             <p className="text-lg text-black/50 dark:text-white/50">
               @{username}

@@ -1,14 +1,17 @@
-import Link from "next/link";
 import { socialLinks, navLinks, contactInfo } from "@/data/navigation";
+import Link from "next/link";
 
 export default function Footer() {
   return (
     <footer className="bg-[#f37a35] h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] flex flex-col justify-between relative overflow-hidden px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
+      {/* Mobile Layout */}
       <div className="lg:hidden flex flex-col justify-between h-full">
-        <h1 className="text-white max-w-[350px] md:max-w-[450px] font-black uppercase text-4xl md:text-5xl font-sans mb-8 leading-[1] md:leading-[0.9] tracking-[-0.05em]">
+        {/* Title */}
+        <h1 className="text-white max-w-[350px] md:max-w-[450px] font-black uppercase text-4xl md:text-5xl font-sans leading-[1] md:leading-[0.9] tracking-[-0.05em]">
           designing with purpose and passion.
         </h1>
 
+        {/* Social Navigation */}
         <ul className="flex items-center gap-5">
           {socialLinks.map(({ href, label, icon: Icon }) => (
             <li
@@ -33,6 +36,7 @@ export default function Footer() {
           ))}
         </ul>
 
+        {/* Navigation */}
         <nav aria-label="Footer navigation">
           <ul className="flex flex-col gap-1 text-white font-black uppercase text-2xl md:text-3xl font-sans leading-[1.2] md:leading-[1.4] tracking-[-0.05em]">
             {navLinks.map(({ href, label }) => (
@@ -48,6 +52,7 @@ export default function Footer() {
           </ul>
         </nav>
 
+        {/* Contact Details */}
         <div className="flex flex-col gap-1 text-white tracking-widest font-sans">
           <a
             href={`mailto:${contactInfo.email}`}
@@ -64,9 +69,12 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Desktop Layout */}
       <div className="hidden lg:flex flex-col h-full">
+        {/* Logo / Social Links */}
         <div className="flex justify-between items-center mb-auto">
           <div className="text-white font-bold text-2xl">Furkan Cosar</div>
+
           <ul className="flex items-center gap-5">
             {socialLinks.map(({ href, label, icon: Icon }) => (
               <li
@@ -92,6 +100,7 @@ export default function Footer() {
           </ul>
         </div>
 
+        {/* Title / Navigation */}
         <div className="flex justify-between items-center flex-1">
           <div className="flex-1">
             <h1 className="text-white max-w-2xl lg:max-w-[680px] font-black uppercase text-7xl font-sans lg:leading-[0.9] tracking-[-0.05em]">
@@ -115,6 +124,7 @@ export default function Footer() {
           </nav>
         </div>
 
+        {/* Contact Details */}
         <div className="flex justify-between items-end">
           <div className="flex gap-8 text-white font-medium text-lg tracking-wide ml-auto">
             <a

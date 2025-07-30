@@ -122,6 +122,7 @@ export default function Header() {
 
   return (
     <>
+      {/* Header */}
       <header
         className={`fixed top-0 left-0 w-full z-40 flex items-center justify-between px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 bg-white dark:bg-black border-b-2 ${
           isMenuOpen
@@ -129,10 +130,12 @@ export default function Header() {
             : "border-gray-200 dark:border-zinc-900"
         }`}
       >
+        {/* Logo */}
         <div className="text-xl md:text-2xl lg:text-3xl font-bold text-black dark:text-white">
           Furkan Cosar
         </div>
 
+        {/* Hamburger Menu Button */}
         <button
           ref={hamburgerRef}
           onClick={() => setIsMenuOpen((prev) => !prev)}
@@ -147,9 +150,11 @@ export default function Header() {
         </button>
       </header>
 
+      {/* Hamburger Menu */}
       <div className="mobile-menu -translate-y-full flex flex-col justify-between fixed w-full h-[calc(100dvh-90px)] md:h-[calc(100dvh-105px)] z-30 bg-white dark:bg-black px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 pointer-events-auto">
         <div></div>
 
+        {/* Navigation */}
         <nav aria-label="navigation">
           <ul className="flex flex-col gap-1 text-6xl md:text-7xl lg:text-8xl font-black uppercase leading-[1] md:leading-[0.9] lg:leading-[0.8] tracking-[-0.09em]">
             {navLinks.map(({ href, label }) => (
@@ -169,6 +174,7 @@ export default function Header() {
         <div></div>
 
         <div className="mt-8 flex flex-col gap-4 md:flex-row justify-between">
+          {/* Contact Details */}
           <div className="flex gap-2 md:flex-col text-sm md:text-base text-black dark:text-white">
             <a
               href={`mailto:${contactInfo.email}`}
@@ -185,6 +191,7 @@ export default function Header() {
             </a>
           </div>
 
+          {/* Social Navigation */}
           <ul className="flex items-center gap-5">
             {socialLinks.map(({ href, label, icon: Icon }) => (
               <li

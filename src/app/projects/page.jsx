@@ -25,14 +25,28 @@ export default function ProjectsPage() {
 
   return (
     <main className="px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
-      <section>
-        <h1 className="pb-16 md:pb-20 lg:pb-24 text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
-          explore
+      {/* Projects Paragraph Section */}
+      <section className="flex flex-col gap-6 md:gap-8 lg:gap-10">
+        <h1 className="text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em] text-black dark:text-white">
+          what I’ve
           <br />
-          our creations
+          been building
         </h1>
 
-        <div className="flex justify-between :items-center pb-4 md:pb-6 lg:pb-8 items-center">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
+          Each project here reflects my approach to design, code, and
+          problem-solving.{" "}
+          <span className="font-bold">
+            From concept to execution, every detail has been carefully
+            considered and built with intent.
+          </span>
+        </h2>
+      </section>
+
+      {/* Projects Section */}
+      <section className="flex flex-col gap-10 md:gap-14 lg:gap-18 mt-32">
+        {/* Projects Navigation */}
+        <div className="flex justify-between :items-center items-center">
           <nav className="flex-1 text-center md:text-left">
             <ul className="inline-flex flex-wrap gap-x-4 gap-y-2 md:gap-8 lg:gap-10">
               {categories.map((category) => (
@@ -95,98 +109,105 @@ export default function ProjectsPage() {
             ))}
           </div>
         </div>
+
+        {/* Projects Lists */}
+        <div>
+          {viewMode === "grid" ? (
+            // Grid View
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14 lg:gap-18">
+              {filteredDeployments.map((deployment) => (
+                <a
+                  key={deployment.id}
+                  href={deployment.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
+                >
+                  <div className="relative mb-6 overflow-hidden rounded-4xl bg-black/50 dark:bg-white/50 transition duration-300 group-hover:scale-[1.01]">
+                    <Image
+                      src={deployment.screenshot}
+                      alt={deployment.name}
+                      width={1920}
+                      height={879}
+                      quality={90}
+                      priority
+                      className="w-full aspect-square object-cover"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <p className="text-[#f37a35] uppercase text-sm md:text-base">
+                      {formatDate(deployment.date)}
+                    </p>
+
+                    <h2 className="text-4xl uppercase md:text-5xl lg:text-4xl font-black leading-[1.1] tracking-[-0.08em]">
+                      {deployment.name}
+                    </h2>
+
+                    <div className="my-3 w-15 h-px bg-black/50 dark:bg-white/50" />
+
+                    <div className="text-sm text-black/50 dark:text-white/50">
+                      {deployment.technologies.join(" • ")}
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          ) : (
+            // List View
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+              {filteredDeployments.map((deployment) => (
+                <a
+                  key={deployment.id}
+                  href={deployment.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex gap-6 md:gap-8 group"
+                >
+                  <div className="flex-shrink-0 w-32 sm:w-40 md:w-48 lg:w-56 overflow-hidden rounded-2xl bg-black/50 dark:bg-white/50 transition duration-300 group-hover:scale-[1.02] relative">
+                    <Image
+                      src={deployment.screenshot}
+                      alt={deployment.name}
+                      width={700}
+                      height={700}
+                      className="w-full aspect-square sm:h-28 md:h-32 lg:h-36 object-cover"
+                    />
+                  </div>
+
+                  <div className="flex-1 space-y-3">
+                    <p className="text-[#f37a35] uppercase text-sm md:text-base">
+                      {formatDate(deployment.date)}
+                    </p>
+
+                    <h2 className="text-xl uppercase sm:text-2xl md:text-3xl font-black leading-[1.1] tracking-[-0.08em]">
+                      {deployment.name}
+                    </h2>
+
+                    <div className="w-12 h-px bg-black/50 dark:bg-white/50" />
+
+                    <div className="text-sm text-black/50 dark:text-white/50">
+                      {deployment.technologies.join(" • ")}
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Empty Projects Container */}
+        <div>
+          {filteredDeployments.length === 0 && (
+            <div className="py-20 text-center">
+              <p className="text-lg text-black/50 dark:text-white/50">
+                No projects found in this category.
+              </p>
+            </div>
+          )}
+        </div>
       </section>
 
-      <section>
-        {viewMode === "grid" ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-14">
-            {filteredDeployments.map((deployment) => (
-              <a
-                key={deployment.id}
-                href={deployment.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group"
-              >
-                <div className="relative mb-6 overflow-hidden rounded-4xl bg-black/50 dark:bg-white/50 transition duration-300 group-hover:scale-[1.01]">
-                  <Image
-                    src={deployment.screenshot}
-                    alt={deployment.name}
-                    width={1920}
-                    height={879}
-                    quality={90}
-                    priority
-                    className="w-full aspect-square object-cover"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <p className="text-[#f37a35] uppercase text-sm md:text-base">
-                    {formatDate(deployment.date)}
-                  </p>
-
-                  <h2 className="text-4xl uppercase md:text-5xl lg:text-4xl font-black leading-[1.1] tracking-[-0.08em]">
-                    {deployment.name}
-                  </h2>
-
-                  <div className="my-3 w-15 h-px bg-black/50 dark:bg-white/50" />
-
-                  <div className="text-sm text-black/50 dark:text-white/50">
-                    {deployment.technologies.join(" • ")}
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-            {filteredDeployments.map((deployment) => (
-              <a
-                key={deployment.id}
-                href={deployment.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex gap-6 md:gap-8 group"
-              >
-                <div className="flex-shrink-0 w-32 sm:w-40 md:w-48 lg:w-56 overflow-hidden rounded-2xl bg-black/50 dark:bg-white/50 transition duration-300 group-hover:scale-[1.02] relative">
-                  <Image
-                    src={deployment.screenshot}
-                    alt={deployment.name}
-                    width={700}
-                    height={700}
-                    className="w-full aspect-square sm:h-28 md:h-32 lg:h-36 object-cover"
-                  />
-                </div>
-
-                <div className="flex-1 space-y-3">
-                  <p className="text-[#f37a35] uppercase text-sm md:text-base">
-                    {formatDate(deployment.date)}
-                  </p>
-
-                  <h2 className="text-xl uppercase sm:text-2xl md:text-3xl font-black leading-[1.1] tracking-[-0.08em]">
-                    {deployment.name}
-                  </h2>
-
-                  <div className="w-12 h-px bg-black/50 dark:bg-white/50" />
-
-                  <div className="text-sm text-black/50 dark:text-white/50">
-                    {deployment.technologies.join(" • ")}
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        )}
-
-        {filteredDeployments.length === 0 && (
-          <div className="py-20 text-center">
-            <p className="text-lg text-black/50 dark:text-white/50">
-              No projects found in this category.
-            </p>
-          </div>
-        )}
-      </section>
-
+      {/* Contact Us Section */}
       <section>
         <ContactBanner />
       </section>

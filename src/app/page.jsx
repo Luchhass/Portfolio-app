@@ -6,8 +6,9 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main>
-      <section className="h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] px-8 py-0 md:px-10 lg:px-16">
-        <div className="relative w-full h-full flex items-center justify-center py-6 md:py-8 lg:py-8">
+      {/* Home Page Hero Section */}
+      <section className="h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
+        <div className="relative w-full h-full flex items-center justify-center">
           <div className="relative w-screen h-[calc(100%-4rem)] lg:w-[600px] rounded-3xl overflow-hidden shadow-2xl">
             <video
               className="w-full h-full object-cover"
@@ -43,15 +44,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Welcome Band Section */}
       <section>
         <WelcomeBand />
       </section>
 
+      {/* Projects Highlights Section */}
       <section className="px-8 py-0 md:px-10 lg:px-16">
         <ProjectHighlights />
       </section>
 
-      <section className="px-8 py-0 md:px-10 lg:px-16">
+      {/* Contact Us Section */}
+      <section>
         <ContactBanner />
       </section>
     </main>
