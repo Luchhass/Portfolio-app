@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function ContactPage() {
   return (
-    <main className="flex flex-col gap-18 lg:flex-row lg:items-center lg:justify-center lg:min-h-[calc(100dvh-104px)] px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
+    <main className="flex flex-col gap-18 lg:flex-row lg:items-center lg:justify-center lg:min-h-[calc(100dvh-106px)] px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
       {/* HERO SECTION */}
       <section className="flex-1 relative flex justify-center py-10 m-auto lg:m-0">
         <div className="ml-32 z-0">

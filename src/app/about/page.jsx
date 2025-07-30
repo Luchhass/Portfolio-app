@@ -52,7 +52,7 @@ export default function AboutPage() {
   return (
     <main className="flex flex-col gap-42 px-8 py-0 md:px-10 lg:px-16">
       {/* HERO SECTION */}
-      <section className="h-[calc(100dvh-88px)] md:h-[calc(100dvh-104px)] flex items-center justify-center">
+      <section className="h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] flex items-center justify-center">
         <div className="relative">
           <div className="text-center relative z-10">
             <h1 className="text-black dark:text-white font-black text-7xl md:text-8xl lg:text-9xl leading-[0.85] tracking-[-0.08em]">
