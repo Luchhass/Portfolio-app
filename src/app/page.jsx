@@ -44,7 +44,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WELCOME */}
+      {/* WELCOME SECTION*/}
       <section>
         <WelcomeBand />
       </section>
