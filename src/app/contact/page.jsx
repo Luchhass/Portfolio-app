@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function ContactPage() {
   return (
-    <main className="flex flex-col lg:flex-row lg:items-center lg:justify-center lg:min-h-[calc(100dvh-106px)] px-8 md:px-10 lg:px-16">
+    <main className="flex flex-col lg:flex-row lg:gap-22 lg:items-center lg:justify-between m-auto px-8 max-w-[600px] md:px-10 md:max-w-[850px] lg:px-16 lg:max-w-[1200px]">
       {/* Contact Page Hero Section */}
       <section className="flex-1 relative flex justify-center m-auto lg:m-0 my-32 md:my-42 lg:my-52">
         <div className="relative -top-10 ml-32 z-0">
@@ -25,8 +25,8 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Page Form Section */}
-      <section className="flex-1 flex flex-col gap-6 md:gap-8 lg:gap-10">
-        <div className="flex flex-col gap-4 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
+      <section className="flex-1 flex flex-col gap-6 md:gap-8 lg:gap-10 lg:mt-8">
+        <div className="flex flex-col gap-4 text-xl md:text-xl lg:text-2xl font-extralight leading-[1.1] text-black dark:text-white">
           <h2>
             I bring your ideas to life with clean, efficient, and modern
             frontend solutions.

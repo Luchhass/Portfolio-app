@@ -102,7 +102,7 @@ export default function AboutPage() {
       </section>
 
       {/* About Me Section */}
-      <section className="flex flex-col gap-32 px-8 md:px-10 lg:px-16">
+      <section className="flex flex-col gap-32 m-auto px-8 max-w-[600px] md:px-10 md:max-w-[850px] lg:px-16 lg:max-w-[1200px]">
         {/* The Creator Paragraph */}
         <div className="flex flex-col gap-6 md:gap-8 lg:gap-10">
           <h1 className="text-black dark:text-white text-right text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">

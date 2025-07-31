@@ -26,7 +26,7 @@ export default function ProjectsPage() {
   return (
     <main className="px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
       {/* Projects Paragraph Section */}
-      <section className="flex flex-col gap-6 md:gap-8 lg:gap-10">
+      <section className="flex flex-col gap-6 md:gap-8 lg:gap-10 m-auto max-w-[600px] md:max-w-[850px] lg:max-w-[1200px]">
         <h1 className="text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em] text-black dark:text-white">
           what I’ve
           <br />
@@ -44,7 +44,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects Section */}
-      <section className="flex flex-col gap-10 md:gap-14 lg:gap-18 mt-32">
+      <section className="flex flex-col gap-10 md:gap-14 lg:gap-18 mt-32 m-auto max-w-[600px] md:max-w-[850px] lg:max-w-[1200px]">
         {/* Projects Navigation */}
         <div className="flex justify-between :items-center items-center">
           <nav className="flex-1 text-center md:text-left">
@@ -124,6 +124,7 @@ export default function ProjectsPage() {
                   className="block group"
                 >
                   <div className="relative mb-6 overflow-hidden rounded-4xl bg-black/50 dark:bg-white/50 transition duration-300 group-hover:scale-[1.01]">
+                    <div className="absolute inset-0 z-10 pointer-events-none rounded-4xl shadow-[inset_0_0_20px_rgba(0,0,0,0.15)]"></div>
                     <Image
                       src={deployment.screenshot}
                       alt={deployment.name}

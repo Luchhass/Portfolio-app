@@ -50,7 +50,7 @@ export default function Home() {
       </section>
 
       {/* Projects Highlights Section */}
-      <section className="px-8 py-0 md:px-10 lg:px-16">
+      <section className="m-auto px-8 max-w-[600px] md:px-10 md:max-w-[850px] lg:px-16 lg:max-w-[1200px]">
         <ProjectHighlights />
       </section>
 

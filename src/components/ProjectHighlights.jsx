@@ -44,6 +44,7 @@ export default function ProjectHighlights() {
             className="group block"
           >
             <div className="relative mb-6 overflow-hidden rounded-4xl bg-black/30 transition-transform duration-300 group-hover:scale-[1.01]">
+              <div className="absolute inset-0 z-10 pointer-events-none rounded-4xl shadow-[inset_0_0_20px_rgba(0,0,0,0.15)]"></div>
               <Image
                 src={project.screenshot}
                 alt={project.name}

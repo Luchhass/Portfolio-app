@@ -94,7 +94,7 @@ export default function ContactForm() {
   return (
     <div
       onSubmit={handleSubmit}
-      className="flex flex-col space-y-4 py-12 md:py-16 lg:py-20"
+      className="flex flex-col space-y-4 mb-6 md:mb-8 lg:mb-10"
     >
       {/* Form Inputs */}
       <div className="flex flex-col space-y-4">
