@@ -1,6 +1,6 @@
 import ContactBanner from "@/components/ContactBanner";
 import ProjectHighlights from "@/components/ProjectHighlights";
-import WelcomeBand from "@/components/WelcomeBand";
+import ScrollTextBand from "@/components/ScrollTextBand";
 import Link from "next/link";
 
 export default function Home() {
@@ -46,7 +46,7 @@ export default function Home() {
 
       {/* Welcome Band Section */}
       <section>
-        <WelcomeBand />
+        <ScrollTextBand text="WELCOME" repeat={7} />
       </section>
 
       {/* Projects Highlights Section */}

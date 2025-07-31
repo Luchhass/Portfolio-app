@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import GithubStats from "@/components/GithubStats";
 import ContactBanner from "@/components/ContactBanner";
+import ScrollTextBand from "@/components/ScrollTextBand";
 
 export default function AboutPage() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -93,6 +94,11 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Band Section */}
+      <section>
+        <ScrollTextBand text="FURKAN" repeat={7} />
       </section>
 
       {/* About Me Section */}
