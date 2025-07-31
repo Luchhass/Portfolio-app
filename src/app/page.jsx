@@ -46,7 +46,7 @@ export default function Home() {
 
       {/* Welcome Band Section */}
       <section>
-        <ScrollTextBand text="WELCOME" repeat={7} />
+        {/* <ScrollTextBand text="WELCOME" repeat={7} /> */}
       </section>
 
       {/* Projects Highlights Section */}

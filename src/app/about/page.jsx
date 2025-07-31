@@ -98,7 +98,7 @@ export default function AboutPage() {
 
       {/* Band Section */}
       <section>
-        <ScrollTextBand text="FURKAN" repeat={7} />
+        {/* <ScrollTextBand text="FURKAN" repeat={7} /> */}
       </section>
 
       {/* About Me Section */}
