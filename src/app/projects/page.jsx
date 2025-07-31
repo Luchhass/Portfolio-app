@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import deployments from "@/data/deployments.js";
-import ContactBanner from "@/components/ContactBanner";
+import ContactCTA from "@/components/ContactCTA";
 
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -207,9 +207,9 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* Contact Us Section */}
+      {/* Contact CTA Section */}
       <section>
-        <ContactBanner />
+        <ContactCTA />
       </section>
     </main>
   );

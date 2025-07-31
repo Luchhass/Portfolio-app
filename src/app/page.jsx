@@ -1,4 +1,4 @@
-import ContactBanner from "@/components/ContactBanner";
+import ContactCTA from "@/components/ContactCTA";
 import ProjectHighlights from "@/components/ProjectHighlights";
 import ScrollTextBand from "@/components/ScrollTextBand";
 import Link from "next/link";
@@ -54,9 +54,9 @@ export default function Home() {
         <ProjectHighlights />
       </section>
 
-      {/* Contact Us Section */}
+      {/* Contact CTA Section */}
       <section>
-        <ContactBanner />
+        <ContactCTA />
       </section>
     </main>
   );

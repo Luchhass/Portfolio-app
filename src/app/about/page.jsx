@@ -5,8 +5,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import GithubStats from "@/components/GithubStats";
-import ContactBanner from "@/components/ContactBanner";
 import ScrollTextBand from "@/components/ScrollTextBand";
+import ContactCTA from "@/components/ContactCTA";
 
 export default function AboutPage() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -16,9 +16,9 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="flex flex-col px-8 md:px-10 lg:px-16">
+    <main className="flex flex-col">
       {/* About Page Hero Section */}
-      <section className="h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] flex items-center justify-center">
+      <section className="h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] flex items-center justify-center px-8 md:px-10 lg:px-16">
         <div className="relative">
           {/* About Hero Texts */}
           <div className="flex flex-col gap-6 text-center relative z-10">
@@ -102,7 +102,7 @@ export default function AboutPage() {
       </section>
 
       {/* About Me Section */}
-      <section className="flex flex-col gap-32">
+      <section className="flex flex-col gap-32 px-8 md:px-10 lg:px-16">
         {/* The Creator Paragraph */}
         <div className="flex flex-col gap-6 md:gap-8 lg:gap-10">
           <h1 className="text-black dark:text-white text-right text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
@@ -197,9 +197,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Contact Us Section */}
+      {/* Contact CTA Section */}
       <section>
-        <ContactBanner />
+        <ContactCTA />
       </section>
     </main>
   );
