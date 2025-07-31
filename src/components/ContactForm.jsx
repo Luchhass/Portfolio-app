@@ -16,6 +16,7 @@ export default function ContactForm() {
     type: "",
     text: "",
   });
+  const [isExiting, setIsExiting] = useState(false);
 
   const handleChange = useCallback((e) => {
     setFormData((prev) => ({
@@ -60,12 +61,19 @@ export default function ContactForm() {
     }
   };
 
+  const closeModal = () => {
+    setIsExiting(true);
+    setTimeout(() => {
+      setResponseMessage({ type: "", text: "" });
+      setIsExiting(false);
+    }, 300);
+  };
+
   useEffect(() => {
     if (responseMessage.text) {
-      const timer = setTimeout(
-        () => setResponseMessage({ type: "", text: "" }),
-        5000
-      );
+      const timer = setTimeout(() => {
+        closeModal();
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, [responseMessage.text]);
@@ -76,7 +84,7 @@ export default function ContactForm() {
   );
 
   return (
-    <form
+    <div
       onSubmit={handleSubmit}
       className="flex flex-col space-y-4 py-12 md:py-16 lg:py-20"
     >
@@ -155,6 +163,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isLoading}
+          onClick={handleSubmit}
           className={`relative overflow-hidden bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md group transition-all duration-300 hover:scale-105 active:scale-95 ${
             isLoading ? "" : ""
           }`}
@@ -165,16 +174,135 @@ export default function ContactForm() {
           </span>
         </button>
 
-        {messageText && (
+        {responseMessage.text && (
           <div
-            className={`text-sm md:text-base ${
-              responseMessage.type === "success" ? "" : ""
+            className={`fixed inset-0 flex items-center justify-center z-50 bg-black/80 backdrop-blur-sm transition-all duration-300 ease-out ${
+              isExiting ? "opacity-0" : "opacity-100"
             }`}
+            style={{
+              animation: isExiting ? "none" : "fadeIn 0.3s ease-out",
+            }}
           >
-            {messageText}
+            <div
+              className={`max-w-md w-full mx-4 rounded-2xl overflow-hidden shadow-2xl bg-[#0A0A0A] transform transition-all duration-300 ease-out ${
+                isExiting
+                  ? "scale-90 opacity-0 -translate-y-4"
+                  : "scale-100 opacity-100 translate-y-0"
+              }`}
+              style={{
+                animationFillMode: "forwards",
+                animation: isExiting ? "none" : "modalShow 0.3s ease-out",
+              }}
+            >
+              <div className="relative bg-[#f37a35] py-6 px-6">
+                <div className="flex justify-start items-center">
+                  <div className="flex items-center space-x-3">
+                    <div
+                      className={`${
+                        responseMessage.type === "success"
+                          ? "bg-green-500"
+                          : "bg-red-500"
+                      } rounded-full w-10 h-10 flex items-center justify-center shadow-lg`}
+                    >
+                      {responseMessage.type === "success" ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-6 w-6 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-6 w-6 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      )}
+                    </div>
+                    <h2 className="text-xl font-bold text-white">
+                      {responseMessage.type === "success"
+                        ? "Message Sent!"
+                        : "Error Occurred"}
+                    </h2>
+                  </div>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="px-6 py-8">
+                <div className="text-center">
+                  <p className="text-gray-300 text-base leading-relaxed">
+                    {responseMessage.text}
+                  </p>
+
+                  {responseMessage.type === "success" && (
+                    <div className="mt-6 flex items-center justify-center space-x-2 text-[#f37a35]">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        />
+                      </svg>
+                      <span className="text-sm font-medium">
+                        We'll get back to you soon!
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="h-1 bg-[#f37a35]"></div>
+            </div>
           </div>
         )}
       </div>
-    </form>
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        @keyframes modalShow {
+          0% {
+            opacity: 0;
+            transform: scale(0.9) translateY(-20px);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+        }
+      `}</style>
+    </div>
   );
 }
