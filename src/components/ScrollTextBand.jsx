@@ -22,25 +22,9 @@ export default function ScrollTextBand({ text = "WELCOME", repeat = 7 }) {
   const repeatedText = Array(repeat).fill(text).join(" ");
 
   return (
-    <div 
-      className="w-full relative"
-      style={{ 
-        overflow: "hidden",
-        height: "clamp(5rem, 15vw, 12rem)", // Container'a height ver
-      }}
-    >
-      <div
-        className="welcome-band text-7xl md:text-8xl lg:text-9xl font-black leading-none tracking-[-0.08em] whitespace-nowrap text-transparent dark:text-transparent dark:[--stroke-color:#1f1f1f]"
-        style={{
-          WebkitTextStroke: "2px var(--stroke-color, #E9E9E9)",
-          color: "transparent",
-          display: "flex",
-          alignItems: "center",
-          width: "max-content",
-          height: "100%",
-        }}
-      >
-        {repeatedText} {repeatedText} {repeatedText} {/* Ekstra tekrar için */}
+    <div className="w-full relative overflow-hidden h-[clamp(5rem,15vw,12rem)]">
+      <div className="welcome-band text-[#EEEEEE] dark:text-[#0C0C0C] text-7xl md:text-8xl lg:text-9xl font-black leading-none tracking-[-0.08em] whitespace-nowrap flex items-center w-max h-full">
+        {repeatedText} {repeatedText} {repeatedText}
       </div>
     </div>
   );

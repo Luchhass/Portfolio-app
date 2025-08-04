@@ -128,15 +128,10 @@ export default function Header() {
           transition-all duration-500 ease-out
           ${
             isMenuOpen
-              ? "bg-white dark:bg-black" // Menu açıkken her zaman arka plan var
-              : "bg-white dark:bg-black lg:bg-transparent" // Desktop'ta kapalıyken şeffaf
+              ? "bg-white dark:bg-black border-white dark:border-black"
+              : "lg:bg-transparent border-gray-200 dark:border-zinc-900"
           } 
-          lg:border-none border-b-2 
-          ${
-            isMenuOpen
-              ? "border-white dark:border-black"
-              : "border-gray-200 dark:border-zinc-900"
-          }`}
+          lg:border-none border-b-2 `}
       >
         {/* Logo */}
         <div className="text-xl md:text-2xl lg:text-3xl font-bold text-black dark:text-white">

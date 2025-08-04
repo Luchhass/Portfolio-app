@@ -96,7 +96,7 @@ export default function ContactForm() {
   useGSAP(() => {
     gsap.set(".form-animate", { opacity: 0 });
 
-    const tl = gsap.timeline().delay(3.6);
+    const tl = gsap.timeline().delay(3.3);
 
     tl.to(
       ".form-animate",

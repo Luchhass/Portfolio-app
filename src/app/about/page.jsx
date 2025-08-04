@@ -78,7 +78,6 @@ export default function AboutPage() {
         const rotateY = xPos * 20;
         const rotateX = -yPos * 20;
 
-        // Resimler
         const images = heroEl.querySelectorAll(".image-animate");
         images.forEach((img) => {
           gsap.to(img, {
@@ -91,27 +90,13 @@ export default function AboutPage() {
           });
         });
 
-        // Yazılar (başlıklar, açıklamalar)
         const texts = heroEl.querySelectorAll(
           ".text-animate, .description-animate"
         );
         texts.forEach((text) => {
           gsap.to(text, {
-            rotateX: rotateX * 0.7,
-            rotateY: rotateY * 0.7,
-            duration: 0.5,
-            ease: "power3.out",
-            transformPerspective: 1000,
-            transformOrigin: "center",
-          });
-        });
-
-        // Butonlar
-        const buttons = heroEl.querySelectorAll(".button-animate");
-        buttons.forEach((btn) => {
-          gsap.to(btn, {
-            rotateX: rotateX * 0.5,
-            rotateY: rotateY * 0.5,
+            rotateX: rotateX * 0.9,
+            rotateY: rotateY * 0.9,
             duration: 0.5,
             ease: "power3.out",
             transformPerspective: 1000,
@@ -223,16 +208,16 @@ export default function AboutPage() {
 
       {/* About Me Section */}
       <section className="flex flex-col gap-32 m-auto px-8 max-w-[600px] md:px-10 md:max-w-[850px] lg:px-16 lg:max-w-[1200px]">
-        {/* The Creator Paragraph - Animated */}
+        {/* The Creator Paragraph */}
         <div className="flex flex-col gap-6 md:gap-8 lg:gap-10">
-          <h1 className="text-black dark:text-white text-right text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
+          <div className="text-black dark:text-white max-w-[440px] md:max-w-[520px] lg:max-w-[700px] text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
             <AnimatedSection animation="about-animation">
-              <span className="mr-22 text-[#f37a35]">the creator</span>
+              <h1 className="text-left text-[#f37a35]">the creator</h1>
             </AnimatedSection>
             <AnimatedSection animation="about-animation">
-              behind code
+              <h1 className="text-right">behind code</h1>
             </AnimatedSection>
-          </h1>
+          </div>
 
           <AnimatedSection animation="about-animation">
             <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
@@ -252,12 +237,12 @@ export default function AboutPage() {
           </AnimatedSection>
         </div>
 
-        {/* Github Statistics - Animated */}
+        {/* Github Statistics */}
         <div>
           <GithubStats username="Luchhass" />
         </div>
 
-        {/* Technologies I Use - Animated */}
+        {/* Technologies I Use */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-22">
           {/* Technologies Texts */}
           <div className="flex-1 flex flex-col gap-6 md:gap-8 lg:gap-10">
