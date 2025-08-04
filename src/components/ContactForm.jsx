@@ -1,6 +1,8 @@
 "use client";
 
-import { useState, useCallback, useEffect, useMemo } from "react";
+import { useState, useCallback, useEffect, useMemo, useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -91,6 +93,23 @@ export default function ContactForm() {
     [responseMessage.text]
   );
 
+  useGSAP(() => {
+    gsap.set(".form-animate", { opacity: 0 });
+
+    const tl = gsap.timeline().delay(3.6);
+
+    tl.to(
+      ".form-animate",
+      {
+        opacity: 1,
+        duration: 1.85,
+        stagger: 0.2,
+        ease: "back.out(1.5)",
+      },
+      "-=0.8"
+    );
+  });
+
   return (
     <div
       onSubmit={handleSubmit}
@@ -98,7 +117,7 @@ export default function ContactForm() {
     >
       {/* Form Inputs */}
       <div className="flex flex-col space-y-4">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="form-animate grid grid-cols-2 gap-6">
           <div className="flex flex-col">
             <input
               type="text"
@@ -128,7 +147,7 @@ export default function ContactForm() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="form-animate grid grid-cols-2 gap-6">
           <div className="flex flex-col">
             <input
               type="email"
@@ -157,7 +176,7 @@ export default function ContactForm() {
           </div>
         </div>
 
-        <div className="flex flex-col">
+        <div className="form-animate flex flex-col">
           <textarea
             id="message"
             name="message"
@@ -171,7 +190,7 @@ export default function ContactForm() {
       </div>
 
       {/* Form Button */}
-      <div className="flex items-center justify-between">
+      <div className="form-animate flex items-center justify-between">
         <button
           type="submit"
           disabled={isLoading}

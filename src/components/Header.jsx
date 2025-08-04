@@ -48,7 +48,7 @@ export default function Header() {
         .to(
           ".mobile-menu",
           {
-            y: "-1px",
+            y: "0px",
             duration: 1,
             ease: "power2.out",
           },
@@ -118,17 +118,25 @@ export default function Header() {
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isMenuOpen]);
+  }, []);
 
   return (
     <>
       {/* Header */}
       <header
-        className={`fixed top-0 left-0 w-full z-40 flex items-center justify-between px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 bg-white dark:bg-black border-b-2 ${
-          isMenuOpen
-            ? "border-white dark:border-black"
-            : "border-gray-200 dark:border-zinc-900"
-        }`}
+        className={`fixed top-0 left-0 w-full z-30 flex items-center justify-between px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 
+          transition-all duration-500 ease-out
+          ${
+            isMenuOpen
+              ? "bg-white dark:bg-black" // Menu açıkken her zaman arka plan var
+              : "bg-white dark:bg-black lg:bg-transparent" // Desktop'ta kapalıyken şeffaf
+          } 
+          lg:border-none border-b-2 
+          ${
+            isMenuOpen
+              ? "border-white dark:border-black"
+              : "border-gray-200 dark:border-zinc-900"
+          }`}
       >
         {/* Logo */}
         <div className="text-xl md:text-2xl lg:text-3xl font-bold text-black dark:text-white">
@@ -151,7 +159,7 @@ export default function Header() {
       </header>
 
       {/* Hamburger Menu */}
-      <div className="mobile-menu -translate-y-full flex flex-col justify-between fixed w-full h-[calc(100dvh-90px)] md:h-[calc(100dvh-105px)] z-30 bg-white dark:bg-black px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 pointer-events-auto">
+      <div className="mobile-menu -translate-y-full flex flex-col justify-between fixed top-0 w-full h-screen z-20 bg-white dark:bg-black px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 pointer-events-auto pt-24 md:pt-28 lg:pt-32">
         <div></div>
 
         {/* Navigation */}

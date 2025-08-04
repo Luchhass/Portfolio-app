@@ -8,13 +8,13 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ScrollTextBand({ text = "WELCOME", repeat = 7 }) {
   useEffect(() => {
     gsap.to(".welcome-band", {
-      xPercent: -100,
+      xPercent: -20,
       ease: "none",
       scrollTrigger: {
         trigger: ".welcome-band",
         start: "top bottom",
         end: "bottom top",
-        scrub: true,
+        scrub: 1,
       },
     });
   }, []);
@@ -22,14 +22,26 @@ export default function ScrollTextBand({ text = "WELCOME", repeat = 7 }) {
   const repeatedText = Array(repeat).fill(text).join(" ");
 
   return (
-    <div
-      className="welcome-band text-7xl md:text-8xl lg:text-9xl font-black leading-[1.1] tracking-[-0.08em] whitespace-nowrap text-transparent dark:text-transparent dark:[--stroke-color:#1f1f1f]"
-      style={{
-        WebkitTextStroke: "2px var(--stroke-color, #E9E9E9)",
-        color: "transparent",
+    <div 
+      className="w-full relative"
+      style={{ 
+        overflow: "hidden",
+        height: "clamp(5rem, 15vw, 12rem)", // Container'a height ver
       }}
     >
-      {repeatedText}
+      <div
+        className="welcome-band text-7xl md:text-8xl lg:text-9xl font-black leading-none tracking-[-0.08em] whitespace-nowrap text-transparent dark:text-transparent dark:[--stroke-color:#1f1f1f]"
+        style={{
+          WebkitTextStroke: "2px var(--stroke-color, #E9E9E9)",
+          color: "transparent",
+          display: "flex",
+          alignItems: "center",
+          width: "max-content",
+          height: "100%",
+        }}
+      >
+        {repeatedText} {repeatedText} {repeatedText} {/* Ekstra tekrar için */}
+      </div>
     </div>
   );
 }
