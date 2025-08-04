@@ -98,8 +98,8 @@ export default function ProjectsPage() {
         </div>
 
         {/* Projects Navigation */}
-        <div className="flex justify-between :items-center items-center">
-          <nav className="flex-1 text-center md:text-left">
+        <div className="flex justify-between gap-4 items-center">
+          <nav className="flex-2 text-center md:text-left">
             <ul className="inline-flex flex-wrap gap-x-4 gap-y-2 md:gap-8 lg:gap-10">
               {categories.map((category) => (
                 <li key={category}>

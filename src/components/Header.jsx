@@ -129,14 +129,17 @@ export default function Header() {
           ${
             isMenuOpen
               ? "bg-white dark:bg-black border-white dark:border-black"
-              : "lg:bg-transparent border-gray-200 dark:border-zinc-900"
+              : "bg-white dark:bg-black lg:bg-transparent lg:dark:bg-transparent border-gray-200 dark:border-zinc-900"
           } 
           lg:border-none border-b-2 `}
       >
         {/* Logo */}
-        <div className="text-xl md:text-2xl lg:text-3xl font-bold text-black dark:text-white">
+        <Link
+          href="/"
+          className="text-xl md:text-2xl lg:text-3xl font-bold text-black dark:text-white"
+        >
           Furkan Cosar
-        </div>
+        </Link>
 
         {/* Hamburger Menu Button */}
         <button
@@ -154,7 +157,7 @@ export default function Header() {
       </header>
 
       {/* Hamburger Menu */}
-      <div className="mobile-menu -translate-y-full flex flex-col justify-between fixed top-0 w-full h-screen z-20 bg-white dark:bg-black px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 pointer-events-auto pt-24 md:pt-28 lg:pt-32">
+      <div className="mobile-menu -translate-y-full flex flex-col justify-between fixed top-0 w-full h-[100dvh] z-20 bg-white dark:bg-black px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 pointer-events-auto pt-24 md:pt-28 lg:pt-32">
         <div></div>
 
         {/* Navigation */}
