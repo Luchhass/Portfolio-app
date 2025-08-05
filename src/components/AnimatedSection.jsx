@@ -14,11 +14,10 @@ export default function AnimatedSection({ children, animation }) {
     () => {
       const el = sectionRef.current;
 
-      if (animation === "card-animation") {
-        gsap.fromTo(
-          el,
-          { opacity: 0, scale: 0.3 },
-          {
+      const animationConfigs = {
+        "card-animation": {
+          from: { opacity: 0, scale: 0.3 },
+          to: {
             opacity: 1,
             scale: 1,
             duration: 0.7,
@@ -26,55 +25,43 @@ export default function AnimatedSection({ children, animation }) {
             scrollTrigger: {
               trigger: el,
               start: "top 80%",
+              end: "bottom 20%",
               toggleActions: "play reverse play reverse",
             },
-          }
-        );
-
-        ScrollTrigger.refresh();
-      }
-
-      if (animation === "about-animation") {
-        gsap.fromTo(
-          el,
-          { opacity: 0 },
-          {
-            opacity: 1,
-            duration: 1,
-            ease: "back.out(1.5)",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 80%",
-              end: "top 15%",
-              toggleActions: "play reverse play reverse",
-            },
-          }
-        );
-
-        ScrollTrigger.refresh();
-      }
-
-      if (animation === "cta-animation") {
-        gsap.fromTo(
-          el,
-          { opacity: 0 },
-          {
+          },
+        },
+        "about-animation": {
+          from: { opacity: 0 },
+          to: {
             opacity: 1,
             duration: 1,
             ease: "back.out(1.5)",
             scrollTrigger: {
               trigger: el,
               start: "top 70%",
-              end: "top 0%",
+              end: "bottom 30%",
               toggleActions: "play reverse play reverse",
             },
-          }
-        );
+          },
+        },
+        "cta-animation": {
+          from: { opacity: 0 },
+          to: {
+            opacity: 1,
+            duration: 1,
+            ease: "back.out(1.5)",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 70%",
+              end: "bottom 30%",
+              toggleActions: "play reverse play reverse",
+            },
+          },
+        },
+      };
 
-        ScrollTrigger.refresh();
-      }
-
-      ScrollTrigger.refresh();
+      const config = animationConfigs[animation];
+      if (config) gsap.fromTo(el, config.from, config.to);
     },
     { scope: sectionRef, dependencies: [animation] }
   );

@@ -7,7 +7,7 @@ import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 
 export default function ContactPage() {
-  const container = useRef();
+  const containerRef = useRef();
   const imageRef = useRef();
   const textRef = useRef();
 
@@ -61,7 +61,7 @@ export default function ContactPage() {
           const rotateX = -yPos * 20;
 
           gsap.to(imageEl, {
-             rotateX: rotateX * 1.2,
+            rotateX: rotateX * 1.2,
             rotateY: rotateY * 1.2,
             duration: 0.5,
             ease: "power3.out",
@@ -82,56 +82,50 @@ export default function ContactPage() {
         window.addEventListener("mousemove", handleMouseMove);
       }, 1000);
     },
-    { scope: container }
+    { scope: containerRef }
   );
 
   return (
     <main
-      ref={container}
-      className="min-h-[100dvh] flex flex-col lg:flex-row lg:gap-22 lg:items-center lg:justify-between m-auto px-8 max-w-[600px] md:px-10 md:max-w-[850px] lg:px-16 lg:max-w-[1200px]"
+      ref={containerRef}
+      className="m-auto flex min-h-[100dvh] flex-col px-8 md:px-10 lg:flex-row lg:items-center lg:justify-between lg:gap-22 max-w-[600px] md:max-w-[850px] lg:max-w-[1200px] lg:px-16 lg:mb-2"
     >
-      {/* Contact Page Hero Section */}
-      <section className="flex-1 relative flex justify-center m-auto lg:m-0 my-32 md:my-42 lg:my-52">
+      <section className="relative my-32 flex flex-1 justify-center md:my-42 lg:m-0 lg:my-52">
         <div
           ref={imageRef}
-          className="relative -top-10 ml-32 z-0 image-animate"
+          className="image-animate relative -top-10 ml-32 z-0"
         >
           <Image
             src="/images/contact-page-hero.jpg"
             alt="Scenic coastal view with city skyline"
             width={2000}
             height={2000}
-            className="w-55 h-38 md:w-62 md:h-45 lg:w-89 lg:h-62 rounded-3xl object-cover shadow-2xl"
+            className="h-38 w-55 rounded-3xl object-cover shadow-2xl md:h-45 md:w-62 lg:h-62 lg:w-89"
             style={{ transform: "rotateZ(-10deg)" }}
           />
         </div>
 
         <h1
           ref={textRef}
-          className="absolute top-13 left-0 z-10 text-black dark:text-white font-black text-7xl md:text-8xl lg:text-9xl leading-[0.85] tracking-[-0.07em]"
+          className="text-animate absolute left-0 top-13 z-10 text-7xl font-black leading-[0.85] tracking-[-0.07em] text-black dark:text-white md:text-8xl lg:text-9xl"
         >
-          <span className="text-animate inline-block">get in</span>
+          <span className="inline-block">get in</span>
           <br />
-          <span className="text-animate inline-block ml-16 md:ml-20 lg:ml-24">
-            touch
-          </span>
+          <span className="ml-16 inline-block md:ml-20 lg:ml-24">touch</span>
         </h1>
       </section>
 
-      {/* Contact Page Form Section */}
-      <section className="flex-1 flex flex-col gap-6 md:gap-8 lg:gap-10 lg:mt-8">
-        <div className="flex flex-col gap-4 text-xl md:text-xl lg:text-2xl font-extralight leading-[1.1] text-black dark:text-white">
+      <section className="flex flex-1 flex-col gap-6 md:gap-8 lg:gap-10 lg:mt-8">
+        <div className="flex flex-col gap-4 text-xl font-extralight leading-[1.1] text-black dark:text-white md:text-xl lg:text-2xl">
           <h2 className="text-block">
             I bring your ideas to life with clean, efficient, and modern
             frontend solutions.
           </h2>
-
           <h2 className="text-block">
             Let’s build fast, responsive, and user-friendly websites tailored
             just for you.
           </h2>
-
-          <p className="text-block text-sm md:text-base font-black">
+          <p className="text-block text-sm font-black md:text-base">
             Let’s get to work!
           </p>
         </div>

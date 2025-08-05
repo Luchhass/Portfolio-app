@@ -116,206 +116,86 @@ export default function AboutPage() {
 
   return (
     <main ref={container} className="flex flex-col">
-      {/* About Page Hero Section */}
       <section
         ref={heroRef}
-        className="h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] lg:min-h-[100dvh] flex items-center justify-center px-8 md:px-10 lg:px-16"
+        className="flex items-center justify-center h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] lg:min-h-[100dvh] px-8 md:px-10 lg:px-16"
       >
         <div className="relative">
-          {/* About Hero Texts */}
-          <div className="flex flex-col gap-6 text-center relative z-10">
-            <h1 className="text-black dark:text-white font-black text-7xl md:text-8xl lg:text-9xl leading-[0.85] tracking-[-0.08em]">
-              <span className="text-animate inline-block ml-26 md:ml-30 lg:ml-34">
+          <div className="relative z-10 flex flex-col gap-6 text-center">
+            <h1 className="text-7xl md:text-8xl lg:text-9xl font-black tracking-[-0.08em] leading-[0.85] text-black dark:text-white">
+              <span className="inline-block ml-26 md:ml-30 lg:ml-34 text-animate">
                 what
               </span>
               <br />
-              <span className="text-animate inline-block">i build</span>
+              <span className="inline-block text-animate">i build</span>
             </h1>
 
-            <p className="description-animate text-black dark:text-white text-xl md:text-2xl font-light max-w-lg mx-auto">
+            <p className="description-animate mx-auto max-w-lg text-xl md:text-2xl font-light text-black dark:text-white">
               I design and build digital products that convert.
             </p>
 
-            <div className="flex flex-col gap-2 items-center">
+            <div className="flex flex-col items-center gap-2">
               <Link
                 href="/pdf/cv.pdf"
                 target="_blank"
-                className="button-animate relative overflow-hidden bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md group transition-all duration-300 hover:scale-105 active:scale-95"
+                className="relative group overflow-hidden rounded-full bg-[#f37a35] px-12 py-5 text-sm md:text-md font-semibold text-white transition-all duration-300 hover:scale-105 active:scale-95 button-animate"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+                <span className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full"></span>
                 <span className="relative z-10">Check My CV</span>
               </Link>
 
               <Link
                 href="/projects"
-                className="button-animate relative overflow-hidden bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md group transition-all duration-300 hover:scale-105 active:scale-95"
+                className="relative group overflow-hidden rounded-full bg-[#f37a35] px-12 py-5 text-sm md:text-md font-semibold text-white transition-all duration-300 hover:scale-105 active:scale-95 button-animate"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+                <span className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full"></span>
                 <span className="relative z-10">See My Work</span>
               </Link>
             </div>
           </div>
 
-          {/* About Hero Images */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="image-animate absolute -top-20 left-0 md:-top-20 md:left-4 lg:-top-15 lg:-left-30 w-34 h-42 md:w-44 md:h-52 lg:w-54 lg:h-52 rounded-2xl overflow-hidden shadow-xl transform -rotate-12">
+          <div className="pointer-events-none absolute inset-0">
+            <div className="image-animate absolute left-0 top-[-5rem] md:left-4 md:top-[-5rem] lg:left-[-7.5rem] lg:top-[-3.75rem] w-34 h-42 md:w-44 md:h-52 lg:w-54 lg:h-52 transform -rotate-12 overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src="/images/screenshots/Tic-Tac-Toe.png"
                 alt="Tic Tac Toe Project"
                 width={1920}
                 height={879}
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
               />
             </div>
 
-            <div className="image-animate absolute -top-5 right-5 md:-top-10 md:right-0 lg:-top-20 lg:-right-20 w-32 h-24 md:w-42 md:h-34 lg:w-52 lg:h-44 rounded-2xl overflow-hidden shadow-xl transform rotate-15">
+            <div className="image-animate absolute right-5 top-[-1.25rem] md:right-0 md:top-[-2.5rem] lg:right-[-5rem] lg:top-[-5rem] w-32 h-24 md:w-42 md:h-34 lg:w-52 lg:h-44 transform rotate-15 overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src="/images/screenshots/Biggy-Burger.png"
                 alt="Biggy Burger Project"
                 width={1920}
                 height={879}
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
               />
             </div>
 
-            <div className="image-animate absolute top-40 right-4 md:top-50 md:right-0 lg:top-60 lg:-right-10 w-24 h-28 md:w-34 md:h-38 lg:w-44 lg:h-48 rounded-2xl overflow-hidden shadow-xl transform -rotate-11">
+            <div className="image-animate absolute right-4 top-40 md:right-0 md:top-50 lg:right-[-2.5rem] lg:top-60 w-24 h-28 md:w-34 md:h-38 lg:w-44 lg:h-48 transform -rotate-11 overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src="/images/screenshots/Calculator.png"
                 alt="Calculator Project"
                 width={1920}
                 height={879}
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
               />
             </div>
 
-            <div className="image-animate absolute top-42 left-2 md:top-52 lg:top-66 lg:left-0 w-36 h-26 md:w-46 md:h-36 lg:w-56 lg:h-46 rounded-2xl overflow-hidden shadow-xl transform rotate-8">
+            <div className="image-animate absolute left-2 top-42 md:top-52 lg:left-0 lg:top-66 w-36 h-26 md:w-46 md:h-36 lg:w-56 lg:h-46 transform rotate-8 overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src="/images/screenshots/Shop-Your-Way.png"
                 alt="Shop Your Way Project"
                 width={1920}
                 height={879}
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
               />
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Band Section */}
-      <section>
-        <ScrollTextBand text="FURKAN" repeat={7} />
-      </section>
-
-      {/* About Me Section */}
-      <section className="flex flex-col gap-32 m-auto px-8 max-w-[600px] md:px-10 md:max-w-[850px] lg:px-16 lg:max-w-[1200px]">
-        {/* The Creator Paragraph */}
-        <div className="flex flex-col gap-6 md:gap-8 lg:gap-10">
-          <div className="text-black dark:text-white max-w-[440px] md:max-w-[520px] lg:max-w-[700px] text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
-            <AnimatedSection animation="about-animation">
-              <h1 className="text-left text-[#f37a35]">the creator</h1>
-            </AnimatedSection>
-            <AnimatedSection animation="about-animation">
-              <h1 className="text-right">behind code</h1>
-            </AnimatedSection>
-          </div>
-
-          <AnimatedSection animation="about-animation">
-            <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
-              I'm a <span className="font-bold">Frontend Developer</span> and a
-              final-year Web Design student at Istanbul University. Throughout
-              my journey, I've had the opportunity to intern at several
-              companies, gaining hands-on experience in building modern and
-              responsive web interfaces. To further enhance my skills, I also
-              completed a Software Specialization course at Nişantaşı
-              University, where I deepened my knowledge of development practices
-              and technologies.
-              <span className="font-bold">
-                Today, I combine creativity with technical expertise to craft
-                seamless digital experiences.
-              </span>
-            </h2>
-          </AnimatedSection>
-        </div>
-
-        {/* Github Statistics */}
-        <div>
-          <GithubStats username="Luchhass" />
-        </div>
-
-        {/* Technologies I Use */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-22">
-          {/* Technologies Texts */}
-          <div className="flex-1 flex flex-col gap-6 md:gap-8 lg:gap-10">
-            <AnimatedSection animation="about-animation">
-              <h1 className="text-black dark:text-white text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
-                technologies
-                <br />i use
-              </h1>
-            </AnimatedSection>
-
-            <AnimatedSection animation="about-animation">
-              <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
-                The right tools for building exceptional digital experiences.{" "}
-                <span className="font-bold">
-                  From powerful frameworks to modern design systems, these are
-                  the technologies that make innovation possible.
-                </span>
-              </h2>
-            </AnimatedSection>
-          </div>
-
-          {/* Technologies */}
-          <div className="flex-1 flex flex-col mt-6 md:mt-8">
-            {technologyGroups.map((group, index) => {
-              const isOpen = openIndex === index;
-              return (
-                <AnimatedSection animation="about-animation" key={index}>
-                  <div
-                    className="group relative cursor-pointer bg-transparent py-3"
-                    onClick={() => toggleGroup(index)}
-                  >
-                    <h1
-                      className={`relative z-10 m-0 text-xl md:text-2xl font-black uppercase leading-[1.1] tracking-[-0.08em] transition-colors duration-300 ease-in-out
-                ${isOpen ? "text-[#f37a35]" : "group-hover:text-[#f37a35]"}`}
-                    >
-                      {group.title}
-                    </h1>
-
-                    <span
-                      className={`absolute bottom-0 left-0 w-full h-[3px] bg-[#f37a35] transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]
-                ${isOpen ? "translate-y-2" : "group-hover:translate-y-2"}`}
-                    />
-
-                    <div
-                      className={`overflow-hidden transition-[height] duration-500 ease-in-out mt-2
-                ${isOpen ? "h-28" : "h-0 group-hover:h-28"}`}
-                    >
-                      <div className="flex flex-wrap gap-4">
-                        {group.technologies.map((tech, i) => (
-                          <div
-                            key={i}
-                            className="flex items-center gap-3 rounded-lg px-4 py-2 shadow-md hover:shadow-lg transform hover:scale-[1.05] transition-transform duration-300 cursor-pointer bg-white dark:bg-[#1f1f1f] dark:shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
-                            style={{ color: tech.color }}
-                          >
-                            <tech.icon className="text-2xl" />
-                            <span className="font-semibold text-gray-900 dark:text-gray-200">
-                              {tech.name}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </AnimatedSection>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact CTA Section */}
-      <section className="py-32 md:py-42 lg:py-52">
-        <ContactCTA />
       </section>
     </main>
   );

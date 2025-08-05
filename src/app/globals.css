@@ -37,7 +37,6 @@ body {
   -ms-overflow-style: none;
 }
 
-/* Contact Form Modal Animations */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -55,5 +54,16 @@ body {
   100% {
     opacity: 1;
     transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    opacity: 0.85;
+    box-shadow: 0 0 100px rgba(255, 111, 28, 0.4);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 150px rgba(255, 111, 28, 0.6);
   }
 }

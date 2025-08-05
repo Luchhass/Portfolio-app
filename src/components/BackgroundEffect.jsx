@@ -5,74 +5,59 @@ import gsap from "gsap";
 
 export default function BackgroundEffect() {
   const ref = useRef(null);
-  const quickToX = useRef(null);
-  const quickToY = useRef(null);
+  const setPosition = useRef(null);
 
   useEffect(() => {
     if (!ref.current) return;
 
+    // Başlangıç pozisyonu
     gsap.set(ref.current, {
       x: window.innerWidth / 2,
       y: window.innerHeight / 2,
     });
 
-    quickToX.current = gsap.quickTo(ref.current, "x", {
-      duration: 0.5,
-      ease: "power3.out",
-    });
-    quickToY.current = gsap.quickTo(ref.current, "y", {
-      duration: 0.5,
-      ease: "power3.out",
-    });
+    // Tek setter ile hem x hem y kontrolü
+    setPosition.current = gsap.quickSetter(ref.current, "x,y", "px");
 
-    const handleMove = (e) => {
-      quickToX.current(e.clientX);
-      quickToY.current(e.clientY);
+    const handleMouseMove = (e) => {
+      setPosition.current(`${e.clientX},${e.clientY}`);
     };
 
     const handleTouchMove = (e) => {
-      if (e.touches && e.touches.length > 0) {
+      if (e.touches?.length > 0) {
         const touch = e.touches[0];
-        quickToX.current(touch.clientX);
-        quickToY.current(touch.clientY);
+        setPosition.current(`${touch.clientX},${touch.clientY}`);
       }
     };
 
-    window.addEventListener("mousemove", handleMove);
+    const handleResize = () => {
+      gsap.set(ref.current, {
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("touchmove", handleTouchMove);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
-    <>
-      <style>{`
-        @keyframes pulse {
-          0% {
-            opacity: 0.85;
-            box-shadow: 0 0 100px rgba(255, 111, 28, 0.4);
-          }
-          100% {
-            opacity: 1;
-            box-shadow: 0 0 150px rgba(255, 111, 28, 0.6);
-          }
-        }
-      `}</style>
-      <div
-        ref={ref}
-        className="hidden lg:block fixed top-0 left-0 pointer-events-none -z-10 rounded-full w-[60vw] h-[60vw] will-change-transform"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(255,155,33,0.688), rgba(255,189,65,0.618))",
-          filter: "blur(100px)",
-          animation: "pulse 12s ease-in-out infinite alternate",
-          transform: "translate(-50%, -50%)",
-          boxShadow: "0 0 150px rgba(255,111,28,0.8)",
-        }}
-      />
-    </>
+    <div
+      ref={ref}
+      className="pointer-events-none fixed left-0 top-0 -z-10 hidden h-[60vw] w-[60vw] rounded-full will-change-transform animate-pulseGlow lg:block"
+      style={{
+        background:
+          "radial-gradient(circle, rgba(255,155,33,0.688), rgba(255,189,65,0.618))",
+        filter: "blur(100px)",
+        transform: "translate(-50%, -50%)",
+      }}
+    />
   );
 }

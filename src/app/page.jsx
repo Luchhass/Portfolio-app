@@ -52,12 +52,11 @@ export default function Home() {
 
   return (
     <main ref={container}>
-      {/* Home Page Hero Section */}
       <section className="h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] lg:h-[100dvh] px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
-        <div className="relative w-full h-full flex items-center justify-center">
-          <div className="video-animate relative w-screen h-[calc(100%-4rem)] lg:w-[600px] rounded-3xl overflow-hidden shadow-2xl">
+        <div className="relative flex h-full w-full items-center justify-center">
+          <div className="video-animate relative h-[calc(100%-4rem)] w-screen overflow-hidden rounded-3xl shadow-2xl lg:w-[600px]">
             <video
-              className="w-full h-full object-cover"
+              className="h-full w-full object-cover"
               autoPlay
               muted
               loop
@@ -68,9 +67,9 @@ export default function Home() {
             </video>
           </div>
 
-          <div className="absolute inset-0 flex flex-col gap-12 items-center justify-center text-center pointer-events-none">
-            <div className="relative w-screen h-[calc(100%-4rem)] lg:w-[600px] rounded-3xl overflow-hidden flex flex-col gap-12 items-center justify-center">
-              <h1 className="text-white text-6xl md:text-7xl lg:text-8xl font-black leading-[1.1] tracking-[-0.09em] pointer-events-none">
+          <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-12 text-center">
+            <div className="relative flex h-[calc(100%-4rem)] w-screen flex-col items-center justify-center gap-12 overflow-hidden rounded-3xl lg:w-[600px]">
+              <h1 className="pointer-events-none text-6xl font-black leading-[1.1] tracking-[-0.09em] text-white md:text-7xl lg:text-8xl">
                 <span className="text-animate inline-block">crafting</span>
                 <br />
                 <span className="text-animate inline-block">digital</span>
@@ -78,12 +77,12 @@ export default function Home() {
                 <span className="text-animate inline-block">experiences</span>
               </h1>
 
-              <div className="flex flex-col items-center pointer-events-auto">
+              <div className="pointer-events-auto flex flex-col items-center">
                 <Link
                   href="/contact"
-                  className="button-animate relative overflow-hidden bg-[#f37a35] px-12 py-5 text-sm font-semibold rounded-full text-white md:text-md group transition-all duration-300 hover:scale-105 active:scale-95"
+                  className="button-animate group relative overflow-hidden rounded-full bg-[#f37a35] px-12 py-5 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 active:scale-95 md:text-md"
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+                  <span className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full"></span>
                   <span className="relative z-10">discover my work</span>
                 </Link>
               </div>
@@ -92,17 +91,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Welcome Band Section */}
       <section>
         <ScrollTextBand text="WELCOME" repeat={7} />
       </section>
 
-      {/* Projects Highlights Section */}
-      <section className="m-auto px-8 max-w-[600px] md:px-10 md:max-w-[850px] lg:px-16 lg:max-w-[1200px]">
+      <section className="m-auto max-w-[600px] px-8 md:max-w-[850px] md:px-10 lg:max-w-[1200px] lg:px-16">
         <ProjectHighlights />
       </section>
 
-      {/* Contact CTA Section */}
       <section className="py-32 md:py-42 lg:py-52">
         <ContactCTA />
       </section>
