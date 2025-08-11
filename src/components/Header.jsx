@@ -125,7 +125,7 @@ export default function Header() {
         </button>
       </header>
 
-      <div className="mobile-menu pointer-events-auto fixed top-0 z-20 flex h-[100dvh] w-full flex-col justify-between -translate-y-full bg-white px-8 pt-24 md:px-10 md:pt-28 lg:px-16 lg:pt-32 dark:bg-black md:py-8 lg:py-8">
+      <div className="mobile-menu pointer-events-auto fixed top-0 z-20 flex h-[100dvh] w-full flex-col justify-between -translate-y-full bg-white px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 dark:bg-black">
         <div />
 
         <nav aria-label="navigation">
