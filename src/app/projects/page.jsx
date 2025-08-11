@@ -40,7 +40,7 @@ export default function ProjectsPage() {
       gsap.set(".navigation-animate", { opacity: 0, y: "15vw" });
       gsap.set(".buttons-animate", { opacity: 0 });
 
-      const tl = gsap.timeline().delay(1.5);
+      const tl = gsap.timeline().delay(1.8);
 
       tl.to(".title-animate", {
         opacity: 1,
@@ -93,14 +93,14 @@ export default function ProjectsPage() {
             <span>been building</span>
           </h1>
 
-          <h2 className="paragraph-animate text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
+          <p className="paragraph-animate text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
             Each project here reflects my approach to design, code, and
             problem-solving.{" "}
             <span className="font-bold">
               From concept to execution, every detail has been carefully
               considered and built with intent.
             </span>
-          </h2>
+          </p>
         </div>
 
         <div className="flex items-center justify-between gap-4">
