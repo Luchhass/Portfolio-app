@@ -1,6 +1,8 @@
+// app/layout.js
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageIntroAnimation from "@/components/PageIntroAnimation";
+import Analytics from "./Analytics"; // Analytics client component
 import "./globals.css";
 
 export const metadata = {
@@ -63,10 +65,32 @@ export const metadata = {
   },
 };
 
+const GA_MEASUREMENT_ID = "G-S92MYFFN7H";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+      </head>
+      
       <body className="antialiased mt-[90px] md:mt-[106px] lg:mt-0">
+        <Analytics />
         <PageIntroAnimation />
         <Header />
 
