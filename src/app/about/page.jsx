@@ -155,7 +155,7 @@ export default function AboutPage() {
           </div>
 
           <div className="pointer-events-none absolute inset-0">
-            <div className="image-animate absolute left-0 top-[-5rem] md:left-4 md:top-[-5rem] lg:left-[-7.5rem] lg:top-[-3.75rem] w-34 h-42 md:w-44 md:h-52 lg:w-54 lg:h-52 transform -rotate-12 overflow-hidden rounded-2xl shadow-xl">
+            <div className="image-animate absolute left-[-2rem] top-[-6rem] md:left-[-4rem] md:top-[-7rem] w-48 h-56 md:w-60 md:h-68 transform -rotate-12 overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src="/images/screenshots/Tic-Tac-Toe.png"
                 alt="Tic Tac Toe Project"
@@ -165,7 +165,7 @@ export default function AboutPage() {
               />
             </div>
 
-            <div className="image-animate absolute right-5 top-[-1.25rem] md:right-0 md:top-[-2.5rem] lg:right-[-5rem] lg:top-[-5rem] w-32 h-24 md:w-42 md:h-34 lg:w-52 lg:h-44 transform rotate-15 overflow-hidden rounded-2xl shadow-xl">
+            <div className="image-animate absolute right-[-1rem] top-[-2rem] md:right-[-6rem] md:top-[-4rem] w-44 h-36 md:w-58 md:h-46 transform rotate-15 overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src="/images/screenshots/Biggy-Burger.png"
                 alt="Biggy Burger Project"
@@ -175,7 +175,7 @@ export default function AboutPage() {
               />
             </div>
 
-            <div className="image-animate absolute right-4 top-40 md:right-0 md:top-50 lg:right-[-2.5rem] lg:top-60 w-24 h-28 md:w-34 md:h-38 lg:w-44 lg:h-48 transform -rotate-11 overflow-hidden rounded-2xl shadow-xl">
+            <div className="image-animate absolute right-[-1rem] top-44 md:right-[-4rem] md:top-54 w-36 h-40 md:w-46 md:h-50 transform -rotate-11 overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src="/images/screenshots/Calculator.png"
                 alt="Calculator Project"
@@ -185,7 +185,7 @@ export default function AboutPage() {
               />
             </div>
 
-            <div className="image-animate absolute left-2 top-42 md:top-52 lg:left-0 lg:top-66 w-36 h-26 md:w-46 md:h-36 lg:w-56 lg:h-46 transform rotate-8 overflow-hidden rounded-2xl shadow-xl">
+            <div className="image-animate absolute left-[-2rem] top-46 md:left-[-5rem] md:top-58 w-48 h-38 md:w-62 md:h-48 transform rotate-8 overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src="/images/screenshots/Shop-Your-Way.png"
                 alt="Shop Your Way Project"
@@ -196,6 +196,115 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section>
+        <ScrollTextBand text="FURKAN" repeat={7} />
+      </section>
+
+      <section className="flex flex-col gap-32 m-auto px-8 max-w-[600px] md:px-10 md:max-w-[850px] lg:px-16 lg:max-w-[1200px]">
+        <div className="flex flex-col gap-6 md:gap-8 lg:gap-10">
+          <div className="text-black dark:text-white max-w-[440px] md:max-w-[520px] lg:max-w-[700px] text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
+            <AnimatedSection animation="about-animation">
+              <h1 className="text-left text-[#f37a35]">the creator</h1>
+            </AnimatedSection>
+            <AnimatedSection animation="about-animation">
+              <h1 className="text-right">behind code</h1>
+            </AnimatedSection>
+          </div>
+
+          <AnimatedSection animation="about-animation">
+            <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
+              I'm a <span className="font-bold">Frontend Developer</span> and a
+              final-year Web Design student at Istanbul University. Throughout
+              my journey, I've had the opportunity to intern at several
+              companies, gaining hands-on experience in building modern and
+              responsive web interfaces. To further enhance my skills, I also
+              completed a Software Specialization course at Nişantaşı
+              University, where I deepened my knowledge of development practices
+              and technologies.
+              <span className="font-bold">
+                Today, I combine creativity with technical expertise to craft
+                seamless digital experiences.
+              </span>
+            </h2>
+          </AnimatedSection>
+        </div>
+
+        <div>
+          <GithubStats username="Luchhass" />
+        </div>
+
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-22">
+          <div className="flex-1 flex flex-col gap-6 md:gap-8 lg:gap-10">
+            <AnimatedSection animation="about-animation">
+              <h1 className="text-black dark:text-white text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em]">
+                technologies
+                <br />i use
+              </h1>
+            </AnimatedSection>
+
+            <AnimatedSection animation="about-animation">
+              <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
+                The right tools for building exceptional digital experiences.{" "}
+                <span className="font-bold">
+                  From powerful frameworks to modern design systems, these are
+                  the technologies that make innovation possible.
+                </span>
+              </h2>
+            </AnimatedSection>
+          </div>
+
+          <div className="flex-1 flex flex-col mt-6 md:mt-8">
+            {technologyGroups.map((group, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <AnimatedSection animation="about-animation" key={index}>
+                  <div
+                    className="group relative cursor-pointer bg-transparent py-3"
+                    onClick={() => toggleGroup(index)}
+                  >
+                    <h1
+                      className={`relative z-10 m-0 text-xl md:text-2xl font-black uppercase leading-[1.1] tracking-[-0.08em] transition-colors duration-300 ease-in-out
+                ${isOpen ? "text-[#f37a35]" : "group-hover:text-[#f37a35]"}`}
+                    >
+                      {group.title}
+                    </h1>
+
+                    <span
+                      className={`absolute bottom-0 left-0 w-full h-[3px] bg-[#f37a35] transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]
+                ${isOpen ? "translate-y-2" : "group-hover:translate-y-2"}`}
+                    />
+
+                    <div
+                      className={`overflow-hidden transition-[height] duration-500 ease-in-out mt-2
+                ${isOpen ? "h-28" : "h-0 group-hover:h-28"}`}
+                    >
+                      <div className="flex flex-wrap gap-4">
+                        {group.technologies.map((tech, i) => (
+                          <div
+                            key={i}
+                            className="flex items-center gap-3 rounded-lg px-4 py-2 shadow-md hover:shadow-lg transform hover:scale-[1.05] transition-transform duration-300 cursor-pointer bg-white dark:bg-[#1f1f1f] dark:shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
+                            style={{ color: tech.color }}
+                          >
+                            <tech.icon className="text-2xl" />
+                            <span className="font-semibold text-gray-900 dark:text-gray-200">
+                              {tech.name}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-32 md:py-42 lg:py-52">
+        <ContactCTA />
       </section>
     </main>
   );

@@ -10,6 +10,7 @@ import Link from "next/link";
 
 export default function Home() {
   const container = useRef();
+  const heroRef = useRef();
 
   useGSAP(
     () => {
@@ -47,15 +48,63 @@ export default function Home() {
           },
           "-=0.7"
         );
+
+      // Mouse tracking efekti
+      const heroEl = heroRef.current;
+
+      const handleMouseMove = (e) => {
+        const { clientX, clientY } = e;
+        const { innerWidth, innerHeight } = window;
+        const xPos = (clientX / innerWidth - 0.5) * 2;
+        const yPos = (clientY / innerHeight - 0.5) * 2;
+
+        const rotateY = xPos * 20;
+        const rotateX = -yPos * 20;
+
+        // Video animasyonu
+        const video = heroEl.querySelector(".video-animate");
+        if (video) {
+          gsap.to(video, {
+            rotateX: rotateX * 1.2,
+            rotateY: rotateY * 1.2,
+            duration: 0.5,
+            ease: "power3.out",
+            transformPerspective: 1000,
+            transformOrigin: "center",
+          });
+        }
+
+        // Text animasyonları
+        const texts = heroEl.querySelectorAll(".text-animate, .button-animate");
+        texts.forEach((text) => {
+          gsap.to(text, {
+            rotateX: rotateX * 0.9,
+            rotateY: rotateY * 0.9,
+            duration: 0.5,
+            ease: "power3.out",
+            transformPerspective: 1000,
+            transformOrigin: "center",
+          });
+        });
+      };
+
+      window.addEventListener("mousemove", handleMouseMove);
+
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove);
+      };
     },
     { scope: container }
   );
 
   return (
     <main ref={container}>
-      <section className="h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] lg:h-[100dvh] px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8">
+      <section
+        ref={heroRef}
+        className="h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] lg:h-[100dvh] px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8"
+      >
         <div className="relative flex h-full w-full items-center justify-center">
-          <div className="video-animate relative h-[calc(100%-4rem)] w-screen overflow-hidden rounded-3xl shadow-2xl lg:w-[600px]">
+          <div className="video-animate relative h-[calc(100%-4rem)] w-screen max-w-[500px] overflow-hidden rounded-3xl shadow-2xl md:max-w-[600px] md:max-h-[600px] lg:w-[700px] lg:max-h-[600px]">
             <video
               className="h-full w-full object-cover"
               autoPlay
@@ -68,14 +117,20 @@ export default function Home() {
             </video>
           </div>
 
-          <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-12 text-center">
-            <div className="relative flex h-[calc(100%-4rem)] w-screen flex-col items-center justify-center gap-12 overflow-hidden rounded-3xl lg:w-[600px]">
-              <h1 className="pointer-events-none text-6xl font-black leading-[1.1] tracking-[-0.09em] text-white md:text-7xl lg:text-8xl">
-                <span className="text-animate inline-block">crafting</span>
+          <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-12 text-center z-10">
+            <div className="relative flex w-screen flex-col items-center justify-center gap-12 lg:w-[600px]">
+              <h1 className="pointer-events-none text-6xl font-black leading-[1.1] tracking-[-0.05em] text-black md:text-8xl lg:text-9xl">
+                <span className="text-animate inline-block lg:mr-0">
+                  crafting
+                </span>
                 <br />
-                <span className="text-animate inline-block">digital</span>
+                <span className="text-animate inline-block lg:mr-0">
+                  digital
+                </span>
                 <br />
-                <span className="text-animate inline-block">experiences</span>
+                <span className="text-animate inline-block lg:mr-0">
+                  experiences
+                </span>
               </h1>
 
               <div className="pointer-events-auto flex flex-col items-center">

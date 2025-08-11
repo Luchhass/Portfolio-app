@@ -29,9 +29,9 @@ export default function ProjectHighlights() {
 
         <AnimatedSection animation="about-animation">
           <h2 className="text-xl font-extralight leading-[1.1] text-black dark:text-white md:text-2xl lg:text-3xl">
-            Enjoy some of our best work{" "}
+            Enjoy a showcase of my best work{" "}
             <span className="font-bold">
-              in web design, e-commerce, branding & digital marketing.
+              in creative web design & distinctive branding.
             </span>
           </h2>
         </AnimatedSection>

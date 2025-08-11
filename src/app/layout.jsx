@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import PageIntroAnimation from "@/components/PageIntroAnimation";
 import Analytics from "./Analytics";
 import "./globals.css";
+import BackgroundEffect from "@/components/BackgroundEffect";
 
 export const metadata = {
   title: "Furkan Cosar - Web Developer | Next.js & React",
@@ -101,7 +102,10 @@ export default function RootLayout({ children }) {
         <PageIntroAnimation />
         <Header />
 
-        <main>{children}</main>
+        <main>
+          <BackgroundEffect />
+          {children}
+        </main>
 
         <Footer />
       </body>
