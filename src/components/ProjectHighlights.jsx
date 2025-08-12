@@ -1,10 +1,13 @@
 "use client";
-
-import { useMemo } from "react";
+import { useMemo, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import deployments from "@/data/deployments.js";
 import Image from "next/image";
 import Link from "next/link";
-import AnimatedSection from "./AnimatedSection";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const formatDate = (dateString) =>
   new Date(dateString).toLocaleDateString("en-EN", {
@@ -15,81 +18,150 @@ const formatDate = (dateString) =>
 
 export default function ProjectHighlights() {
   const highlightedProjects = useMemo(() => deployments.slice(0, 6), []);
+  const wrapperRef = useRef(null);
+  const scrollerRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  useGSAP(() => {
+    const wrapper = wrapperRef.current;
+    const scroller = scrollerRef.current;
+    const button = buttonRef.current;
+    if (!wrapper || !scroller || !button) return;
+
+    gsap.set(button, { y: 120, scale: 0.8 });
+
+    const maxScroll = scroller.scrollWidth - wrapper.clientWidth;
+    if (maxScroll <= 0) return;
+
+    gsap.to(scroller, {
+      x: -maxScroll,
+      ease: "none",
+      scrollTrigger: {
+        trigger: wrapper,
+        start: "top top",
+        end: () => `+=${maxScroll}`,
+        scrub: 1,
+        pin: true,
+        anticipatePin: 1,
+
+        onEnter: () => {
+          gsap.to(button, {
+            y: 0,
+            scale: 1,
+            duration: 1.2,
+            ease: "back.out(1.7)",
+          });
+        },
+        onLeaveBack: () => {
+          gsap.to(button, {
+            y: 120,
+            scale: 0.8,
+            duration: 1.2,
+            ease: "back.out(1.7)",
+          });
+        },
+
+        onUpdate: (self) => {
+          if (self.progress > 0.85) {
+            gsap.to(button, {
+              y: 0,
+              scale: 1,
+              duration: 1.2,
+              ease: "back.out(1.7)",
+            });
+          } else {
+            gsap.to(button, {
+              y: 120,
+              scale: 0.8,
+              duration: 1.2,
+              ease: "back.out(1.7)",
+            });
+          }
+        },
+      },
+    });
+  }, []);
 
   return (
-    <div className="flex flex-col gap-20 py-16 md:py-24 lg:py-32">
-      <div className="flex flex-col gap-6 md:gap-8 lg:gap-10">
-        <AnimatedSection animation="about-animation">
-          <p className="text-sm uppercase text-[#f37a35] md:text-base">
-            PROJECT
-            <br />
-            HIGHLIGHTS
-          </p>
-        </AnimatedSection>
+    <section
+      ref={wrapperRef}
+      className="flex flex-col gap-20 py-16 md:py-24 lg:py-32"
+    >
+      <div className="flex flex-col gap-6 md:gap-8 lg:gap-10 lg:flex-row pt-[90px] md:pt-[26px] lg:pt-0">
+        <p className="text-sm uppercase text-[#f37a35] md:text-base">
+          PROJECT
+          <br className="lg:hidden" />
+          HIGHLIGHTS
+        </p>
 
-        <AnimatedSection animation="about-animation">
-          <h2 className="text-xl font-extralight leading-[1.1] text-black dark:text-white md:text-2xl lg:text-3xl">
-            Enjoy a showcase of my best work{" "}
-            <span className="font-bold">
-              in creative web design & distinctive branding.
-            </span>
-          </h2>
-        </AnimatedSection>
+        <h2 className="text-xl font-extralight leading-[1.1] text-black dark:text-white md:text-2xl lg:text-3xl">
+          Enjoy a showcase of my best work{" "}
+          <span className="font-bold">
+            creative web design & distinctive branding, crafted to inspire and
+            engage.
+          </span>
+        </h2>
       </div>
 
-      <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:gap-14 lg:grid-cols-3 lg:gap-18">
-        {highlightedProjects.map((project) => (
-          <AnimatedSection animation="card-animation" key={project.id}>
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block"
+      <div className="w-full relative select-none">
+        <div
+          className="flex items-start h-full gap-8 sm:gap-10 md:gap-12 w-max"
+          ref={scrollerRef}
+        >
+          {highlightedProjects.map((project, index) => (
+            <div
+              key={project.id}
+              className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[380px] lg:w-[420px]"
             >
-              <div className="relative mb-6 overflow-hidden rounded-4xl bg-black/30 transition-transform duration-300 group-hover:scale-[1.01]">
-                <div className="pointer-events-none absolute inset-0 z-10 rounded-4xl shadow-[inset_0_0_20px_rgba(0,0,0,0.15)]" />
-                <Image
-                  src={project.screenshot}
-                  alt={project.name}
-                  width={1920}
-                  height={879}
-                  className="aspect-square w-full object-cover"
-                  quality={85}
-                  priority
-                />
-              </div>
-
-              <div className="space-y-2">
-                <p className="text-sm uppercase text-[#f37a35] md:text-base">
-                  {formatDate(project.date)}
-                </p>
-
-                <h3 className="text-4xl font-black uppercase leading-[1.1] tracking-[-0.08em] md:text-5xl lg:text-4xl">
-                  {project.name}
-                </h3>
-
-                <div className="my-3 h-px w-15 bg-black/50 dark:bg-white/50" />
-
-                <div className="text-sm text-black/50 dark:text-white/50">
-                  {project.technologies.join(" • ")}
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+              >
+                <div className="relative mb-6 overflow-hidden rounded-4xl bg-black/30 transition-transform duration-300 group-hover:scale-[1.02]">
+                  <div className="pointer-events-none absolute inset-0 z-10 rounded-4xl shadow-[inset_0_0_20px_rgba(0,0,0,0.15)]" />
+                  <Image
+                    src={project.screenshot}
+                    alt={project.name}
+                    width={1920}
+                    height={1440}
+                    className="aspect-[4/3] w-full object-cover"
+                    quality={85}
+                    priority={index < 3}
+                  />
                 </div>
-              </div>
-            </a>
-          </AnimatedSection>
-        ))}
+
+                <div className="space-y-3">
+                  <p className="text-sm uppercase text-[#f37a35] font-medium">
+                    {formatDate(project.date)}
+                  </p>
+
+                  <h3 className="text-3xl md:text-4xl font-black uppercase leading-[0.9] tracking-[-0.05em] text-black dark:text-white">
+                    {project.name}
+                  </h3>
+
+                  <div className="my-4 h-px w-16 bg-black/30 dark:bg-white/30" />
+
+                  <div className="text-sm text-black/60 dark:text-white/60">
+                    {project.technologies.join(" • ")}
+                  </div>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <AnimatedSection animation="card-animation">
-        <div className="flex flex-col items-center">
-          <Link
-            href="/contact"
-            className="group relative overflow-hidden rounded-full bg-[#f37a35] px-12 py-5 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 active:scale-95 md:text-md"
-          >
-            <span className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-            <span className="relative z-10">view all projects</span>
-          </Link>
-        </div>
-      </AnimatedSection>
-    </div>
+      <div className="flex flex-col items-center" ref={buttonRef}>
+        <Link
+          href="/contact"
+          className="group relative overflow-hidden rounded-full bg-[#f37a35] px-12 py-5 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 active:scale-95 md:text-md"
+        >
+          <span className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+          <span className="relative z-10">view all projects</span>
+        </Link>
+      </div>
+    </section>
   );
 }

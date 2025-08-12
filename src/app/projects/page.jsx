@@ -206,7 +206,7 @@ export default function ProjectsPage() {
                         priority
                         className={
                           viewMode === "grid"
-                            ? "w-full aspect-square object-cover"
+                            ? "w-full aspect-[4/3] object-cover"
                             : "w-full aspect-square sm:h-28 md:h-32 lg:h-36 object-cover"
                         }
                       />
@@ -222,7 +222,7 @@ export default function ProjectsPage() {
                       <h3
                         className={
                           viewMode === "grid"
-                            ? "text-4xl md:text-5xl lg:text-4xl font-black leading-[1.1] tracking-[-0.08em] uppercase"
+                            ? "text-4xl md:text-5xl lg:text-5xl font-black leading-[1.1] tracking-[-0.08em] uppercase"
                             : "text-xl sm:text-2xl md:text-3xl font-black leading-[1.1] tracking-[-0.08em] uppercase"
                         }
                       >

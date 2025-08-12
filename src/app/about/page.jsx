@@ -155,7 +155,7 @@ export default function AboutPage() {
           </div>
 
           <div className="pointer-events-none absolute inset-0">
-            <div className="image-animate absolute left-[-2rem] top-[-6rem] md:left-[-4rem] md:top-[-7rem] w-48 h-56 md:w-60 md:h-68 transform -rotate-12 overflow-hidden rounded-2xl shadow-xl">
+            <div className="image-animate absolute left-[-2rem] top-[-6rem] md:left-[-4rem] md:top-[-7rem] w-42 h-46 md:w-60 md:h-68 transform -rotate-12 overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src="/images/screenshots/Tic-Tac-Toe.png"
                 alt="Tic Tac Toe Project"

@@ -2,9 +2,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageIntroAnimation from "@/components/PageIntroAnimation";
 import Analytics from "./Analytics";
-import "./globals.css";
 import BackgroundEffect from "@/components/BackgroundEffect";
 import ScrollToTop from "@/components/ScrollToTop";
+import "./globals.css";
 
 export const metadata = {
   title: "Furkan Cosar - Web Developer | Next.js & React",
