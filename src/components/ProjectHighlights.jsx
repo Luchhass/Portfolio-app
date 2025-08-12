@@ -86,9 +86,9 @@ export default function ProjectHighlights() {
   return (
     <section
       ref={wrapperRef}
-      className="flex flex-col gap-20 py-16 md:py-24 lg:py-32"
+      className="flex flex-col gap-10 pt-10"
     >
-      <div className="m-auto max-w-[600px] px-8 md:max-w-[850px] md:px-10 lg:max-w-[1200px] flex flex-col gap-6 md:gap-8 lg:gap-10 lg:flex-row pt-[90px] md:pt-[26px] lg:pt-0">
+      <div className="m-auto max-w-[600px] px-8 md:max-w-[850px] md:px-10 lg:max-w-[1200px] flex flex-col gap-6 md:gap-8 lg:gap-10 lg:flex-row pt-[90px] md:pt-[26px]">
         <AnimatedSection animation="home-animation">
           <p className="text-sm uppercase text-[#f37a35] md:text-base">
             PROJECT
