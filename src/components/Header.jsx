@@ -99,7 +99,7 @@ export default function Header() {
   return (
     <div ref={containerRef}>
       <header
-        className={`fixed left-0 top-0 z-30 flex w-full items-center justify-between border-b-2 px-8 py-6 transition-all duration-500 ease-out md:px-10 md:py-8 lg:px-16 lg:py-8 ${
+        className={`fixed left-0 top-0 z-40 flex w-full items-center justify-between border-b-2 px-8 py-6 transition-all duration-500 ease-out md:px-10 md:py-8 lg:px-16 lg:py-8 ${
           isMenuOpen
             ? "border-none"
             : "border-gray-200 bg-white dark:border-zinc-900 dark:bg-black lg:border-none lg:bg-transparent lg:dark:bg-transparent"
@@ -125,7 +125,7 @@ export default function Header() {
         </button>
       </header>
 
-      <div className="mobile-menu pointer-events-auto fixed top-0 z-20 flex h-[100dvh] w-full flex-col justify-between -translate-y-full bg-white px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 dark:bg-black">
+      <div className="mobile-menu pointer-events-auto fixed top-0 z-30 flex h-[100dvh] w-full flex-col justify-between -translate-y-full bg-white px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 dark:bg-black">
         <div />
 
         <nav aria-label="navigation">

@@ -25,7 +25,7 @@ export default function ScrollToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-8 right-8 md:right-10 lg:left-16 lg:right-auto z-50 p-3 rounded-full bg-[#f37a35] text-white shadow-lg hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-500 group ${
+      className={`fixed bottom-8 right-8 md:right-10 lg:left-16 lg:right-auto z-20 p-3 rounded-full bg-[#f37a35] text-white shadow-lg hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-500 group ${
         isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
       } hover:scale-125 hover:-translate-y-2 active:scale-95 hover:rotate-12`}
       aria-label="Yukarı çık"
