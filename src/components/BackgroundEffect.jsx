@@ -110,7 +110,7 @@ export default function BackgroundEffect() {
   return (
     <div
       ref={ref}
-      className="pointer-events-none fixed left-0 top-0 -z-10 h-[60vw] w-[60vw] rounded-full will-change-transform animate-pulseGlow"
+      className="pointer-events-none fixed left-0 top-0 -z-10 hidden h-[60vw] w-[60vw] rounded-full will-change-transform animate-pulseGlow lg:block"
       style={{
         background:
           "radial-gradient(circle, rgba(255,155,33,0.688), rgba(255,189,65,0.618))",

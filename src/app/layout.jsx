@@ -4,6 +4,7 @@ import PageIntroAnimation from "@/components/PageIntroAnimation";
 import Analytics from "./Analytics";
 import "./globals.css";
 import BackgroundEffect from "@/components/BackgroundEffect";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata = {
   title: "Furkan Cosar - Web Developer | Next.js & React",
@@ -103,8 +104,9 @@ export default function RootLayout({ children }) {
         <Header />
 
         <main>
-          <BackgroundEffect />
+          {/* <BackgroundEffect /> */}
           {children}
+          <ScrollToTop />
         </main>
 
         <Footer />
