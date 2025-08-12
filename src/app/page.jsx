@@ -49,7 +49,6 @@ export default function Home() {
           "-=0.7"
         );
 
-      // Mouse tracking efekti
       const heroEl = heroRef.current;
 
       const handleMouseMove = (e) => {
@@ -61,7 +60,6 @@ export default function Home() {
         const rotateY = xPos * 20;
         const rotateX = -yPos * 20;
 
-        // Video animasyonu
         const video = heroEl.querySelector(".video-animate");
         if (video) {
           gsap.to(video, {
@@ -74,7 +72,6 @@ export default function Home() {
           });
         }
 
-        // Text animasyonları
         const texts = heroEl.querySelectorAll(".text-animate, .button-animate");
         texts.forEach((text) => {
           gsap.to(text, {
@@ -119,7 +116,7 @@ export default function Home() {
 
           <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-12 text-center z-10">
             <div className="relative flex w-screen flex-col items-center justify-center gap-12 lg:w-[600px]">
-              <h1 className="pointer-events-none text-6xl font-black leading-[1.1] tracking-[-0.05em] text-black md:text-8xl lg:text-9xl">
+              <h1 className="pointer-events-none text-6xl font-black leading-[1.1] tracking-[-0.05em] text-black dark:text-white md:text-8xl lg:text-9xl">
                 <span className="text-animate inline-block lg:mr-0">
                   crafting
                 </span>

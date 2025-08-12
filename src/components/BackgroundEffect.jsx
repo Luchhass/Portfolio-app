@@ -51,7 +51,6 @@ export default function BackgroundEffect() {
       if (e.touches?.length > 0) {
         const touch = e.touches[0];
 
-        // Hareket başladığında küçült
         if (!isMoving.current) {
           isMoving.current = true;
           gsap.to(ref.current, {
@@ -61,7 +60,6 @@ export default function BackgroundEffect() {
           });
         }
 
-        // Pozisyonu güncelle
         gsap.to(ref.current, {
           x: touch.clientX,
           y: touch.clientY,
@@ -69,7 +67,6 @@ export default function BackgroundEffect() {
           ease: "power2.out",
         });
 
-        // Timeout'u temizle ve yeniden başlat
         if (moveTimeout.current) {
           clearTimeout(moveTimeout.current);
         }

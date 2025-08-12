@@ -109,7 +109,7 @@ export default function Header() {
           href="/"
           className="text-xl font-light text-black dark:text-white md:text-2xl lg:text-3xl"
         >
-          Furkan <span className="text-[#f37a35] font-black">Cosar</span>
+          Furkan<span className="text-[#f37a35] font-black">Cosar</span>
         </Link>
 
         <button

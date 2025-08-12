@@ -7,7 +7,6 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      // 300px scroll sonrası butonu göster
       setIsVisible(window.pageYOffset > 300);
     };
 
