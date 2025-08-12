@@ -98,10 +98,10 @@ export default function Home() {
   );
 
   return (
-    <main ref={container}>
+    <main ref={container} className="overflow-x-hidden">
       <section
         ref={heroRef}
-        className="h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] lg:h-[100dvh] px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8"
+        className="h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] lg:h-[100dvh] px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 overflow-x-hidden"
       >
         <div className="relative flex h-full w-full items-center justify-center">
           <div className="video-animate relative h-[calc(100%-4rem)] w-screen max-w-[500px] overflow-hidden rounded-3xl shadow-2xl md:max-w-[600px] md:max-h-[600px] lg:w-[700px] lg:max-h-[600px]">
