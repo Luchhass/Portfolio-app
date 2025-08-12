@@ -98,9 +98,9 @@ export default function ContactPage() {
           <Image
             src="/images/contact-page-hero.jpg"
             alt="Scenic coastal view with city skyline"
-            width={2000}
-            height={2000}
-            className="h-38 w-55 rounded-3xl object-cover shadow-2xl md:h-45 md:w-62 lg:h-62 lg:w-89"
+            width={2024}
+            height={2024}
+            className="h-38 w-55 rounded-3xl object-cover object-top shadow-2xl md:h-45 md:w-62 lg:h-62 lg:w-89"
             style={{ transform: "rotateZ(-10deg)" }}
           />
         </div>

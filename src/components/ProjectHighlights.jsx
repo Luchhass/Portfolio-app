@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import deployments from "@/data/deployments.js";
 import Image from "next/image";
 import Link from "next/link";
+import AnimatedSection from "./AnimatedSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,68 +88,73 @@ export default function ProjectHighlights() {
       ref={wrapperRef}
       className="flex flex-col gap-20 py-16 md:py-24 lg:py-32"
     >
-      <div className="flex flex-col gap-6 md:gap-8 lg:gap-10 lg:flex-row pt-[90px] md:pt-[26px] lg:pt-0">
-        <p className="text-sm uppercase text-[#f37a35] md:text-base">
-          PROJECT
-          <br className="lg:hidden" />
-          HIGHLIGHTS
-        </p>
+      <div className="m-auto max-w-[600px] px-8 md:max-w-[850px] md:px-10 lg:max-w-[1200px] flex flex-col gap-6 md:gap-8 lg:gap-10 lg:flex-row pt-[90px] md:pt-[26px] lg:pt-0">
+        <AnimatedSection animation="home-animation">
+          <p className="text-sm uppercase text-[#f37a35] md:text-base">
+            PROJECT
+            <br className="lg:hidden" />
+            HIGHLIGHTS
+          </p>
+        </AnimatedSection>
 
-        <h2 className="text-xl font-extralight leading-[1.1] text-black dark:text-white md:text-2xl lg:text-3xl">
-          Enjoy a showcase of my best work{" "}
-          <span className="font-bold">
-            creative web design & distinctive branding, crafted to inspire and
-            engage.
-          </span>
-        </h2>
+        <AnimatedSection animation="home-animation">
+          <h2 className="text-xl font-extralight leading-[1.1] text-black dark:text-white md:text-2xl lg:text-3xl">
+            Enjoy a curated showcase of my finest work, where creative web
+            design meets distinctive branding.{" "}
+            <span className="font-bold">
+              Each project is thoughtfully crafted to inspire, engage, and leave
+              a lasting impression, blending aesthetic appeal with strategic
+              storytelling.
+            </span>
+          </h2>
+        </AnimatedSection>
       </div>
 
-      <div className="w-full relative select-none">
+      <div className="w-full relative select-none px-8 md:px-10 lg:px-16">
         <div
           className="flex items-start h-full gap-8 sm:gap-10 md:gap-12 w-max"
           ref={scrollerRef}
         >
           {highlightedProjects.map((project, index) => (
-            <div
-              key={project.id}
-              className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[380px] lg:w-[420px]"
-            >
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block"
-              >
-                <div className="relative mb-6 overflow-hidden rounded-4xl bg-black/30 transition-transform duration-300 group-hover:scale-[1.02]">
-                  <div className="pointer-events-none absolute inset-0 z-10 rounded-4xl shadow-[inset_0_0_20px_rgba(0,0,0,0.15)]" />
-                  <Image
-                    src={project.screenshot}
-                    alt={project.name}
-                    width={1920}
-                    height={1440}
-                    className="aspect-[4/3] w-full object-cover"
-                    quality={85}
-                    priority={index < 3}
-                  />
-                </div>
-
-                <div className="space-y-3">
-                  <p className="text-sm uppercase text-[#f37a35] font-medium">
-                    {formatDate(project.date)}
-                  </p>
-
-                  <h3 className="text-3xl md:text-4xl font-black uppercase leading-[0.9] tracking-[-0.05em] text-black dark:text-white">
-                    {project.name}
-                  </h3>
-
-                  <div className="my-4 h-px w-16 bg-black/30 dark:bg-white/30" />
-
-                  <div className="text-sm text-black/60 dark:text-white/60">
-                    {project.technologies.join(" • ")}
+            <AnimatedSection animation="home-animation" key={project.id}>
+              <div className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[380px] lg:w-[420px]">
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block"
+                >
+                  <div className="relative mb-6 overflow-hidden rounded-4xl bg-black/30 transition-transform duration-300 group-hover:scale-[1.02]">
+                    <div className="pointer-events-none absolute inset-0 z-10 rounded-4xl shadow-[inset_0_0_20px_rgba(0,0,0,0.15)]" />
+                    <Image
+                      src={project.screenshot}
+                      alt={project.name}
+                      width={1920}
+                      height={1440}
+                      className="aspect-[4/3] w-full object-cover"
+                      quality={85}
+                      priority={index < 3}
+                    />
                   </div>
-                </div>
-              </a>
-            </div>
+
+                  <div className="space-y-3">
+                    <p className="text-sm uppercase text-[#f37a35] font-medium">
+                      {formatDate(project.date)}
+                    </p>
+
+                    <h3 className="text-3xl md:text-4xl font-black uppercase leading-[0.9] tracking-[-0.05em] text-black dark:text-white">
+                      {project.name}
+                    </h3>
+
+                    <div className="my-4 h-px w-16 bg-black/30 dark:bg-white/30" />
+
+                    <div className="text-sm text-black/60 dark:text-white/60">
+                      {project.technologies.join(" • ")}
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

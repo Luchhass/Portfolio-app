@@ -20,7 +20,7 @@ export default function ScrollTextBand({ text = "WELCOME", repeat = 7 }) {
           trigger: ".welcome-band",
           start: "top bottom",
           end: "bottom top",
-          scrub: 1,
+          scrub: 2,
         },
       }),
     { scope: containerRef }

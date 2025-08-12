@@ -148,7 +148,7 @@ export default function Home() {
         <ScrollTextBand text="WELCOME" repeat={7} />
       </section>
 
-      <section className="m-auto max-w-[600px] px-8 md:max-w-[850px] md:px-10 lg:max-w-[1200px] lg:px-16">
+      <section>
         <ProjectHighlights />
       </section>
 
