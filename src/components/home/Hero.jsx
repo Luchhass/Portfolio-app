@@ -94,18 +94,36 @@ export default function Hero() {
       };
 
       window.addEventListener("mousemove", handleMouseMove);
-      if (window.DeviceOrientationEvent) {
-        window.addEventListener("deviceorientation", handleDeviceOrientation);
-      }
+
+      const setupDeviceOrientation = async () => {
+        if (
+          window.DeviceOrientationEvent &&
+          typeof DeviceOrientationEvent.requestPermission === "function"
+        ) {
+          try {
+            const permission = await DeviceOrientationEvent.requestPermission();
+            if (permission === "granted") {
+              window.addEventListener(
+                "deviceorientation",
+                handleDeviceOrientation
+              );
+            }
+          } catch (err) {
+            console.warn("DeviceOrientation permission denied:", err);
+          }
+        } else if (window.DeviceOrientationEvent) {
+          window.addEventListener("deviceorientation", handleDeviceOrientation);
+        }
+      };
+
+      setupDeviceOrientation();
 
       return () => {
         window.removeEventListener("mousemove", handleMouseMove);
-        if (window.DeviceOrientationEvent) {
-          window.removeEventListener(
-            "deviceorientation",
-            handleDeviceOrientation
-          );
-        }
+        window.removeEventListener(
+          "deviceorientation",
+          handleDeviceOrientation
+        );
       };
     },
     { scope: container }
