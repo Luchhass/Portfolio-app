@@ -7,7 +7,7 @@ import gsap from "gsap";
 import Image from "next/image";
 import deployments from "@/data/deployments.js";
 import ContactCTA from "@/components/ContactCTA";
-import AnimatedSection from "@/components/AnimatedSection";
+import AnimatedSection from "@/components/ScrollAnimator";
 
 gsap.registerPlugin(ScrollTrigger);
 

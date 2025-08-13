@@ -14,24 +14,23 @@ export default function ContactPage() {
   useGSAP(
     () => {
       gsap.set(".image-animate", { opacity: 0, scale: 0 });
-      gsap.set(".text-animate", { x: "-100vw", opacity: 0 });
+      gsap.set(".text-animate", { x: "-50vw" });
       gsap.set(".text-block", { opacity: 0 });
 
-      const tl = gsap.timeline().delay(1);
+      const tl = gsap.timeline().delay(2);
 
       tl.to(".image-animate", {
         opacity: 1,
         scale: 1,
-        duration: 0.6,
-        ease: "power3.out",
+        duration: 0.8,
+        ease: "elastic.out(1.5, 1.5)",
       })
         .to(
           ".text-animate",
           {
             x: "0vw",
-            opacity: 1,
-            duration: 1.2,
-            ease: "power3.out",
+            duration: 1.35,
+            ease: "elastic.out(1.5, 1.5)",
             stagger: 0.2,
           },
           "-=0.2"
@@ -107,11 +106,13 @@ export default function ContactPage() {
 
         <h1
           ref={textRef}
-          className="text-animate absolute left-0 top-13 z-10 text-7xl font-black leading-[0.85] tracking-[-0.07em] text-black dark:text-white md:text-8xl lg:text-9xl"
+          className="absolute left-0 top-13 z-10 text-7xl font-black leading-[0.85] tracking-[-0.07em] text-black dark:text-white md:text-8xl lg:text-9xl"
         >
-          <span className="inline-block">get in</span>
+          <span className="text-animate inline-block">get in</span>
           <br />
-          <span className="ml-16 inline-block md:ml-20 lg:ml-24">touch</span>
+          <span className="text-animate ml-16 inline-block md:ml-20 lg:ml-24">
+            touch
+          </span>
         </h1>
       </section>
 

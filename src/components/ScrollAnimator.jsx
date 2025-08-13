@@ -24,8 +24,8 @@ export default function AnimatedSection({ children, animation }) {
             ease: "back.out(1.5)",
             scrollTrigger: {
               trigger: el,
-              start: "top 80%",
-              end: "bottom 20%",
+              start: "top 110%",
+              end: "bottom 5%",
               toggleActions: "play reverse play reverse",
             },
           },
@@ -38,47 +38,61 @@ export default function AnimatedSection({ children, animation }) {
             ease: "back.out(1.5)",
             scrollTrigger: {
               trigger: el,
-              start: "top 70%",
-              end: "bottom 30%",
-              toggleActions: "play none none none",
-              once: true,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play reverse play reverse",
             },
           },
         },
-        "cta-animation": {
+        "contact-cta-animations": {
           from: { opacity: 0 },
           to: {
             opacity: 1,
             duration: 1,
-            ease: "back.out(1.5)",
+            stagger: 0.1,
+            ease: "elastic.out(1.5, 1.5)",
             scrollTrigger: {
               trigger: el,
-              start: "top 70%",
-              end: "bottom 30%",
-              toggleActions: "play none none none",
-              once: true,
+              start: "top 65%",
+              end: "bottom 20%",
+              toggleActions: "play reverse play reverse",
             },
+            targets: ".cta-item",
           },
         },
-        "home-animation": {
+        "projects-highlights-animations": {
           from: { opacity: 0 },
           to: {
             opacity: 1,
+            y: 0,
             duration: 1,
-            ease: "back.out(1.5)",
+            ease: "elastic.out(1.5, 1.5)",
+            stagger: 0.1,
             scrollTrigger: {
               trigger: el,
-              start: "top 70%",
-              end: "bottom 10%",
-              toggleActions: "play none none none",
-              once: true,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play reverse play reverse",
             },
+            targets: ".highlights-item",
           },
         },
       };
 
       const config = animationConfigs[animation];
-      if (config) gsap.fromTo(el, config.from, config.to);
+
+      if (config) {
+        let targets;
+
+        if (config.to.targets) {
+          const children = el.querySelectorAll(config.to.targets);
+          targets = children.length ? children : el;
+        } else {
+          targets = el;
+        }
+
+        gsap.fromTo(targets, config.from, { ...config.to, targets: undefined });
+      }
     },
     { scope: sectionRef, dependencies: [animation] }
   );

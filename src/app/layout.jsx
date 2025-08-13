@@ -2,14 +2,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageIntroAnimation from "@/components/PageIntroAnimation";
 import Analytics from "./Analytics";
-import BackgroundEffect from "@/components/BackgroundEffect";
-import ScrollToTop from "@/components/ScrollToTop";
+import ScrollToTop from "@/components/ScrollUpCTA";
 import "./globals.css";
 
 export const metadata = {
-  title: "Furkan Cosar - Web Developer | Next.js & React",
+  title:
+    "Furkan Cosar – Frontend Web Developer | Next.js, React & Tailwind CSS",
   description:
-    "I’m Furkan, a frontend developer specializing in creating modern, responsive, and high-performance websites using Next.js, GSAP, and Tailwind CSS. This portfolio showcases my work and expertise in building engaging web experiences.",
+    "Furkan Cosar is a frontend web developer specializing in modern, responsive, and high-performance websites using Next.js, React, GSAP, and Tailwind CSS. Explore innovative web experiences, UI/UX design, and interactive animations.",
   keywords: [
     "Frontend Developer",
     "Web Developer",
@@ -25,11 +25,18 @@ export const metadata = {
     "User Interface Design",
     "Web Animations",
     "Single Page Applications",
+    "Portfolio Website",
+    "Interactive Web Design",
+    "Professional Web Developer",
     "Furkan Cosar",
+    "Creative Frontend Developer",
+    "High Performance Web",
   ],
   authors: [{ name: "Furkan Cosar" }],
   creator: "Furkan Cosar",
   publisher: "Furkan Cosar",
+  robots: "index, follow",
+  canonical: "https://furkancosar.com",
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -51,7 +58,7 @@ export const metadata = {
   openGraph: {
     title: "Furkan Cosar · Portfolio Website",
     description:
-      "This is my portfolio, featuring modern, animated, and responsive websites built with Next.js, GSAP, and Tailwind CSS.",
+      "Explore the portfolio of Furkan Cosar, a frontend web developer specializing in modern, animated, and responsive websites using Next.js, React, GSAP, and Tailwind CSS.",
     url: "https://furkancosar.com",
     siteName: "Furkan Cosar Portfolio",
     images: [
@@ -69,8 +76,26 @@ export const metadata = {
     card: "summary_large_image",
     title: "Furkan Cosar · Portfolio Website",
     description:
-      "This is my portfolio, featuring modern, animated, and responsive websites built with Next.js, GSAP, and Tailwind CSS.",
+      "Explore the portfolio of Furkan Cosar, featuring modern, animated, and responsive websites built with Next.js, React, GSAP, and Tailwind CSS.",
     images: ["https://furkancosar.com/og-image.jpg"],
+    site: "@furkancosar",
+    creator: "@furkancosar",
+  },
+  schema: {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Furkan Cosar",
+    url: "https://furkancosar.com",
+    sameAs: [
+      "https://www.linkedin.com/in/furkancosar/",
+      "https://github.com/furkancosar",
+      "https://twitter.com/furkancosar",
+    ],
+    jobTitle: "Frontend Web Developer",
+    worksFor: {
+      "@type": "Organization",
+      name: "Furkan Cosar Portfolio",
+    },
   },
 };
 
@@ -100,14 +125,13 @@ export default function RootLayout({ children }) {
 
       <body className="antialiased mt-[90px] md:mt-[106px] lg:mt-0">
         <Analytics />
-        <PageIntroAnimation />
+        {/* <PageIntroAnimation /> */}
         <Header />
 
-        <main>
-          {/* <BackgroundEffect /> */}
+        <div>
           {children}
           <ScrollToTop />
-        </main>
+        </div>
 
         <Footer />
       </body>

@@ -9,7 +9,7 @@ import Link from "next/link";
 import GithubStats from "@/components/GithubStats";
 import ScrollTextBand from "@/components/ScrollTextBand";
 import ContactCTA from "@/components/ContactCTA";
-import AnimatedSection from "@/components/AnimatedSection";
+import AnimatedSection from "@/components/ScrollAnimator";
 
 export default function AboutPage() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -303,9 +303,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-32 md:py-42 lg:py-52">
-        <ContactCTA />
-      </section>
+      <ContactCTA />
     </main>
   );
 }

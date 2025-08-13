@@ -9,7 +9,7 @@ import {
   FaSpinner,
 } from "react-icons/fa";
 import { MdError } from "react-icons/md";
-import AnimatedSection from "./AnimatedSection";
+import AnimatedSection from "./ScrollAnimator";
 
 const LoadingState = ({ username }) => (
   <div className="flex flex-col gap-20 lg:flex-row lg:items-start lg:justify-between">

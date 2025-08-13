@@ -27,13 +27,13 @@ export default function ScrollTextBand({ text = "WELCOME", repeat = 7 }) {
   );
 
   return (
-    <div
+    <section
       ref={containerRef}
       className="relative w-full overflow-hidden h-[clamp(5rem,15vw,12rem)]"
     >
       <div className="welcome-band flex h-full w-max items-center whitespace-nowrap text-7xl font-black leading-none tracking-[-0.08em] text-[#EEEEEE] dark:text-[#0C0C0C] md:text-8xl lg:text-9xl">
         {content} {content} {content}
       </div>
-    </div>
+    </section>
   );
 }
