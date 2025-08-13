@@ -1,8 +1,8 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import PageIntroAnimation from "@/components/PageIntroAnimation";
 import Analytics from "./Analytics";
-import ScrollToTop from "@/components/ScrollUpCTA";
+import Header from "@/components/Header";
+import ScrollUpCTA from "@/components/ScrollUpCTA";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata = {
@@ -125,12 +125,12 @@ export default function RootLayout({ children }) {
 
       <body className="antialiased mt-[90px] md:mt-[106px] lg:mt-0">
         <Analytics />
-        {/* <PageIntroAnimation /> */}
+        <PageIntroAnimation />
         <Header />
 
         <div>
           {children}
-          <ScrollToTop />
+          <ScrollUpCTA />
         </div>
 
         <Footer />
