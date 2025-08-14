@@ -9,7 +9,7 @@ import {
   FaSpinner,
 } from "react-icons/fa";
 import { MdError } from "react-icons/md";
-import AnimatedSection from "./ScrollAnimator";
+import AnimatedSection from "../ScrollAnimator";
 
 const LoadingState = ({ username }) => (
   <div className="flex flex-col gap-20 lg:flex-row lg:items-start lg:justify-between">
@@ -172,15 +172,15 @@ export default function GithubStats({ username = "octocat" }) {
   return (
     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-22">
       <div className="flex flex-1 flex-col gap-6 md:gap-8 lg:gap-10">
-        <AnimatedSection animation="about-animation">
+        <AnimatedSection animation="about-paragraph-animations">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em] text-black dark:text-white">
-            github
+            <span className="about-item">github</span>
             <br />
-            statistics
+            <span className="about-item">statistics</span>
           </h1>
         </AnimatedSection>
 
-        <AnimatedSection animation="about-animation">
+        <AnimatedSection animation="about-paragraph-animations">
           <div className="flex items-center gap-1">
             <FaUser className="h-4 w-4 text-black/50 dark:text-white/50" />
             <p className="text-lg text-black/50 dark:text-white/50">
@@ -189,12 +189,17 @@ export default function GithubStats({ username = "octocat" }) {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection animation="about-animation">
+        <AnimatedSection animation="about-paragraph-animations">
           <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
-            Real-time insights into development activity.{" "}
-            <span className="font-bold">
-              From repository management to commit history, these metrics
-              showcase the dedication behind building exceptional digital
+            <span className="about-item font-bold">
+              Real-time insights into development activity.{" "}
+            </span>
+            <span className="about-item">
+              From repository management to commit history, track the
+              development flow.{" "}
+            </span>
+            <span className="about-item font-bold">
+              Highlighting the dedication behind exceptional digital
               experiences.
             </span>
           </h2>
@@ -205,7 +210,10 @@ export default function GithubStats({ username = "octocat" }) {
         {statGroups.map((group, index) => {
           const isOpen = openIndex === index;
           return (
-            <AnimatedSection animation="about-animation" key={group.title}>
+            <AnimatedSection
+              animation="about-paragraph-animations"
+              key={group.title}
+            >
               <div
                 className="group relative cursor-pointer bg-transparent py-3"
                 onClick={() => toggleGroup(index)}

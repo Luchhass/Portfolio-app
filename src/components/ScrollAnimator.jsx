@@ -30,18 +30,20 @@ export default function AnimatedSection({ children, animation }) {
             },
           },
         },
-        "about-animation": {
+        "about-paragraph-animations": {
           from: { opacity: 0 },
           to: {
             opacity: 1,
             duration: 1,
-            ease: "back.out(1.5)",
+            stagger: 0.25,
+            ease: "elastic.out(1.5, 1.5)",
             scrollTrigger: {
               trigger: el,
               start: "top 80%",
               end: "bottom 20%",
               toggleActions: "play reverse play reverse",
             },
+            targets: ".about-item",
           },
         },
         "contact-cta-animations": {
