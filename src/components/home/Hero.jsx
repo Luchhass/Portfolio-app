@@ -114,7 +114,7 @@ export default function Hero() {
   return (
     <section
       ref={container}
-      className="h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] lg:h-[100dvh] px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 overflow-x-hidden"
+      className="h-[calc(100vh-90px)] md:h-[calc(100vh-106px)] lg:h-[100vh] px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 overflow-x-hidden"
     >
       <div className="relative flex h-full w-full items-center justify-center">
         <div

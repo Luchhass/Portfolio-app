@@ -15,13 +15,13 @@ export default function AnimatedSection({ children, animation }) {
       const el = sectionRef.current;
 
       const animationConfigs = {
-        "card-animation": {
+        "project-card-animations": {
           from: { opacity: 0, scale: 0.3 },
           to: {
             opacity: 1,
             scale: 1,
             duration: 0.7,
-            ease: "back.out(1.5)",
+            ease: "elastic.out(1.5, 1.5)",
             scrollTrigger: {
               trigger: el,
               start: "top 110%",

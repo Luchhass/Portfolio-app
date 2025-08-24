@@ -6,7 +6,7 @@ import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Hero() {
+export default function AboutHero() {
   const container = useRef();
   const heroRef = useRef();
 
@@ -131,7 +131,7 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className="flex items-center justify-center h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] lg:min-h-[100dvh] px-8 md:px-10 lg:px-16"
+      className="flex items-center justify-center h-[calc(100vh-90px)] md:h-[calc(100vh-106px)] lg:min-h-[100vh] px-8 md:px-10 lg:px-16"
     >
       <div ref={container} className="relative">
         <div className="relative z-10 flex flex-col gap-6 text-center">

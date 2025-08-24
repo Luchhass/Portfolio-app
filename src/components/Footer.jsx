@@ -8,7 +8,7 @@ export default function Footer() {
   const pathname = usePathname();
 
   return (
-    <footer className="bg-[#f37a35] relative flex flex-col justify-between overflow-hidden px-8 py-6 h-[calc(100dvh-90px)] md:h-[calc(100dvh-106px)] md:px-10 md:py-8 lg:px-16 lg:py-8">
+    <footer className="bg-[#f37a35] relative flex flex-col justify-between overflow-hidden px-8 py-6 h-[calc(100vh-90px)] md:h-[calc(100vh-106px)] md:px-10 md:py-8 lg:px-16 lg:py-8">
       <div className="flex flex-col justify-between h-full lg:hidden">
         <h1 className="font-black font-sans uppercase tracking-[-0.05em] leading-[1] md:leading-[0.9] max-w-[350px] md:max-w-[450px] text-white text-4xl md:text-5xl">
           designing with purpose and passion.

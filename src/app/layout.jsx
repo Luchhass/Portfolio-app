@@ -124,8 +124,8 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className="antialiased mt-[90px] md:mt-[106px] lg:mt-0">
-        <Analytics />
         <PageIntroAnimation />
+        <Analytics />
         <Header />
 
         <div>

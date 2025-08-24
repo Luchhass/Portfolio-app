@@ -66,9 +66,9 @@ export default function PageIntroAnimation() {
       ref={containerRef}
       className="fixed top-0 left-0 w-full h-dvh z-50 overflow-hidden"
     >
-      <div className="orange-box absolute w-full h-full z-30 bg-[#f37a35]" />
-      <div className="black-box absolute w-full h-full z-20 bg-black dark:bg-white" />
-      <div className="white-box absolute w-full h-full z-10 bg-white dark:bg-black flex items-center justify-center">
+      <div className="orange-box absolute w-full h-full z-90 bg-[#f37a35]" />
+      <div className="black-box absolute w-full h-full z-80 bg-black dark:bg-white" />
+      <div className="white-box absolute w-full h-full z-70 bg-white dark:bg-black flex items-center justify-center">
         {pathname === "/" && (
           <Lottie
             lottieRef={lottieRef}
