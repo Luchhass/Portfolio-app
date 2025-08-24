@@ -94,7 +94,7 @@ export default function ContactForm() {
     const ctx = gsap.context(() => {
       gsap.set(".form-animate", { opacity: 0 });
 
-      const tl = gsap.timeline().delay(3.3);
+      const tl = gsap.timeline().delay(3.8);
 
       tl.to(
         ".form-animate",
@@ -102,7 +102,7 @@ export default function ContactForm() {
           duration: 1.85,
           ease: "back.out(1.5)",
           opacity: 1,
-          stagger: 0.2,
+          stagger: 0.1,
         },
         "-=0.8"
       );

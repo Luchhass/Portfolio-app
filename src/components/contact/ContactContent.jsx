@@ -12,11 +12,11 @@ export default function ContactContent() {
     () => {
       gsap.set(".text-block", { opacity: 0 });
 
-      const tl = gsap.timeline().delay(2.3);
+      const tl = gsap.timeline().delay(2.6);
 
       tl.to(".text-block", {
         opacity: 1,
-        duration: 0.7,
+        duration: 0.8,
         ease: "power1.out",
         stagger: 0.1,
       });
