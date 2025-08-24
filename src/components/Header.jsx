@@ -99,10 +99,10 @@ export default function Header() {
   return (
     <div ref={containerRef}>
       <header
-        className={`bg-white dark:bg-black lg:bg-transparent lg:dark:bg-transparent fixed left-0 top-0 z-30 flex w-full items-center justify-between border-b-2 px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 ${
+        className={`bg-white dark:bg-black transition-colors duration-500 ease-out fixed left-0 top-0 z-30 flex w-full items-center justify-between border-b-2 px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 ${
           isMenuOpen
             ? "border-transparent"
-            : "border-gray-200 dark:border-zinc-900 lg:border-none"
+            : "border-gray-200 dark:border-zinc-900 lg:border-none lg:bg-transparent lg:dark:bg-transparent"
         }`}
       >
         <Link
@@ -126,7 +126,7 @@ export default function Header() {
       </header>
 
       <div
-        className={`mobile-menu pointer-events-auto fixed top-[90px] flex h-[calc(100svh-90px)] md:h-[calc(100svh-106px)] w-full flex-col justify-between -translate-y-[100vh] bg-white px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 dark:bg-black z-20`}
+        className={`mobile-menu pointer-events-auto fixed top-0 flex h-[100vh] w-full flex-col justify-between -translate-y-[100vh] bg-white px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 dark:bg-black z-20`}
       >
         <div />
 
