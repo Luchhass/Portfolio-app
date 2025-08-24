@@ -126,7 +126,7 @@ export default function Header() {
       </header>
 
       <div
-        className={`mobile-menu pointer-events-auto fixed top-[90px] flex h-[calc(100vh-90px)] md:h-[calc(100vh-106px)] w-full flex-col justify-between -translate-y-[100vh] bg-white px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 dark:bg-black z-20`}
+        className={`mobile-menu pointer-events-auto fixed top-[90px] flex h-[calc(100svh-90px)] md:h-[calc(100svh-106px)] w-full flex-col justify-between -translate-y-[100vh] bg-white px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 dark:bg-black z-20`}
       >
         <div />
 

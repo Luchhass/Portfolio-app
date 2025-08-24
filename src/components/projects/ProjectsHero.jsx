@@ -193,7 +193,7 @@ export default function ProjectsHero({
   return (
     <section
       ref={containerRef}
-      className="px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 h-[calc(100vh-90px)] md:h-[calc(100vh-106px)] lg:min-h-[100vh] flex flex-col justify-between overflow-x-hidden"
+      className="px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 h-[calc(100svh-90px)] md:h-[calc(100svh-106px)] lg:min-h-[100svh] flex flex-col justify-between overflow-x-hidden"
     >
       <div className="flex-1 flex items-center justify-center">
         <div className="max-w-[600px] md:max-w-[850px] lg:max-w-[1200px] flex flex-col gap-6 md:gap-8 lg:gap-10 text-center">

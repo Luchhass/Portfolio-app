@@ -131,7 +131,7 @@ export default function AboutHero() {
   return (
     <section
       ref={heroRef}
-      className="flex items-center justify-center h-[calc(100vh-90px)] md:h-[calc(100vh-106px)] lg:min-h-[100vh] px-8 md:px-10 lg:px-16"
+      className="flex items-center justify-center h-[calc(100svh-90px)] md:h-[calc(100svh-106px)] lg:min-h-[100vh] px-8 md:px-10 lg:px-16"
     >
       <div ref={container} className="relative">
         <div className="relative z-10 flex flex-col gap-6 text-center">
