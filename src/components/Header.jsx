@@ -80,23 +80,9 @@ export default function Header() {
       if (isMenuOpen) {
         tl.current.play(0);
         document.body.style.overflow = "hidden";
-
-        const mobileMenu = document.querySelector(".mobile-menu");
-        if (mobileMenu) mobileMenu.style.overflow = "hidden";
-
-        const preventScroll = (e) => e.preventDefault();
-        window.addEventListener("touchmove", preventScroll, { passive: false });
-
-        return () => window.removeEventListener("touchmove", preventScroll);
       } else {
         tl.current.reverse();
         document.body.style.overflow = "";
-
-        const mobileMenu = document.querySelector(".mobile-menu");
-        if (mobileMenu) mobileMenu.style.overflow = "";
-
-        const preventScroll = (e) => e.preventDefault();
-        window.removeEventListener("touchmove", preventScroll);
       }
     },
     { dependencies: [isMenuOpen] }
