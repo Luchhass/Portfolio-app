@@ -227,7 +227,7 @@ export default function ProjectsHero({
 
       <div className="flex items-center justify-between gap-4 z-10">
         <nav className="flex-1 flex justify-center">
-          <ul className="inline-flex flex-wrap gap-x-4 gap-y-2 md:gap-8 lg:gap-10 py-2 md:px-10 md:py-4 lg:px-16 lg:py-6 justify-center">
+          <ul className="inline-flex flex-wrap gap-x-4 gap-y-2 md:gap-8 lg:gap-10 px-4 py-4 md:px-12 md:py-6 lg:px-16 justify-center">
             {categories.map((category, index) => (
               <li key={index}>
                 <button
