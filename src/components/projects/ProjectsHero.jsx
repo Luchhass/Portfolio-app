@@ -136,8 +136,8 @@ export default function ProjectsHero({
       const navUl = nav.querySelector("ul");
 
       const getFixedTopOffset = () => {
-        if (window.innerWidth >= 1024) return 42;
-        if (window.innerWidth >= 768) return 106;
+        if (window.innerWidth >= 1024) return 20;
+        if (window.innerWidth >= 768) return 140;
         return 120;
       };
 
