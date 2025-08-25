@@ -20,17 +20,17 @@ export default function ProjectsHero({
 
   const categories = ["All", "Web Design", "Games", "Interactive UI"];
 
+  // Açılış animasyonu
   useGSAP(
     () => {
       gsap.set(titleRefs.current, {
-        x: (index) => (index % 2 === 0 ? "-100vw" : "100vw"),
+        x: (i) => (i % 2 === 0 ? "-100vw" : "100vw"),
       });
       gsap.set(paragraphRef.current, { opacity: 0 });
       gsap.set(navItemRefs.current, { y: "20vh" });
       gsap.set(buttonsRef.current, { opacity: 0 });
 
       const tl = gsap.timeline().delay(1.8);
-
       tl.to(titleRefs.current, {
         x: "0vw",
         duration: 1.35,
@@ -39,41 +39,29 @@ export default function ProjectsHero({
       })
         .to(
           paragraphRef.current,
-          {
-            opacity: 1,
-            duration: 1.35,
-            ease: "elastic.out(1.5, 1.5)",
-          },
-          "-=1.0"
+          { opacity: 1, duration: 1.35, ease: "elastic.out(1.5, 1.5)" },
+          "-=0.9"
         )
         .to(
           navItemRefs.current,
-          {
-            y: 0,
-            duration: 1,
-            ease: "elastic.out(1.5, 1.5)",
-            stagger: 0.15,
-          },
+          { y: 0, duration: 1, ease: "elastic.out(1.5, 1.5)", stagger: 0.15 },
           "-=1.2"
         )
         .to(
           buttonsRef.current,
-          {
-            opacity: 1,
-            duration: 0.85,
-            ease: "back.out(1.5)",
-          },
+          { opacity: 1, duration: 0.85, ease: "back.out(1.5)" },
           "-=0.8"
         );
     },
     { scope: containerRef }
   );
 
+  // Title ve paragraph tilt efekti
   useGSAP(
     () => {
-      const updateTilt = (rotateX, rotateY) => {
-        titleRefs.current.forEach((el) => {
-          if (el) {
+      const tilt = (rotateX, rotateY) => {
+        [...titleRefs.current, paragraphRef.current].forEach((el) => {
+          if (el)
             gsap.to(el, {
               rotateX: rotateX * 0.9,
               rotateY: rotateY * 0.9,
@@ -82,64 +70,42 @@ export default function ProjectsHero({
               transformPerspective: 1000,
               transformOrigin: "center",
             });
-          }
         });
-
-        if (paragraphRef.current) {
-          gsap.to(paragraphRef.current, {
-            rotateX: rotateX * 0.9,
-            rotateY: rotateY * 0.9,
-            duration: 0.5,
-            ease: "power3.out",
-            transformPerspective: 1000,
-            transformOrigin: "center",
-          });
-        }
       };
 
-      const handleMouseMove = (e) => {
-        const { clientX, clientY } = e;
-        const { innerWidth, innerHeight } = window;
-        const xPos = (clientX / innerWidth - 0.5) * 2;
-        const yPos = (clientY / innerHeight - 0.5) * 2;
-        updateTilt(-yPos * 20, xPos * 20);
+      const onMouseMove = (e) => {
+        const xPos = (e.clientX / window.innerWidth - 0.5) * 2;
+        const yPos = (e.clientY / window.innerHeight - 0.5) * 2;
+        tilt(-yPos * 20, xPos * 20);
       };
 
-      const handleDeviceOrientation = (e) => {
-        const { gamma, beta } = e;
-        const rotateY = (gamma / 45) * 20;
-        const rotateX = -((beta - 45) / 45) * 20;
-        updateTilt(rotateX, rotateY);
+      const onDeviceOrientation = (e) => {
+        const rotateY = (e.gamma / 45) * 20;
+        const rotateX = -((e.beta - 45) / 45) * 20;
+        tilt(rotateX, rotateY);
       };
 
-      window.addEventListener("mousemove", handleMouseMove);
-      if (window.DeviceOrientationEvent) {
-        window.addEventListener("deviceorientation", handleDeviceOrientation);
-      }
+      window.addEventListener("mousemove", onMouseMove);
+      if (window.DeviceOrientationEvent)
+        window.addEventListener("deviceorientation", onDeviceOrientation);
 
       return () => {
-        window.removeEventListener("mousemove", handleMouseMove);
-        if (window.DeviceOrientationEvent) {
-          window.removeEventListener(
-            "deviceorientation",
-            handleDeviceOrientation
-          );
-        }
+        window.removeEventListener("mousemove", onMouseMove);
+        if (window.DeviceOrientationEvent)
+          window.removeEventListener("deviceorientation", onDeviceOrientation);
       };
     },
     { scope: containerRef }
   );
 
+  // Navbar sabitleme ve background animasyonu
   useGSAP(
     () => {
       const nav = containerRef.current.querySelector("nav");
       const navUl = nav.querySelector("ul");
 
-      const getFixedTopOffset = () => {
-        if (window.innerWidth >= 1024) return 110;
-        if (window.innerWidth >= 768) return 130;
-        return 120;
-      };
+      const getFixedTopOffset = () =>
+        window.innerWidth >= 1024 ? 110 : window.innerWidth >= 768 ? 130 : 120;
 
       let fixedTopOffset = getFixedTopOffset();
 
@@ -147,85 +113,67 @@ export default function ProjectsHero({
         if (!isNavFixed.current) {
           gsap.set(nav, { clearProps: "all" });
           gsap.set(navUl, { clearProps: "all" });
-
-          requestAnimationFrame(() => {
-            originalNavOffsetTop.current = nav.offsetTop;
-          });
+          requestAnimationFrame(
+            () => (originalNavOffsetTop.current = nav.offsetTop)
+          );
         }
       };
-
       calculateNavPosition();
 
       const onResize = () => {
         fixedTopOffset = getFixedTopOffset();
         if (isNavFixed.current) {
           isNavFixed.current = false;
+          gsap.killTweensOf(nav);
         }
         calculateNavPosition();
       };
 
       const onScroll = () => {
-        const navOffsetTop = originalNavOffsetTop.current;
-        if (navOffsetTop === null) return;
-
-        const triggerPoint = navOffsetTop - fixedTopOffset;
+        if (originalNavOffsetTop.current === null) return;
+        const triggerPoint = originalNavOffsetTop.current - fixedTopOffset;
         const currentScrollY = window.scrollY;
-
         const isAtBottom =
           window.innerHeight + currentScrollY >=
           document.documentElement.scrollHeight - 50;
 
-        if (currentScrollY >= triggerPoint) {
-          if (isAtBottom) {
-            if (isNavFixed.current) {
-              gsap.to(nav, {
-                opacity: 0,
-                duration: 0.3,
-                ease: "power2.out",
-              });
-            }
-          } else {
-            if (!isNavFixed.current) {
-              isNavFixed.current = true;
-
-              gsap.set(nav, {
-                position: "fixed",
-                top: `${fixedTopOffset}px`,
-                left: "32px",
-                right: "32px",
-                margin: "0 auto",
-                width: "fit-content",
-                zIndex: 50,
-                opacity: 1,
-                padding: "0 0",
-                borderRadius: "9999px",
-                backgroundColor: "rgba(0, 0, 0, 0)",
-                backdropFilter: "blur(0px)",
-              });
-
-              gsap.to(nav, {
-                backgroundColor: "rgba(0, 0, 0, 0.15)",
-                backdropFilter: "blur(20px)",
-                duration: 1,
-                ease: "back.out(1.3)",
-              });
-            } else {
-              gsap.set(nav, { opacity: 1 });
-            }
-          }
+        if (currentScrollY >= triggerPoint && !isAtBottom) {
+          if (!isNavFixed.current) {
+            isNavFixed.current = true;
+            gsap.set(nav, {
+              position: "fixed",
+              top: `${fixedTopOffset}px`,
+              left: "32px",
+              right: "32px",
+              margin: "0 auto",
+              width: "fit-content",
+              zIndex: 50,
+              opacity: 1,
+              borderRadius: "9999px",
+              backgroundColor: "rgba(0,0,0,0)",
+              backdropFilter: "blur(0px)",
+            });
+            gsap.to(nav, {
+              backgroundColor: "rgba(0,0,0,0.15)",
+              backdropFilter: "blur(20px)",
+              duration: 0.5,
+              ease: "back.out(1.3)",
+            });
+          } else gsap.set(nav, { opacity: 1 });
         } else {
           if (isNavFixed.current) {
             isNavFixed.current = false;
-
+            gsap.killTweensOf(nav);
             gsap.set(nav, {
               clearProps: "all",
               opacity: 1,
+              backgroundColor: "transparent",
+              backdropFilter: "none",
             });
             gsap.set(navUl, { clearProps: "all" });
-
-            requestAnimationFrame(() => {
-              originalNavOffsetTop.current = nav.offsetTop;
-            });
+            requestAnimationFrame(
+              () => (originalNavOffsetTop.current = nav.offsetTop)
+            );
           }
         }
       };
@@ -263,7 +211,6 @@ export default function ProjectsHero({
               been building
             </span>
           </h1>
-
           <p
             ref={paragraphRef}
             className="text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white"
@@ -280,10 +227,11 @@ export default function ProjectsHero({
 
       <div className="flex items-center justify-between gap-4 z-10">
         <nav className="flex-1 flex justify-center">
-          <ul className="inline-flex flex-wrap gap-x-4 gap-y-2 md:gap-8 lg:gap-10 py-5 justify-center">
+          <ul className="inline-flex flex-wrap gap-x-4 gap-y-2 md:gap-8 lg:gap-10 py-2 md:px-10 md:py-4 lg:px-16 lg:py-6 justify-center">
             {categories.map((category, index) => (
               <li key={index}>
                 <button
+                  ref={(el) => (navItemRefs.current[index] = el)}
                   onClick={() => setActiveFilter(category)}
                   className={`text-lg md:text-xl font-light transition-colors duration-300 ${
                     activeFilter === category
@@ -297,51 +245,6 @@ export default function ProjectsHero({
             ))}
           </ul>
         </nav>
-
-        {/* 
-        <div ref={buttonsRef} className="flex flex-1 justify-end gap-2">
-          {["grid", "list"].map((mode) => (
-            <button
-              key={mode}
-              onClick={() => setViewMode(mode)}
-              className={`p-2 rounded transition-colors duration-300 ${
-                viewMode === mode
-                  ? "bg-black text-white dark:bg-white dark:text-black"
-                  : "bg-black/10 text-black dark:bg-white/10 dark:text-white"
-              }`}
-              title={`${mode.charAt(0).toUpperCase() + mode.slice(1)} View`}
-              aria-pressed={viewMode === mode}
-            >
-              {mode === "grid" ? (
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="3" width="7" height="7" rx="1" />
-                  <rect x="14" y="3" width="7" height="7" rx="1" />
-                  <rect x="3" y="14" width="7" height="7" rx="1" />
-                  <rect x="14" y="14" width="7" height="7" rx="1" />
-                </svg>
-              ) : (
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="4" width="18" height="2" rx="1" />
-                  <rect x="3" y="11" width="18" height="2" rx="1" />
-                  <rect x="3" y="18" width="18" height="2" rx="1" />
-                </svg>
-              )}
-            </button>
-          ))} 
-        </div>
-        */}
       </div>
     </section>
   );
