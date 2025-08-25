@@ -7,7 +7,11 @@ export default function Home() {
   return (
     <main className="overflow-x-hidden">
       <Hero />
-      <ScrollTextBand text="WELCOME" repeat={7} />
+
+      <div className="py-12 md:py-14 lg:py-16">
+        <ScrollTextBand text="WELCOME" repeat={7} />
+      </div>
+      
       <ProjectHighlights />
       <ContactCTA />
     </main>
