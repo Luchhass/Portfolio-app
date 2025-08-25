@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -136,8 +136,8 @@ export default function ProjectsHero({
       const navUl = nav.querySelector("ul");
 
       const getFixedTopOffset = () => {
-        if (window.innerWidth >= 1024) return 20;
-        if (window.innerWidth >= 768) return 140;
+        if (window.innerWidth >= 1024) return 110;
+        if (window.innerWidth >= 768) return 130;
         return 120;
       };
 
@@ -191,13 +191,13 @@ export default function ProjectsHero({
               gsap.set(nav, {
                 position: "fixed",
                 top: `${fixedTopOffset}px`,
-                left: 0,
-                right: 0,
+                left: "32px",
+                right: "32px",
                 margin: "0 auto",
                 width: "fit-content",
                 zIndex: 50,
                 opacity: 1,
-                padding: "0 48px",
+                padding: "0 0",
                 borderRadius: "9999px",
                 backgroundColor: "rgba(0, 0, 0, 0)",
                 backdropFilter: "blur(0px)",
@@ -241,27 +241,6 @@ export default function ProjectsHero({
     { scope: containerRef }
   );
 
-  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
-
-  useEffect(() => {
-    const activeIndex = categories.indexOf(activeFilter);
-    const el = navItemRefs.current[activeIndex];
-    if (el) {
-      setUnderlineStyle({ left: el.offsetLeft, width: el.offsetWidth });
-    }
-  }, [activeFilter]);
-
-  const handleMouseEnter = (index) => {
-    const el = navItemRefs.current[index];
-    if (el) setUnderlineStyle({ left: el.offsetLeft, width: el.offsetWidth });
-  };
-
-  const handleMouseLeave = () => {
-    const activeIndex = categories.indexOf(activeFilter);
-    const el = navItemRefs.current[activeIndex];
-    if (el) setUnderlineStyle({ left: el.offsetLeft, width: el.offsetWidth });
-  };
-
   return (
     <section
       ref={containerRef}
@@ -301,12 +280,9 @@ export default function ProjectsHero({
 
       <div className="flex items-center justify-between gap-4 z-10">
         <nav className="flex-1 flex justify-center">
-          <ul className="inline-flex flex-wrap gap-x-4 gap-y-2 md:gap-8 lg:gap-10 py-5">
+          <ul className="inline-flex flex-wrap gap-x-4 gap-y-2 md:gap-8 lg:gap-10 py-5 justify-center">
             {categories.map((category, index) => (
-              <li
-                key={category}
-                ref={(el) => (navItemRefs.current[index] = el)}
-              >
+              <li key={index}>
                 <button
                   onClick={() => setActiveFilter(category)}
                   className={`text-lg md:text-xl font-light transition-colors duration-300 ${
