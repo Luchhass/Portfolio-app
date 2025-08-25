@@ -80,9 +80,23 @@ export default function Header() {
       if (isMenuOpen) {
         tl.current.play(0);
         document.body.style.overflow = "hidden";
+
+        const mobileMenu = document.querySelector(".mobile-menu");
+        if (mobileMenu) mobileMenu.style.overflow = "hidden";
+
+        const preventScroll = (e) => e.preventDefault();
+        window.addEventListener("touchmove", preventScroll, { passive: false });
+
+        return () => window.removeEventListener("touchmove", preventScroll);
       } else {
         tl.current.reverse();
         document.body.style.overflow = "";
+
+        const mobileMenu = document.querySelector(".mobile-menu");
+        if (mobileMenu) mobileMenu.style.overflow = "";
+
+        const preventScroll = (e) => e.preventDefault();
+        window.removeEventListener("touchmove", preventScroll);
       }
     },
     { dependencies: [isMenuOpen] }
@@ -99,10 +113,10 @@ export default function Header() {
   return (
     <div ref={containerRef}>
       <header
-        className={`bg-white dark:bg-black transition-colors duration-500 ease-out fixed left-0 top-0 z-30 flex w-full items-center justify-between border-b-2 px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 ${
+        className={`bg-white dark:bg-black lg:border-none lg:bg-transparent lg:dark:bg-transparent transition-colors duration-500 ease-out fixed left-0 top-0 z-30 flex w-full items-center justify-between border-b-2 px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 ${
           isMenuOpen
             ? "border-transparent"
-            : "border-gray-200 dark:border-zinc-900 lg:border-none lg:bg-transparent lg:dark:bg-transparent"
+            : "border-gray-200 dark:border-zinc-900"
         }`}
       >
         <Link
@@ -126,7 +140,7 @@ export default function Header() {
       </header>
 
       <div
-        className={`mobile-menu pointer-events-auto fixed top-0 flex h-[100vh] w-full flex-col justify-between -translate-y-[100vh] bg-white px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 dark:bg-black z-20`}
+        className={`mobile-menu pointer-events-auto fixed top-0 flex h-[100dvh] w-full flex-col justify-between -translate-y-[100vh] bg-white px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 dark:bg-black z-20`}
       >
         <div />
 
