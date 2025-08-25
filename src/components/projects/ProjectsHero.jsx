@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -15,6 +15,8 @@ export default function ProjectsHero({
   const paragraphRef = useRef();
   const navItemRefs = useRef([]);
   const buttonsRef = useRef();
+  const originalNavOffsetTop = useRef(null);
+  const isNavFixed = useRef(false);
 
   const categories = ["All", "Web Design", "Games", "Interactive UI"];
 
@@ -132,50 +134,99 @@ export default function ProjectsHero({
     () => {
       const nav = containerRef.current.querySelector("nav");
       const navUl = nav.querySelector("ul");
-      let navOffsetTop = nav.offsetTop;
 
       const getFixedTopOffset = () => {
         if (window.innerWidth >= 1024) return 42;
         if (window.innerWidth >= 768) return 106;
-        return 90;
+        return 120;
       };
 
       let fixedTopOffset = getFixedTopOffset();
 
+      const calculateNavPosition = () => {
+        if (!isNavFixed.current) {
+          gsap.set(nav, { clearProps: "all" });
+          gsap.set(navUl, { clearProps: "all" });
+
+          requestAnimationFrame(() => {
+            originalNavOffsetTop.current = nav.offsetTop;
+          });
+        }
+      };
+
+      calculateNavPosition();
+
       const onResize = () => {
         fixedTopOffset = getFixedTopOffset();
-        navOffsetTop = nav.offsetTop;
+        if (isNavFixed.current) {
+          isNavFixed.current = false;
+        }
+        calculateNavPosition();
       };
 
       const onScroll = () => {
+        const navOffsetTop = originalNavOffsetTop.current;
+        if (navOffsetTop === null) return;
+
         const triggerPoint = navOffsetTop - fixedTopOffset;
+        const currentScrollY = window.scrollY;
 
         const isAtBottom =
-          window.innerHeight + window.scrollY >=
-          document.documentElement.scrollHeight - 10;
+          window.innerHeight + currentScrollY >=
+          document.documentElement.scrollHeight - 50;
 
-        if (window.scrollY >= triggerPoint && !isAtBottom) {
-          gsap.set(nav, {
-            position: "fixed",
-            top: `${fixedTopOffset}px`,
-            left: 0,
-            right: 0,
-            zIndex: 50,
-            backgroundColor:
-              window.innerWidth < 1024 ? "#ffffff" : "transparent",
-            borderBottomWidth: window.innerWidth < 1024 ? "2px" : "0px",
-            borderColor: window.innerWidth < 1024 ? "#e5e7eb" : "transparent",
-            opacity: 1,
-          });
-        } else if (isAtBottom) {
-          gsap.to(nav, {
-            opacity: 0,
-            duration: 0.3,
-            ease: "power2.out",
-          });
+        if (currentScrollY >= triggerPoint) {
+          if (isAtBottom) {
+            if (isNavFixed.current) {
+              gsap.to(nav, {
+                opacity: 0,
+                duration: 0.3,
+                ease: "power2.out",
+              });
+            }
+          } else {
+            if (!isNavFixed.current) {
+              isNavFixed.current = true;
+
+              gsap.set(nav, {
+                position: "fixed",
+                top: `${fixedTopOffset}px`,
+                left: 0,
+                right: 0,
+                margin: "0 auto",
+                width: "fit-content",
+                zIndex: 50,
+                opacity: 1,
+                padding: "0 48px",
+                borderRadius: "9999px",
+                backgroundColor: "rgba(0, 0, 0, 0)",
+                backdropFilter: "blur(0px)",
+              });
+
+              gsap.to(nav, {
+                backgroundColor: "rgba(0, 0, 0, 0.15)",
+                backdropFilter: "blur(20px)",
+                duration: 1,
+                ease: "back.out(1.3)",
+              });
+            } else {
+              gsap.set(nav, { opacity: 1 });
+            }
+          }
         } else {
-          gsap.set(nav, { clearProps: "all" });
-          gsap.set(navUl, { clearProps: "all" });
+          if (isNavFixed.current) {
+            isNavFixed.current = false;
+
+            gsap.set(nav, {
+              clearProps: "all",
+              opacity: 1,
+            });
+            gsap.set(navUl, { clearProps: "all" });
+
+            requestAnimationFrame(() => {
+              originalNavOffsetTop.current = nav.offsetTop;
+            });
+          }
         }
       };
 
@@ -189,6 +240,27 @@ export default function ProjectsHero({
     },
     { scope: containerRef }
   );
+
+  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
+
+  useEffect(() => {
+    const activeIndex = categories.indexOf(activeFilter);
+    const el = navItemRefs.current[activeIndex];
+    if (el) {
+      setUnderlineStyle({ left: el.offsetLeft, width: el.offsetWidth });
+    }
+  }, [activeFilter]);
+
+  const handleMouseEnter = (index) => {
+    const el = navItemRefs.current[index];
+    if (el) setUnderlineStyle({ left: el.offsetLeft, width: el.offsetWidth });
+  };
+
+  const handleMouseLeave = () => {
+    const activeIndex = categories.indexOf(activeFilter);
+    const el = navItemRefs.current[activeIndex];
+    if (el) setUnderlineStyle({ left: el.offsetLeft, width: el.offsetWidth });
+  };
 
   return (
     <section
@@ -229,7 +301,7 @@ export default function ProjectsHero({
 
       <div className="flex items-center justify-between gap-4 z-10">
         <nav className="flex-1 flex justify-center">
-          <ul className="inline-flex flex-wrap gap-x-4 gap-y-2 md:gap-8 lg:gap-10">
+          <ul className="inline-flex flex-wrap gap-x-4 gap-y-2 md:gap-8 lg:gap-10 py-5">
             {categories.map((category, index) => (
               <li
                 key={category}
