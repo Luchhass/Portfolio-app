@@ -10,6 +10,7 @@ import deployments from "@/data/deployments";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState(null);
   const tl = useRef();
   const containerRef = useRef();
   const pathname = usePathname();
@@ -134,26 +135,35 @@ export default function Header() {
 
         <nav aria-label="navigation">
           <ul className="flex flex-col gap-1 text-6xl font-black uppercase leading-[1] tracking-[-0.09em] md:text-7xl md:leading-[0.9] lg:text-8xl lg:leading-[0.8]">
-            {navLinks.map(({ href, label }) => (
-              <li key={label} className="nav-item">
-                <Link
-                  href={href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`pr-[0.2em] transition-[background-position] duration-400 ease-in-out ${
-                    pathname === href
-                      ? "text-[#f37a35] font-black"
-                      : "bg-[length:200%_100%] bg-[position:-100%_0] bg-clip-text text-transparent bg-[linear-gradient(to_left,_theme(colors.black)_50%,_#f37a35_50%)] hover:bg-[position:0_0] dark:bg-[linear-gradient(to_left,_theme(colors.white)_50%,_#f37a35_50%)]"
-                  }`}
-                >
-                  {label}
-                  {label.toLowerCase() === "projects" && (
-                    <span className="align-top ml-1 md:ml-2 lg:ml-3 rounded-full bg-[#f37a35] tracking-[0em] text-white dark:text-black p-2 md:p-2.5 lg:p-3 text-sm md:text-base lg:text-lg">
-                      {projectCount}
-                    </span>
-                  )}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map(({ href, label }) => {
+              const isActive = pathname === href;
+              const isHovered = hoveredItem === href;
+              const shouldShowActive =
+                isActive && (hoveredItem === null || isHovered);
+
+              return (
+                <li key={label} className="nav-item">
+                  <Link
+                    href={href}
+                    onClick={() => setIsMenuOpen(false)}
+                    onMouseEnter={() => setHoveredItem(href)}
+                    onMouseLeave={() => setHoveredItem(null)}
+                    className={`pr-[0.2em] transition-[background-position] duration-400 ease-in-out ${
+                      shouldShowActive
+                        ? "bg-[length:200%_100%] bg-[position:0_0] bg-clip-text text-transparent bg-[linear-gradient(to_left,_theme(colors.black)_50%,_#f37a35_50%)] dark:bg-[linear-gradient(to_left,_theme(colors.white)_50%,_#f37a35_50%)] font-black"
+                        : "bg-[length:200%_100%] bg-[position:-100%_0] bg-clip-text text-transparent bg-[linear-gradient(to_left,_theme(colors.black)_50%,_#f37a35_50%)] hover:bg-[position:0_0] dark:bg-[linear-gradient(to_left,_theme(colors.white)_50%,_#f37a35_50%)]"
+                    }`}
+                  >
+                    {label}
+                    {label.toLowerCase() === "projects" && (
+                      <span className="align-top ml-1 md:ml-2 lg:ml-3 rounded-full bg-[#f37a35] tracking-[0em] text-white dark:text-black p-2 md:p-2.5 lg:p-3 text-sm md:text-base lg:text-lg">
+                        {projectCount}
+                      </span>
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 

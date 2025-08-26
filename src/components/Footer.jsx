@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { socialLinks, navLinks, contactInfo } from "@/data/navigation";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const [hoveredItem, setHoveredItem] = useState(null);
   const pathname = usePathname();
 
   return (
@@ -40,20 +42,29 @@ export default function Footer() {
 
         <nav aria-label="Footer navigation">
           <ul className="flex flex-col gap-1 font-black font-sans uppercase tracking-[-0.05em] leading-[1.2] md:leading-[1.4] text-white text-2xl md:text-3xl">
-            {navLinks.map(({ href, label }) => (
-              <li key={label}>
-                <Link
-                  href={href}
-                  className={`relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-white after:origin-left after:transition-transform after:duration-300 ${
-                    pathname === href
-                      ? "after:scale-x-100"
-                      : "after:scale-x-0 hover:after:scale-x-100"
-                  }`}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map(({ href, label }) => {
+              const isActive = pathname === href;
+              const isHovered = hoveredItem === href;
+              const shouldShowActive =
+                isActive && (hoveredItem === null || isHovered);
+
+              return (
+                <li key={label}>
+                  <Link
+                    href={href}
+                    onMouseEnter={() => setHoveredItem(href)}
+                    onMouseLeave={() => setHoveredItem(null)}
+                    className={`relative inline-block after:absolute after:left-0 after:-bottom-0 after:h-[2px] after:w-full after:bg-white after:origin-left after:transition-transform after:duration-300 ${
+                      shouldShowActive
+                        ? "after:scale-x-100"
+                        : "after:scale-x-0 hover:after:scale-x-100"
+                    }`}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
@@ -111,20 +122,29 @@ export default function Footer() {
 
           <nav aria-label="Footer navigation" className="text-right">
             <ul className="flex flex-col gap-2 font-black font-sans uppercase tracking-[-0.05em] text-white text-4xl lg:leading-[0.9]">
-              {navLinks.map(({ href, label }) => (
-                <li key={label}>
-                  <Link
-                    href={href}
-                    className={`relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-white after:origin-right after:transition-transform after:duration-300 ${
-                      pathname === href
-                        ? "after:scale-x-100"
-                        : "after:scale-x-0 hover:after:scale-x-100"
-                    }`}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
+              {navLinks.map(({ href, label }) => {
+                const isActive = pathname === href;
+                const isHovered = hoveredItem === href;
+                const shouldShowActive =
+                  isActive && (hoveredItem === null || isHovered);
+
+                return (
+                  <li key={label}>
+                    <Link
+                      href={href}
+                      onMouseEnter={() => setHoveredItem(href)}
+                      onMouseLeave={() => setHoveredItem(null)}
+                      className={`relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-white after:origin-right after:transition-transform after:duration-300 ${
+                        shouldShowActive
+                          ? "after:scale-x-100"
+                          : "after:scale-x-0 hover:after:scale-x-100"
+                      }`}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
         </div>
