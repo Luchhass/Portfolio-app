@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Link from "next/link";
 
-export default function Hero() {
+export default function HomeHero() {
   const container = useRef();
   const videoRef = useRef();
   const textRefs = useRef([]);

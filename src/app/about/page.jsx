@@ -13,12 +13,18 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col gap-24 md:gap-36 lg:gap-48">
       <AboutHero />
-      <ScrollTextBand text="FURKAN" repeat={7} />
 
-      <section className="flex flex-col gap-32 m-auto px-8 max-w-[600px] md:px-10 md:max-w-[850px] lg:px-16 lg:max-w-[1200px]">
-        <CreatorParagraphs />
+      <section>
+        <ScrollTextBand text="FURKAN" repeat={7} />
+
+        <div className="flex flex-col gap-32 m-auto px-8 max-w-[600px] md:px-10 md:max-w-[850px] lg:px-16 lg:max-w-[1200px]">
+          <CreatorParagraphs />
+        </div>
+      </section>
+
+      <section className="flex flex-col gap-24 md:gap-36 lg:gap-48 m-auto px-8 max-w-[600px] md:px-10 md:max-w-[850px] lg:px-16 lg:max-w-[1200px]">
         <GithubStats username="Luchhass" />
         <TechnologiesStats />
       </section>

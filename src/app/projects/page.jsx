@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main>
+    <main className="flex flex-col gap-24 md:gap-36 lg:gap-48">
       <ProjectsSection />
       <ContactCTA />
     </main>

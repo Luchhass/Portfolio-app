@@ -172,22 +172,24 @@ export default function GithubStats({ username = "octocat" }) {
   return (
     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-22">
       <div className="flex flex-1 flex-col gap-6 md:gap-8 lg:gap-10">
-        <AnimatedSection animation="about-paragraph-animations">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em] text-black dark:text-white">
-            <span className="about-item">github</span>
-            <br />
-            <span className="about-item">statistics</span>
-          </h1>
-        </AnimatedSection>
+        <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
+          <AnimatedSection animation="about-paragraph-animations">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black leading-[0.8] tracking-[-0.08em] text-black dark:text-white">
+              <span className="about-item">github</span>
+              <br />
+              <span className="about-item">statistics</span>
+            </h1>
+          </AnimatedSection>
 
-        <AnimatedSection animation="about-paragraph-animations">
-          <div className="flex items-center gap-1">
-            <FaUser className="h-4 w-4 text-black/50 dark:text-white/50" />
-            <p className="text-lg text-black/50 dark:text-white/50">
-              @{username}
-            </p>
-          </div>
-        </AnimatedSection>
+          <AnimatedSection animation="about-paragraph-animations">
+            <div className="flex items-center gap-1">
+              <FaUser className="h-4 w-4 text-black/50 dark:text-white/50" />
+              <p className="text-lg text-black/50 dark:text-white/50">
+                @{username}
+              </p>
+            </div>
+          </AnimatedSection>
+        </div>
 
         <AnimatedSection animation="about-paragraph-animations">
           <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">

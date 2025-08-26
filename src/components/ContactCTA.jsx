@@ -3,7 +3,7 @@ import AnimatedSection from "./ScrollAnimator";
 
 export default function ContactCTA() {
   return (
-    <section className="min-h-screen flex items-center justify-center">
+    <section className="flex items-center justify-center pb-24 md:pb-36 lg:pb-48">
       <AnimatedSection animation="contact-cta-animations">
         <div className="flex flex-col items-center gap-6 md:gap-8 lg:gap-10">
           <div className="cta-item relative mx-auto w-fit">
