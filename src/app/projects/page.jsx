@@ -1,23 +1,16 @@
-"use client";
-
 import ContactCTA from "@/components/ContactCTA";
-import ProjectsHero from "@/components/projects/ProjectsHero";
-import ProjectsList from "@/components/projects/ProjectsList";
-import { useState } from "react";
+import ProjectsSection from "@/components/projects/ProjectsSection";
+
+export const metadata = {
+  title: "Furkan Cosar | Projects",
+  description:
+    "Check out the projects I've built, showcasing modern, responsive, and interactive websites using Next.js, React, GSAP, and Tailwind CSS.",
+};
 
 export default function ProjectsPage() {
-  const [activeFilter, setActiveFilter] = useState("All");
-  const [viewMode, setViewMode] = useState("grid");
-
   return (
     <main>
-      <ProjectsHero
-        activeFilter={activeFilter}
-        setActiveFilter={setActiveFilter}
-        viewMode={viewMode}
-        setViewMode={setViewMode}
-      />
-      <ProjectsList activeFilter={activeFilter} viewMode={viewMode} />
+      <ProjectsSection />
       <ContactCTA />
     </main>
   );

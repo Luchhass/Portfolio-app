@@ -5,6 +5,12 @@ import TechnologiesStats from "@/components/about/TechnologiesStats";
 import ContactCTA from "@/components/ContactCTA";
 import ScrollTextBand from "@/components/ScrollTextBand";
 
+export const metadata = {
+  title: "Furkan Cosar | About Me",
+  description:
+    "Hi, I'm Furkan Cosar. I design and develop modern, high-performance websites using Next.js, React, GSAP, and Tailwind CSS. Learn more about my skills, projects, and tools I use.",
+};
+
 export default function AboutPage() {
   return (
     <main className="flex flex-col">

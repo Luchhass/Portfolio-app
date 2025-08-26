@@ -4,12 +4,12 @@ import Header from "@/components/Header";
 import ScrollUpCTA from "@/components/ScrollUpCTA";
 import Footer from "@/components/Footer";
 import "./globals.css";
+import Script from "next/script";
 
 export const metadata = {
-  title:
-    "Furkan Cosar – Frontend Web Developer | Next.js, React & Tailwind CSS",
+  title: "Furkan Cosar – Frontend Web Developer",
   description:
-    "Furkan Cosar is a frontend web developer specializing in modern, responsive, and high-performance websites using Next.js, React, GSAP, and Tailwind CSS. Explore innovative web experiences, UI/UX design, and interactive animations.",
+    "I'm Furkan Cosar. I design and develop modern, high-performance websites using Next.js, React, GSAP, and Tailwind CSS. I focus on creating interactive, user-friendly, and creative web experiences.",
   keywords: [
     "Frontend Developer",
     "Web Developer",
@@ -56,9 +56,9 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Furkan Cosar · Portfolio Website",
+    title: "Furkan Cosar – Frontend Web Developer",
     description:
-      "Explore the portfolio of Furkan Cosar, a frontend web developer specializing in modern, animated, and responsive websites using Next.js, React, GSAP, and Tailwind CSS.",
+      "I'm Furkan Cosar. I design and develop modern, high-performance websites using Next.js, React, GSAP, and Tailwind CSS. I focus on creating interactive, user-friendly, and creative web experiences.",
     url: "https://furkancosar.com",
     siteName: "Furkan Cosar Portfolio",
     images: [
@@ -74,9 +74,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Furkan Cosar · Portfolio Website",
+    title: "Furkan Cosar – Frontend Web Developer",
     description:
-      "Explore the portfolio of Furkan Cosar, featuring modern, animated, and responsive websites built with Next.js, React, GSAP, and Tailwind CSS.",
+      "I'm Furkan Cosar. I design and develop modern, high-performance websites using Next.js, React, GSAP, and Tailwind CSS. I focus on creating interactive, user-friendly, and creative web experiences.",
     images: ["https://furkancosar.com/og-image.jpg"],
     site: "@furkancosar",
     creator: "@furkancosar",
@@ -104,26 +104,22 @@ const GA_MEASUREMENT_ID = "G-S92MYFFN7H";
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_MEASUREMENT_ID}', {
-                page_path: window.location.pathname,
-              });
-            `,
-          }}
-        />
-      </head>
-
       <body className="antialiased mt-[90px] md:mt-[106px] lg:mt-0">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+
         <PageIntroAnimation />
         <Analytics />
         <Header />

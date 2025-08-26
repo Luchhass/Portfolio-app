@@ -6,12 +6,14 @@ import gsap from "gsap";
 import Link from "next/link";
 import { socialLinks, navLinks, contactInfo } from "@/data/navigation";
 import { usePathname } from "next/navigation";
+import deployments from "@/data/deployments";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const tl = useRef();
   const containerRef = useRef();
   const pathname = usePathname();
+  const projectCount = deployments.length;
 
   useGSAP(
     () => {
@@ -144,6 +146,11 @@ export default function Header() {
                   }`}
                 >
                   {label}
+                  {label.toLowerCase() === "projects" && (
+                    <span className="align-top ml-1 md:ml-2 lg:ml-3 rounded-full bg-[#f37a35] tracking-[0em] text-white dark:text-black p-2 md:p-2.5 lg:p-3 text-sm md:text-base lg:text-lg">
+                      {projectCount}
+                    </span>
+                  )}
                 </Link>
               </li>
             ))}
