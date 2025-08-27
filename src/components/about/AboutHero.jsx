@@ -149,7 +149,7 @@ export default function AboutHero() {
 
           <div className="flex flex-col items-center gap-2">
             <Link
-              href="/pdf/cv.pdf"
+              href="/pdf/furkan-cosar-cv.pdf"
               target="_blank"
               className="relative group overflow-hidden rounded-full bg-[#f37a35] px-12 py-5 text-sm md:text-md font-semibold text-white transition-all duration-300 hover:scale-105 active:scale-95 button-animate"
             >

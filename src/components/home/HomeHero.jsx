@@ -160,12 +160,12 @@ export default function HomeHero() {
 
             <div className="pointer-events-auto flex flex-col items-center">
               <Link
-                href="/contact"
+                href="/about"
                 ref={buttonRef}
                 className="group relative overflow-hidden rounded-full bg-[#f37a35] px-12 py-5 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 active:scale-95 md:text-md"
               >
                 <span className="absolute inset-0 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full"></span>
-                <span className="relative z-10">discover my work</span>
+                <span className="relative z-10">learn more</span>
               </Link>
             </div>
           </div>
