@@ -80,37 +80,47 @@ export default function ProjectHighlights() {
       className="relative flex flex-col gap-12 md:gap-16 lg:gap-20 py-12 md:py-16 lg:py-20 px-8 md:px-10 lg:px-16"
     >
       <div className="m-auto max-w-[600px] md:max-w-[850px] lg:max-w-[1200px] flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-16">
-        <AnimatedSection animation="projects-highlights-animations">
-          <p className="highlights-item text-sm uppercase text-[#f37a35] md:text-base flex flex-col lg:flex-row gap-0 lg:gap-1">
-            <span>PROJECT</span>
-            <span>HIGHLIGHTS</span>
-          </p>
-        </AnimatedSection>
+        <div className="flex flex-col lg:flex-row gap-0 lg:gap-1">
+          <AnimatedSection animation="projects-highlights-animations">
+            <p className="text-sm uppercase text-[#f37a35] md:text-base">
+              PROJECT
+            </p>
+          </AnimatedSection>
+          <AnimatedSection animation="projects-highlights-animations">
+            <p className="text-sm uppercase text-[#f37a35] md:text-base">
+              HIGHLIGHTS
+            </p>
+          </AnimatedSection>
+        </div>
 
-        <AnimatedSection animation="projects-highlights-animations">
-          <h2 className="text-xl font-extralight leading-[1.1] text-black dark:text-white md:text-2xl lg:text-3xl">
-            <span className="highlights-item">
+        <h2 className="text-xl font-extralight leading-[1.1] text-black dark:text-white md:text-2xl lg:text-3xl">
+          <AnimatedSection animation="projects-highlights-animations" as="span">
+            <span>
               Enjoy a curated showcase of my finest work, where creative web
               design meets distinctive branding.{" "}
             </span>
-            <span className="highlights-item font-bold">
+          </AnimatedSection>
+          <AnimatedSection animation="projects-highlights-animations" as="span">
+            <span className="font-bold">
               Each project is thoughtfully crafted to inspire, engage, and leave
               a lasting impression, blending aesthetic appeal with strategic
               storytelling.
             </span>
-          </h2>
-        </AnimatedSection>
+          </AnimatedSection>
+        </h2>
       </div>
 
-      <AnimatedSection animation="projects-highlights-animations">
-        <div
-          className="flex items-start w-max gap-8 md:gap-10 lg:gap-12"
-          ref={scrollerRef}
-        >
-          {highlightedProjects.map((project) => (
+      <div
+        className="flex items-start w-max gap-8 md:gap-10 lg:gap-12"
+        ref={scrollerRef}
+      >
+        {highlightedProjects.map((project) => (
+          <AnimatedSection
+            key={project.id}
+            animation="projects-highlights-animations"
+          >
             <div
-              key={project.id}
-              className="highlights-item flex-shrink-0 w-[280px] sm:w-[320px] md:w-[380px] lg:w-[420px] group"
+              className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[380px] lg:w-[420px] group"
               onMouseEnter={handleMagneticEnter}
               onMouseLeave={handleMagneticLeave}
               onMouseMove={handleMagneticMove}
@@ -141,22 +151,30 @@ export default function ProjectHighlights() {
                 </div>
 
                 <div className="space-y-3">
-                  <p className="text-sm uppercase text-[#f37a35] font-medium transition-all duration-300 ease-out group-hover:text-[#ff6b1a] group-hover:tracking-wider">
-                    {formatDate(project.date)}
-                  </p>
-                  <h3 className="text-3xl md:text-4xl font-black uppercase leading-[0.9] tracking-[-0.05em] text-black dark:text-white transition-all duration-500 ease-out group-hover:text-[#f37a35] group-hover:tracking-[-0.02em]">
-                    {project.name}
-                  </h3>
-                  <div className="my-4 h-px w-16 bg-black/30 dark:bg-white/30 transition-all duration-500 ease-out group-hover:w-32 group-hover:bg-gradient-to-r group-hover:from-[#f37a35] group-hover:to-[#ff6b1a] group-hover:h-[2px]" />
-                  <div className="text-sm text-black/60 dark:text-white/60 transition-all duration-300 ease-out group-hover:text-black/80 dark:group-hover:text-white/80 group-hover:transform group-hover:translate-x-1">
-                    {project.technologies.join(" • ")}
-                  </div>
+                  <AnimatedSection animation="projects-highlights-animations">
+                    <p className="text-sm uppercase text-[#f37a35] font-medium transition-all duration-300 ease-out group-hover:text-[#ff6b1a] group-hover:tracking-wider">
+                      {formatDate(project.date)}
+                    </p>
+                  </AnimatedSection>
+                  <AnimatedSection animation="projects-highlights-animations">
+                    <h3 className="text-3xl md:text-4xl font-black uppercase leading-[0.9] tracking-[-0.05em] text-black dark:text-white transition-all duration-500 ease-out group-hover:text-[#f37a35] group-hover:tracking-[-0.02em]">
+                      {project.name}
+                    </h3>
+                  </AnimatedSection>
+                  <AnimatedSection animation="projects-highlights-animations">
+                    <div className="my-4 h-px w-16 bg-black/30 dark:bg-white/30 transition-all duration-500 ease-out group-hover:w-32 group-hover:bg-gradient-to-r group-hover:from-[#f37a35] group-hover:to-[#ff6b1a] group-hover:h-[2px]" />
+                  </AnimatedSection>
+                  <AnimatedSection animation="projects-highlights-animations">
+                    <div className="text-sm text-black/60 dark:text-white/60 transition-all duration-300 ease-out group-hover:text-black/80 dark:group-hover:text-white/80 group-hover:transform group-hover:translate-x-1">
+                      {project.technologies.join(" • ")}
+                    </div>
+                  </AnimatedSection>
                 </div>
               </a>
             </div>
-          ))}
-        </div>
-      </AnimatedSection>
+          </AnimatedSection>
+        ))}
+      </div>
 
       <AnimatedSection animation="projects-highlights-animations">
         <div className="flex justify-center">

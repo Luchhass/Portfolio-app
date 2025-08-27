@@ -14,13 +14,11 @@ export default function CreatorParagraphs() {
       </div>
 
       <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
-        <AnimatedSection
-          animation="about-paragraph-animations"
-          as="span"
-          className="font-bold"
-        >
-          I'm a Frontend Developer and a final-year Web Design student at
-          Istanbul University.{" "}
+        <AnimatedSection animation="about-paragraph-animations" as="span">
+          <span className="font-bold">
+            I'm a Frontend Developer and a final-year Web Design student at
+            Istanbul University.{" "}
+          </span>
         </AnimatedSection>
 
         <AnimatedSection animation="about-paragraph-animations" as="span">
@@ -32,13 +30,11 @@ export default function CreatorParagraphs() {
           technologies.{" "}
         </AnimatedSection>
 
-        <AnimatedSection
-          animation="about-paragraph-animations"
-          as="span"
-          className="font-bold"
-        >
-          Today, I combine creativity with technical expertise to craft seamless
-          digital experiences.
+        <AnimatedSection animation="about-paragraph-animations" as="span">
+          <span className="font-bold">
+            Today, I combine creativity with technical expertise to craft
+            seamless digital experiences.
+          </span>
         </AnimatedSection>
       </h2>
     </div>

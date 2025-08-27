@@ -117,23 +117,22 @@ export default function GithubStats({ username = "octocat" }) {
         </div>
 
         <h2 className="mb-8 text-xl md:text-2xl lg:text-3xl font-extralight leading-[1.1] text-black dark:text-white">
-          <AnimatedSection
-            animation="about-paragraph-animations"
-            as="span"
-            className="font-bold"
-          >
-            Real-time insights into development activity.{" "}
+          <AnimatedSection animation="about-paragraph-animations" as="span">
+            <span className="font-bold">
+              Real-time insights into development activity.{" "}
+            </span>
           </AnimatedSection>
+          
           <AnimatedSection animation="about-paragraph-animations" as="span">
             From repository management to commit history, track the development
             flow.{" "}
           </AnimatedSection>
-          <AnimatedSection
-            animation="about-paragraph-animations"
-            as="span"
-            className="font-bold"
-          >
-            Highlighting the dedication behind exceptional digital experiences.
+
+          <AnimatedSection animation="about-paragraph-animations" as="span">
+            <span className="font-bold">
+              Highlighting the dedication behind exceptional digital
+              experiences.
+            </span>
           </AnimatedSection>
         </h2>
       </div>
