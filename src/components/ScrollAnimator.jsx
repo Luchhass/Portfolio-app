@@ -7,7 +7,11 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function AnimatedSection({ children, animation }) {
+export default function AnimatedSection({
+  children,
+  animation,
+  as = "section",
+}) {
   const sectionRef = useRef(null);
 
   useGSAP(
@@ -43,7 +47,6 @@ export default function AnimatedSection({ children, animation }) {
               end: "bottom 20%",
               toggleActions: "play reverse play reverse",
             },
-            targets: ".about-item",
           },
         },
         "contact-cta-animations": {
@@ -59,7 +62,6 @@ export default function AnimatedSection({ children, animation }) {
               end: "bottom 20%",
               toggleActions: "play reverse play reverse",
             },
-            targets: ".cta-item",
           },
         },
         "projects-highlights-animations": {
@@ -76,7 +78,6 @@ export default function AnimatedSection({ children, animation }) {
               end: "bottom 20%",
               toggleActions: "play reverse play reverse",
             },
-            targets: ".highlights-item",
           },
         },
       };
@@ -84,20 +85,12 @@ export default function AnimatedSection({ children, animation }) {
       const config = animationConfigs[animation];
 
       if (config) {
-        let targets;
-
-        if (config.to.targets) {
-          const children = el.querySelectorAll(config.to.targets);
-          targets = children.length ? children : el;
-        } else {
-          targets = el;
-        }
-
-        gsap.fromTo(targets, config.from, { ...config.to, targets: undefined });
+        gsap.fromTo(el, config.from, config.to);
       }
     },
     { scope: sectionRef, dependencies: [animation] }
   );
 
-  return <section ref={sectionRef}>{children}</section>;
+  const Tag = as;
+  return <Tag ref={sectionRef}>{children}</Tag>;
 }
