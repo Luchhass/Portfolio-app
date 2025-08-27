@@ -39,7 +39,6 @@ export default function AnimatedSection({
           to: {
             opacity: 1,
             duration: 1,
-            stagger: 0.25,
             ease: "elastic.out(1.5, 1.5)",
             scrollTrigger: {
               trigger: el,
@@ -54,7 +53,6 @@ export default function AnimatedSection({
           to: {
             opacity: 1,
             duration: 1,
-            stagger: 0.1,
             ease: "elastic.out(1.5, 1.5)",
             scrollTrigger: {
               trigger: el,
@@ -71,7 +69,6 @@ export default function AnimatedSection({
             y: 0,
             duration: 1,
             ease: "elastic.out(1.5, 1.5)",
-            stagger: 0.1,
             scrollTrigger: {
               trigger: el,
               start: "top 80%",
