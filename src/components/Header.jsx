@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Link from "next/link";
@@ -16,6 +16,14 @@ export default function Header() {
   const pathname = usePathname();
   const projectCount = deployments.length;
 
+  useEffect(() => {
+    if (isMenuOpen && tl.current) {
+      tl.current.progress(0);
+      setIsMenuOpen(false);
+      document.body.style.overflow = "";
+    }
+  }, [pathname]);
+
   useGSAP(
     () => {
       tl.current = gsap
@@ -24,18 +32,18 @@ export default function Header() {
           ".hamburger-line-top",
           { rotation: 0, y: -8 },
           { rotation: 45, y: 0, duration: 0.4, ease: "power2.inOut" },
-          0
+          0,
         )
         .to(
           ".hamburger-line-middle",
           { opacity: 0, duration: 0.2, ease: "power2.inOut" },
-          0
+          0,
         )
         .fromTo(
           ".hamburger-line-bottom",
           { rotation: 0, y: 8 },
           { rotation: -45, y: 0, duration: 0.4, ease: "power2.inOut" },
-          0
+          0,
         )
         .to(".mobile-menu", { y: "0px", duration: 1, ease: "power2.out" }, 0.2)
         .from(
@@ -47,7 +55,7 @@ export default function Header() {
             ease: "elastic.out(1.5, 1.5)",
             stagger: 0.1,
           },
-          "<"
+          "<",
         )
         .from(
           ".contact-item",
@@ -59,7 +67,7 @@ export default function Header() {
             ease: "elastic.out(1.5, 1.5)",
             stagger: 0.1,
           },
-          "<"
+          "<",
         )
         .from(
           ".social-item",
@@ -70,25 +78,19 @@ export default function Header() {
             ease: "power1.out",
             stagger: 0.1,
           },
-          "<"
+          "<",
         );
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   useGSAP(
     () => {
       if (!tl.current) return;
-
-      if (isMenuOpen) {
-        tl.current.play(0);
-        document.body.style.overflow = "hidden";
-      } else {
-        tl.current.reverse();
-        document.body.style.overflow = "";
-      }
+      isMenuOpen ? tl.current.play() : tl.current.reverse();
+      document.body.style.overflow = isMenuOpen ? "hidden" : "";
     },
-    { dependencies: [isMenuOpen] }
+    { dependencies: [isMenuOpen] },
   );
 
   useGSAP(() => {
@@ -102,11 +104,7 @@ export default function Header() {
   return (
     <div ref={containerRef}>
       <header
-        className={`bg-white dark:bg-black lg:border-none lg:bg-transparent lg:dark:bg-transparent transition-colors duration-500 ease-out fixed left-0 top-0 z-30 flex w-full items-center justify-between border-b-2 px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 ${
-          isMenuOpen
-            ? "border-transparent"
-            : "border-gray-200 dark:border-zinc-900"
-        }`}
+        className={`bg-white dark:bg-black lg:border-none lg:bg-transparent lg:dark:bg-transparent transition-colors duration-500 ease-out fixed left-0 top-0 z-30 flex w-full items-center justify-between border-b-2 px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 ${isMenuOpen ? "border-transparent" : "border-gray-200 dark:border-zinc-900"}`}
       >
         <Link
           href="/"
@@ -114,7 +112,6 @@ export default function Header() {
         >
           Furkan<span className="text-[#f37a35] font-black">Cosar</span>
         </Link>
-
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
           className="group relative p-1.5"
@@ -128,47 +125,30 @@ export default function Header() {
         </button>
       </header>
 
-      <div
-        className={`mobile-menu pointer-events-auto fixed top-0 flex h-[100dvh] w-full flex-col justify-between -translate-y-[100vh] bg-white px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 dark:bg-black z-20`}
-      >
+      <div className="mobile-menu pointer-events-auto fixed top-0 flex h-[100dvh] w-full flex-col justify-between -translate-y-[100vh] bg-white px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-8 dark:bg-black z-20">
         <div />
-
         <nav aria-label="navigation">
           <ul className="flex flex-col gap-1 text-6xl font-black uppercase leading-[1] tracking-[-0.09em] md:text-7xl md:leading-[0.9] lg:text-8xl lg:leading-[0.8]">
-            {navLinks.map(({ href, label }) => {
-              const isActive = pathname === href;
-              const isHovered = hoveredItem === href;
-              const shouldShowActive =
-                isActive && (hoveredItem === null || isHovered);
-
-              return (
-                <li key={label} className="nav-item">
-                  <Link
-                    href={href}
-                    onClick={() => setIsMenuOpen(false)}
-                    onMouseEnter={() => setHoveredItem(href)}
-                    onMouseLeave={() => setHoveredItem(null)}
-                    className={`pr-[0.2em] transition-[background-position] duration-400 ease-in-out ${
-                      shouldShowActive
-                        ? "bg-[length:200%_100%] bg-[position:0_0] bg-clip-text text-transparent bg-[linear-gradient(to_left,_theme(colors.black)_50%,_#f37a35_50%)] dark:bg-[linear-gradient(to_left,_theme(colors.white)_50%,_#f37a35_50%)] font-black"
-                        : "bg-[length:200%_100%] bg-[position:-100%_0] bg-clip-text text-transparent bg-[linear-gradient(to_left,_theme(colors.black)_50%,_#f37a35_50%)] hover:bg-[position:0_0] dark:bg-[linear-gradient(to_left,_theme(colors.white)_50%,_#f37a35_50%)]"
-                    }`}
-                  >
-                    {label}
-                    {label.toLowerCase() === "projects" && (
-                      <span className="align-top ml-1 md:ml-2 lg:ml-3 rounded-full bg-[#f37a35] tracking-[0em] text-white dark:text-black p-2 md:p-2.5 lg:p-3 text-sm md:text-base lg:text-lg">
-                        {projectCount}
-                      </span>
-                    )}
-                  </Link>
-                </li>
-              );
-            })}
+            {navLinks.map(({ href, label }) => (
+              <li key={label} className="nav-item">
+                <Link
+                  href={href}
+                  onMouseEnter={() => setHoveredItem(href)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                  className={`pr-[0.2em] transition-[background-position] duration-400 ease-in-out ${pathname === href && (hoveredItem === null || hoveredItem === href) ? "bg-[length:200%_100%] bg-[position:0_0] bg-clip-text text-transparent bg-[linear-gradient(to_left,_theme(colors.black)_50%,_#f37a35_50%)] dark:bg-[linear-gradient(to_left,_theme(colors.white)_50%,_#f37a35_50%)] font-black" : "bg-[length:200%_100%] bg-[position:-100%_0] bg-clip-text text-transparent bg-[linear-gradient(to_left,_theme(colors.black)_50%,_#f37a35_50%)] hover:bg-[position:0_0] dark:bg-[linear-gradient(to_left,_theme(colors.white)_50%,_#f37a35_50%)]"}`}
+                >
+                  {label}
+                  {label.toLowerCase() === "projects" && (
+                    <span className="align-top ml-1 md:ml-2 lg:ml-3 rounded-full bg-[#f37a35] tracking-[0em] text-white dark:text-black p-2 md:p-2.5 lg:p-3 text-sm md:text-base lg:text-lg">
+                      {projectCount}
+                    </span>
+                  )}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
-
         <div />
-
         <div className="mt-8 flex flex-col gap-4 md:flex-row md:justify-between">
           <div className="flex gap-2 text-sm text-black md:flex-col md:text-base dark:text-white">
             <a
@@ -185,7 +165,6 @@ export default function Header() {
               {contactInfo.phone}
             </a>
           </div>
-
           <ul className="flex items-center gap-5">
             {socialLinks.map(({ href, label, icon: Icon }) => (
               <li
